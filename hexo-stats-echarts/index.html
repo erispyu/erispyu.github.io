@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><!-- hexo injector head_begin start --><script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script><!-- hexo injector head_begin end -->
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.erispyu.fun","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":"default"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"algolia":{"appID":"2BILQUWIOA","apiKey":"f5aabb895c10440c28e6c77090f511eb","indexName":"github_page_erispyu","hits":{"per_page":10}}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Hexo-Stats-ECharts              hexo-stats-echarts is a lightweight and visually stunning Hexo plugin designed to help you effortlessly visualize and analyze your blog’s statistical data. With just on">
+<meta property="og:type" content="website">
+<meta property="og:title" content="hexo-stats-echarts">
+<meta property="og:url" content="https://blog.erispyu.fun/hexo-stats-echarts/index.html">
+<meta property="og:site_name" content="Erispyu&#39;s Blog">
+<meta property="og:description" content="Hexo-Stats-ECharts              hexo-stats-echarts is a lightweight and visually stunning Hexo plugin designed to help you effortlessly visualize and analyze your blog’s statistical data. With just on">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://img.shields.io/npm/v/hexo-stats-echarts?color=red&logo=npm&style=flat-square">
+<meta property="og:image" content="https://img.shields.io/npm/dm/hexo-stats-echarts?logo=npm&style=flat-square">
+<meta property="og:image" content="https://img.shields.io/badge/license-%20MIT-blue?style=flat-square&logo=gnu">
+<meta property="article:published_time" content="2025-01-07T17:28:32.000Z">
+<meta property="article:modified_time" content="2025-06-28T09:34:51.909Z">
+<meta property="article:author" content="Erispyu">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img.shields.io/npm/v/hexo-stats-echarts?color=red&logo=npm&style=flat-square">
+
+
+<link rel="canonical" href="https://blog.erispyu.fun/hexo-stats-echarts/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"en","comments":true,"permalink":"https://blog.erispyu.fun/hexo-stats-echarts/index.html","path":"hexo-stats-echarts/index.html","title":"hexo-stats-echarts"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>hexo-stats-echarts | Erispyu's Blog
+</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QCC01KVZ4X"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-QCC01KVZ4X","only_pageview":false,"measure_protocol_api_secret":null}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Erispyu's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-list fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-plugins"><a href="/hexo-stats-echarts/" rel="section"><i class="fa-solid fa-flask fa-fw"></i>Plugins</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="Searching..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fab fa-algolia fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo-Stats-ECharts"><span class="nav-text">Hexo-Stats-ECharts</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Overview"><span class="nav-text">Overview</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Installation"><span class="nav-text">Installation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Supported-Charts"><span class="nav-text">Supported Charts</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Heatmap-Chart"><span class="nav-text">Heatmap Chart</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pie-Chart"><span class="nav-text">Pie Chart</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Radar-Chart"><span class="nav-text">Radar Chart</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Planned-Features-TODO"><span class="nav-text">Planned Features (TODO)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Feedback-Support"><span class="nav-text">Feedback &amp; Support</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Erispyu</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">184</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">295</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/erispyu" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;erispyu" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:erispyu@gmail.com" title="E-Mail → mailto:erispyu@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.douban.com/people/erispyu00/" title="Douban → https:&#x2F;&#x2F;www.douban.com&#x2F;people&#x2F;erispyu00&#x2F;" rel="noopener me" target="_blank"><i class="fa fa-film fa-fw"></i>Douban</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.travellings.cn/go.html" title="Travellings → https:&#x2F;&#x2F;www.travellings.cn&#x2F;go.html" rel="noopener me" target="_blank"><i class="fa-solid fa-train fa-fw"></i>Travellings</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner page posts-expand">
+    <ul class="sub-menu menu">
+      
+  <li class="menu-item menu-item-heatmap-chart"><a href="/hexo-stats-echarts/heatmap-chart/" rel="section"><i class="fa-solid fa-braille fa-fw"></i>Heatmap Chart</a></li>
+
+
+      
+  <li class="menu-item menu-item-pie-chart"><a href="/hexo-stats-echarts/pie-chart/" rel="section"><i class="fa fa-chart-pie fa-fw"></i>Pie Chart</a></li>
+
+
+      
+  <li class="menu-item menu-item-radar-chart"><a href="/hexo-stats-echarts/radar-chart/" rel="section"><i class="fa-solid fa-hexagon-nodes fa-fw"></i>Radar Chart</a></li>
+
+
+    </ul>
+
+
+    
+    
+    
+    <div class="post-block" lang="en"><header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">hexo-stats-echarts
+</h1>
+
+<div class="post-meta-container">
+</div>
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+          <h1 id="Hexo-Stats-ECharts"><a href="#Hexo-Stats-ECharts" class="headerlink" title="Hexo-Stats-ECharts"></a>Hexo-Stats-ECharts</h1><div style="display: flex; align-items: center; gap: 5px;">
+  <img src="https://img.shields.io/npm/v/hexo-stats-echarts?color=red&logo=npm&style=flat-square" alt="NPM Version" style="margin: 0;">
+  <img src="https://img.shields.io/npm/dm/hexo-stats-echarts?logo=npm&style=flat-square" alt="NPM Downloads" style="margin: 0;">
+  <img src="https://img.shields.io/badge/license-%20MIT-blue?style=flat-square&logo=gnu" alt="License" style="margin: 0;">
+</div>
+<br>
+
+<blockquote>
+<p><strong>hexo-stats-echarts</strong> is a lightweight and visually stunning Hexo plugin designed to help you effortlessly visualize and analyze your blog’s statistical data. With just <strong>one line of code</strong>, you can seamlessly integrate beautiful, customizable and interactive charts into <strong>any</strong> Hexo page or article.</p>
+</blockquote>
+<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>Built on the <a target="_blank" rel="noopener" href="https://hexo.io/api/tag">Hexo Tag Plugins</a> framework and powered by the versatile <a target="_blank" rel="noopener" href="https://echarts.apache.org/zh/index.html">Apache ECharts library</a>, this plugin transforms raw blog statistics—such as post frequency, tags, and categories—into elegant, interactive charts.</p>
+<p>The charts dynamically adapt to your site’s theme, switching between <code>dark mode</code> and <code>light mode</code> based on your browser settings. Whether you’re tracking your writing habits or showcasing your blog’s activity, this plugin delivers a seamless and engaging experience.</p>
+<p>Inspired by <a target="_blank" rel="noopener" href="https://github.com/codepzj/hexo-graph">hexo-graph</a>, if you’re looking for alternative solutions, feel free to explore it as well!</p>
+<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><p>To install the plugin, run the following command in your Hexo project directory:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-stats-echarts</span><br></pre></td></tr></table></figure>
+
+<h2 id="Supported-Charts"><a href="#Supported-Charts" class="headerlink" title="Supported Charts"></a>Supported Charts</h2><h3 id="Heatmap-Chart"><a href="#Heatmap-Chart" class="headerlink" title="Heatmap Chart"></a>Heatmap Chart</h3><p>Visualize your daily posting activity with an interactive heatmap.</p>
+<p><strong>Quick Start</strong>: Insert the following code snippet into <strong>any</strong> Hexo post or page:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% heatmapchart %&#125;Blog Heatmap&#123;% endheatmapchart %&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Output:</strong>  </p>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const heatmapChartDom = document.getElementById('heatmapChart-0');
+                if (heatmapChartDom) {
+                    const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    const backgroundColor = isDarkMode ? '#333' : '#F5F5F5';
+                    let heatmapChart = echarts.init(heatmapChartDom, isDarkMode ? 'dark' : 'light');
+                    const cellSize = [16, 16];
+
+                    const groupedData = {"2017":[["2017-01-21",1]],"2022":[["2022-09-09",1]],"2023":[["2023-12-01",4],["2023-12-10",1],["2023-10-26",2],["2023-12-15",1],["2023-10-27",1],["2023-11-30",1],["2023-11-29",1],["2023-11-13",1],["2023-11-07",1],["2023-12-27",1],["2023-12-03",2],["2023-11-26",1],["2023-12-02",2],["2023-12-19",1],["2023-12-29",1],["2023-12-17",2],["2023-11-06",1],["2023-08-01",1],["2023-12-04",1],["2023-10-28",1],["2023-12-11",1],["2023-12-28",1],["2023-11-23",2],["2023-11-16",1]],"2024":[["2024-11-28",2],["2024-12-27",2],["2024-02-25",1],["2024-03-22",2],["2024-09-06",1],["2024-01-17",3],["2024-01-08",2],["2024-07-31",1],["2024-12-26",6],["2024-07-16",1],["2024-01-25",1],["2024-05-06",1],["2024-01-09",1],["2024-01-03",1],["2024-08-04",1],["2024-12-25",1],["2024-12-20",3],["2024-12-30",4],["2024-06-01",1],["2024-10-07",1],["2024-11-26",1],["2024-01-11",1],["2024-08-06",1],["2024-01-10",4],["2024-11-30",1],["2024-12-17",2],["2024-09-11",1],["2024-03-02",2],["2024-04-11",1],["2024-02-02",2],["2024-01-29",1],["2024-01-28",1],["2024-03-14",2],["2024-01-27",2],["2024-12-16",1],["2024-08-02",1],["2024-12-15",1],["2024-07-29",1],["2024-08-27",1],["2024-05-08",1],["2024-03-12",1],["2024-11-24",1],["2024-12-24",1],["2024-01-04",1],["2024-12-04",1],["2024-11-29",1],["2024-02-20",1],["2024-12-06",1],["2024-12-19",1],["2024-09-10",1],["2024-12-22",1],["2024-11-23",1],["2024-05-05",1],["2024-01-13",1],["2024-12-18",2],["2024-11-21",1],["2024-12-12",1],["2024-03-05",1]],"2025":[["2025-06-19",1],["2025-01-09",2],["2025-05-30",2],["2025-01-08",4],["2025-01-04",1],["2025-01-01",6],["2025-01-03",6],["2025-01-16",1],["2025-05-26",1],["2025-06-27",1],["2025-03-12",4],["2025-03-11",1],["2025-01-06",3],["2025-01-17",1],["2025-04-22",1],["2025-02-12",1],["2025-03-03",1],["2025-04-17",1],["2025-03-25",3],["2025-04-18",2],["2025-04-12",1],["2025-02-17",1],["2025-02-14",1],["2025-01-02",1],["2025-04-14",1],["2025-01-05",1],["2025-02-20",2],["2025-01-21",1],["2025-05-02",1],["2025-03-18",1],["2025-02-01",1],["2025-03-06",2],["2025-03-07",1],["2025-03-10",1],["2025-06-09",1],["2025-05-13",2],["2025-06-20",1],["2025-04-01",1],["2025-04-03",1],["2025-05-11",1],["2025-03-30",1],["2025-04-11",1]]};
+                    const years = Object.keys(groupedData).reverse();
+                    const initYear = '2025' || years[0];
+
+                    // Define color themes
+                    const themes = {
+                        oceanic: ['#A6D8E8', '#6FB3D2', '#4A90BF', '#2E6A8E', '#1A4461'],
+                        forest: ['#ACE7AE', '#8FD694', '#69C16D', '#549F57', '#3A7D3E'],
+                        sunset: ['#FFD1A6', '#FFA07A', '#FF6F52', '#D94A3D', '#A62B2B'],
+                        earthy: ['#E3C8A8', '#C4A076', '#A57C52', '#7A5A3A', '#4E3A28'],
+                        pastel: ['#F5D5E6', '#E8B8D0', '#D18FB8', '#A86A8E', '#7A4A61'],
+                        golden: ['#FFEBB5', '#FFD966', '#FFB74D', '#D18F4A', '#A66B2B'],
+                        berry: ['#F4C2D7', '#E88BB3', '#D94A7A', '#A62B5C', '#7A1F3D'],
+                        charcoal: ['#E0E0E0', '#9E9E9E', '#616161', '#424242', '#212121'],
+                    };
+
+                    // Function to get a random theme
+                    function getRandomTheme() {
+                        const themeKeys = Object.keys(themes);
+                        const randomKey = themeKeys[Math.floor(Math.random() * themeKeys.length)];
+                        return themes[randomKey];
+                    }
+
+                    // Use the specified theme or default to 'random'
+                    const colors = themes['random'.toLowerCase()] || getRandomTheme();
+
+                    const chartOptions = {
+                        backgroundColor: backgroundColor,
+                        tooltip: {
+                            position: 'top',
+                            confine: true,
+                            formatter: params => `${params.value[0]}: ${params.value[1]} Article${params.value[1] !== 1 ? 's' : ''}`,
+                        },
+                        calendar: {
+                            top: '13%',
+                            left: '2%',
+                            right: '8%',
+                            range: initYear,
+                            cellSize: cellSize,
+                            splitLine: { lineStyle: { color: '#E0E0E0', width: 1 } },
+                            itemStyle: { borderWidth: 1, borderColor: '#E0E0E0', color: backgroundColor },
+                            dayLabel: { show: false },
+                            monthLabel: { show: true },
+                            yearLabel: { show: false },
+                        },
+                        visualMap: {
+                            show: true,
+                            right: '8%',
+                            bottom: '5%',
+                            type: 'piecewise',
+                            orient: 'horizontal',
+                            text: ['More', 'Less'],
+                            min: 0,
+                            max: Math.max(...groupedData[initYear].map(item => item[1])),
+                            inRange: { color: colors },
+                        },
+                        legend: {
+                            type: 'scroll',
+                            icon: 'none',
+                            data: years,
+                            orient: 'vertical',
+                            top: '5%',
+                            right: 'right',
+                            itemWidth: 20,
+                            itemHeight: 20,
+                            itemGap: 10,
+                            pageIconSize: 10,
+                            pageTextStyle: { fontSize: 14 },
+                            selectedMode: 'single',
+                        },
+                        series: years.map(year => ({
+                            type: 'heatmap',
+                            coordinateSystem: 'calendar',
+                            data: groupedData[year],
+                            name: year,
+                            emphasis: { disabled: true },
+                            silent: year !== initYear,
+                        })),
+                    };
+
+                    heatmapChart.setOption(chartOptions);
+
+                    heatmapChart.dispatchAction({
+                        type: 'legendSelect',
+                        name: initYear,
+                    });
+
+                    // Function to handle legend selection changes
+                    const handleLegendSelectChanged = function(params) {
+                        const selectedYear = Object.keys(params.selected).find(key => params.selected[key]);
+                        if (selectedYear && groupedData[selectedYear]) {
+                            heatmapChart.setOption({
+                                calendar: { range: selectedYear },
+                                visualMap: {
+                                    max: Math.max(...groupedData[selectedYear].map(item => item[1])),
+                                },
+                                series: years.map(year => ({
+                                    type: 'heatmap',
+                                    coordinateSystem: 'calendar',
+                                    data: groupedData[year],
+                                    name: year,
+                                    emphasis: { disabled: true },
+                                    silent: year !== selectedYear,
+                                })),
+                            });
+                        }
+                    };
+                    
+                    const handleClick = function(params) {
+                        if (params.componentType === 'series') {
+                            const [year, month] = params.value[0].split('-');
+                            window.location.href = '/archives/' + year + '/' + month;
+                        }
+                    };
+
+                    heatmapChart.on('legendselectchanged', handleLegendSelectChanged);
+                    heatmapChart.on('click', handleClick);
+
+                    // Listen for theme changes
+                    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (event) => {
+                        heatmapChart.dispose();
+                        heatmapChart = echarts.init(heatmapChartDom, event.matches ? 'dark' : 'light');
+                        const newBackgroundColor = event.matches ? '#333' : '#F5F5F5';
+                        chartOptions.backgroundColor = newBackgroundColor;
+                        chartOptions.calendar.itemStyle.color = newBackgroundColor;
+                        heatmapChart.setOption(chartOptions);
+                        
+                        // Re-select the initial year
+                        heatmapChart.dispatchAction({
+                            type: 'legendSelect',
+                            name: initYear,
+                        });
+
+                        // Reattach the event listeners
+                        heatmapChart.on('legendselectchanged', handleLegendSelectChanged);
+                        heatmapChart.on('click', handleClick);
+                    });
+                }
+            });
+        </script>
+        <div style="width: 100%">
+            <!-- Title -->
+            
+        <div style="text-align: center; font-size: 24px; font-weight: bold; margin-bottom: 10px;">
+            Blog Heatmap
+        </div>
+    
+            <!-- Heatmap Chart -->
+            <div id="heatmapChart-0" style="width: 100%; height: 200px; overflow-x: auto; overflow-y: hidden;"></div>
+            <!-- Footer -->
+            
+        <div style="text-align: center; font-size: 12px; color: #666; margin-top: 10px; margin-bottom: 20px;">
+            Powered by <a href="https://github.com/erispyu/hexo-stats-echarts" style="color: inherit; text-decoration: none;" target="_blank">hexo-stats-echarts</a>
+        </div>
+    
+        </div>
+    
+
+<p>For detailed usage instructions and examples, visit: <a href="https://blog.erispyu.fun/hexo-stats-echarts/heatmap-chart/">Heatmap Chart Documentation</a></p>
+<h3 id="Pie-Chart"><a href="#Pie-Chart" class="headerlink" title="Pie Chart"></a>Pie Chart</h3><p>Visualize your blog’s data by tags or publication years.</p>
+<p><strong>Quick Start</strong>: Insert the following code snippets into <strong>any</strong> Hexo post or page:</p>
+<ul>
+<li><strong>Stats by Tags</strong>:</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% piechart tags %&#125;Tags Pie Chart&#123;% endpiechart %&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Output:</strong>  </p>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const pieChartDom = document.getElementById('pieChart-0');
+                const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                let pieChart = echarts.init(pieChartDom, isDarkMode ? 'dark' : 'light');
+
+                const chartOptions = {
+                    backgroundColor: isDarkMode ? '#333' : '#F5F5F5',
+                    legend: {
+                        bottom: '1%',
+                    },
+                    series: [
+                        {
+                            type: 'pie',
+                            label: {
+                                position: 'outside',
+                                formatter: '{b}: {c}({d}%)', // {a}: series name; {b}: data name; {c}: data value; {d}: percentage
+                            },
+                            radius: ['15%', '60%'],
+                            roseType: 'radius',
+                            itemStyle: {
+                                borderRadius: 8
+                            },
+                            data: [{"name":"文学","value":50},{"name":"历史","value":27},{"name":"公众号","value":21},{"name":"导入书籍","value":17},{"name":"文学-文学鉴赏","value":12},{"name":"文学-经典作品","value":12},{"name":"上海辞书出版社","value":11},{"name":"计算机","value":11},{"name":"人民文学出版社","value":10},{"name":"文学-古典文学","value":10}],
+                        }
+                    ]
+                };
+                
+                if ('tags' === 'years') {
+                    chartOptions.legend.data = ["【朝】刘孝标注","埃里克·乔根森","艾伦A.A.多诺万","艾萨克·阿西莫夫","安妮·埃尔诺","保罗·格雷厄姆","北岛","北京出版集团北京十月文艺出版社","北京大吕文化传播有限公司","北京大学出版社","北京联合出版有限责任公司","北京明天远航文化传播有限公司","本哈明·拉巴图特","比尔·盖茨","布莱恩·W. 柯尼汉","布莱恩W.柯尼汉","财经","财经杂志社","常青","陈春成","陈思和","赤尔斯","大阪","戴维·A.帕特森","丹·布朗","导入书籍","德米特里·里亚博伊","邓敏","第一财经YiMagazine","电子工业出版社","杜光庭","杜雨","菲利普·迪克","冯梦龙","冯梦龙编","格温·沙皮拉 托德·帕利诺 拉吉尼·西瓦拉姆 克里特·佩蒂","葛亮","公众号","顾建国","顾炎武","关西","光启书局","广西师范大学出版社","广州出版社","海南出版社","海漄","韩起澜","豪尔赫·路易斯·博尔赫斯","赫尔曼·黑塞","胡锦涛","胡三省","湖南文艺出版社","环球影城","黄钧校注","黄黎原","黄仁宇","机械工业出版社","计算机","计算机-编程设计","计算机-计算机综合","计算机-理论知识","计算机-人工智能","计算机-数据库","江苏凤凰文艺出版社","江苏人民出版社","江苏文艺出版社","蒋廷黻","教育学习","教育学习-教育","教育学习-外语","金庸","京都","经济理财","经济理财-财经","经济理财-管理","经济理财-理财","经济理财-商业","精品小说","精品小说-科幻小说","精品小说-恐怖惊悚","精品小说-武侠小说","精品小说-悬疑推理","九州出版社","凯·伯德","科学技术","科学技术-工业技术","科学技术-科学科普","科学技术-自然科学","克拉伦斯·伦纳德·凯利·约翰逊","克里斯·里科米尼","兰小欢","劳伦斯A.坎宁安","雷海宗","李昉","李公佐","李光耀","李梦生等译注","李平武","李时珍撰","李硕","理查德·道金斯","理查德·J.埃文斯","历史","历史-历史地理","历史-历史典籍","历史-历史读物","历史-历史文化","历史-历史小说","历史-世界史","历史-中国古代","历史-中国近现代","梁启超","梁遇春","凌濛初","刘慈欣","刘伟","刘义庆著","刘子超","鲁迅","陆玉芹","吕静","旅行","罗伯特 C. 马丁","罗新","马伯庸","马丁·J.舍温","马汉麟著","马俊亚","马里奥·巴尔加斯·略萨","玛吉·史密斯","迈克尔·波伦","毛泽东","美食","蒙曼","纳西姆·尼古拉斯·塔勒布","奈吉尔·波尔顿","奈良","南海出版公司","南京大学出版社","南京大学文学院","尼尔·福特 马克·理查兹 普拉莫德·萨达拉奇 扎马克·德加尼","平凯星辰","期刊杂志","期刊杂志-财经","钱穆","清华大学出版社","丘吉尔","人民出版社","人民文学出版社","人民邮电出版社","人民邮电出版社有限公司","人物传记","人物传记-财经人物","人物传记-传记综合","人物传记-军政领袖","人物传记-科学家","任天堂","日本","三秦出版社","商务印书馆国际有限公司","商兆琦","上海辞书出版社","上海辞书出版社文学鉴赏辞典编纂中心","上海第一财经传媒有限公司","上海古籍出版社","上海人民出版社","上海三联书店","上海书店出版社","上海译文出版社","上野千鹤子","尚荣","社会科学文献出版社","社会文化","社会文化-社科","社会文化-文化","沈既济","沈志华","沈醉","生活","生活·读书·新知三联书店","生活百科","生活百科-美食","生活书店出版有限公司","史蒂文·J. 米勒","司馬光","斯坦尼斯瓦夫·莱姆","斯图尔特·罗素","四川人民出版社","四川人民出版社有限公司","随笔","台海出版社","天地出版社","天津人民出版社","团结出版社","外语教学与研究出版社","汪曾祺","王力","王力主编","王瑞","王身钢译注","王水照","王小波","文汇出版社","文学","文学-古代诗词","文学-古典文学","文学-纪实文学","文学-经典作品","文学-散文杂著","文学-外国文学","文学-文学鉴赏","文学-现代诗歌","文学-语言文字","沃尔特·艾萨克森","沃伦E.巴菲特","吴承恩","吴楚材","吴调侯编选","吴晗","夏基松","项飙","辛德勇","新星出版社","徐传武校点","徐达译注","杨枫主编","杨奎松","伊恩·布鲁玛","医学健康","医学健康-健康","译林出版社","译注","尹小林校注","尤瓦尔·赫拉利","余才林补订","宇治","袁灿兴","约翰·L.亨尼斯","岳麓书社","张岱","张启成","张孜铭","张祖英","赵怀舟点校","赵尚华","哲学宗教","哲学宗教-西方哲学","浙江出版集团数字传媒有限公司","浙江古籍出版社","浙江教育出版社","浙江文艺出版社","政治军事","政治军事-军事","政治军事-政治","中岛敦","中国社会科学出版社","中国文史出版社","中国友谊出版公司","中华书局","中华书局有限公司","中信出版集团","朱光潜","朱忠华","鄒寰宇","Addison-Wesley Professional","Blake J. Harris","BlockChain","Brian W. Kernighan","calibre","Certificate","Clifford Stein","Crypto","Decentralized","Digest","Django","Emily Henry","Encryption","Frank Herbert","HarperCollins","J.K. Rowling","Jeremy Tinley","Kevin Wayne","Knopf Doubleday Publishing Group","Kovid Goyal","MIT Press","MySQL","Network","Norman Lewis","O'Reilly Media","Olivier Caelen","Orion","Penguin Random House LLC","Pottermore Publishing","Princeton University Press","Profile","Python","Robert Sedgewick","RSA","Signature","Silvia Botros","Simon & Schuster","Tiago Forte","Walter Isaacson","Web3"];
+                };
+
+                pieChart.setOption(chartOptions);
+                
+                const handleClick = function (params) {
+                    window.location.href = '/tags/' + encodeURIComponent(params.name);
+                };
+
+                pieChart.on('click', handleClick);
+
+                window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (event) => {
+                    pieChart.dispose();
+                    pieChart = echarts.init(pieChartDom, event.matches ? 'dark' : 'light');
+                    chartOptions.backgroundColor = event.matches ? '#333' : '#F5F5F5';
+                    pieChart.setOption(chartOptions);
+                    pieChart.on('click', handleClick);
+                });
+            });
+        </script>
+        <div style="width: 100%">
+            <!-- Title -->
+            
+        <div style="text-align: center; font-size: 24px; font-weight: bold; margin-bottom: 10px;">
+            Tags Pie Chart
+        </div>
+    
+            <!-- Pie Chart Container -->
+            <div id="pieChart-0" style="width: 100%; height: 425px; overflow-x: auto; overflow-y: auto;"></div>
+            <!-- Footer -->
+            
+        <div style="text-align: center; font-size: 12px; color: #666; margin-top: 10px; margin-bottom: 20px;">
+            Powered by <a href="https://github.com/erispyu/hexo-stats-echarts" style="color: inherit; text-decoration: none;" target="_blank">hexo-stats-echarts</a>
+        </div>
+    
+        </div>
+    
+
+<ul>
+<li><strong>Stats by Years</strong>:</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% piechart years %&#125;Years Pie Chart&#123;% endpiechart %&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Output:</strong>  </p>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const pieChartDom = document.getElementById('pieChart-1');
+                const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                let pieChart = echarts.init(pieChartDom, isDarkMode ? 'dark' : 'light');
+
+                const chartOptions = {
+                    backgroundColor: isDarkMode ? '#333' : '#F5F5F5',
+                    legend: {
+                        bottom: '1%',
+                    },
+                    series: [
+                        {
+                            type: 'pie',
+                            label: {
+                                position: 'outside',
+                                formatter: '{b}: {c}({d}%)', // {a}: series name; {b}: data name; {c}: data value; {d}: percentage
+                            },
+                            radius: ['15%', '60%'],
+                            roseType: 'radius',
+                            itemStyle: {
+                                borderRadius: 8
+                            },
+                            data: [{"name":"2024","value":83},{"name":"2025","value":68},{"name":"2023","value":32},{"name":"2017","value":1},{"name":"2022","value":1}],
+                        }
+                    ]
+                };
+                
+                if ('years' === 'years') {
+                    chartOptions.legend.data = ["2017","2022","2023","2024","2025"];
+                };
+
+                pieChart.setOption(chartOptions);
+                
+                const handleClick = function (params) {
+                    window.location.href = '/archives/' + encodeURIComponent(params.name);
+                };
+
+                pieChart.on('click', handleClick);
+
+                window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (event) => {
+                    pieChart.dispose();
+                    pieChart = echarts.init(pieChartDom, event.matches ? 'dark' : 'light');
+                    chartOptions.backgroundColor = event.matches ? '#333' : '#F5F5F5';
+                    pieChart.setOption(chartOptions);
+                    pieChart.on('click', handleClick);
+                });
+            });
+        </script>
+        <div style="width: 100%">
+            <!-- Title -->
+            
+        <div style="text-align: center; font-size: 24px; font-weight: bold; margin-bottom: 10px;">
+            Years Pie Chart
+        </div>
+    
+            <!-- Pie Chart Container -->
+            <div id="pieChart-1" style="width: 100%; height: 425px; overflow-x: auto; overflow-y: auto;"></div>
+            <!-- Footer -->
+            
+        <div style="text-align: center; font-size: 12px; color: #666; margin-top: 10px; margin-bottom: 20px;">
+            Powered by <a href="https://github.com/erispyu/hexo-stats-echarts" style="color: inherit; text-decoration: none;" target="_blank">hexo-stats-echarts</a>
+        </div>
+    
+        </div>
+    
+
+<p>For detailed usage instructions and examples, visit: <a href="https://blog.erispyu.fun/hexo-stats-echarts/pie-chart/">Pie Chart Documentation</a></p>
+<h3 id="Radar-Chart"><a href="#Radar-Chart" class="headerlink" title="Radar Chart"></a>Radar Chart</h3><p>Visualize your blog’s data by tags or publication years.</p>
+<p><strong>Quick Start</strong>: Insert the following code snippets into <strong>any</strong> Hexo post or page:</p>
+<ul>
+<li><strong>Stats by Tags</strong>:</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% radarchart tags %&#125;Tags Radar Chart&#123;% endradarchart %&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Output:</strong>  </p>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const radarChartDom = document.getElementById('radarChart-0');
+                const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                let radarChart = echarts.init(radarChartDom, isDarkMode ? 'dark' : 'light');
+
+                const chartOptions = {
+                    backgroundColor: isDarkMode ? '#333' : '#F5F5F5',
+                    radar: {
+                        indicator: [{"max":50,"name":"文学"},{"max":50,"name":"历史"},{"max":50,"name":"公众号"},{"max":50,"name":"导入书籍"},{"max":50,"name":"文学-文学鉴赏"},{"max":50,"name":"文学-经典作品"}],
+                    },
+                    tooltip: {
+                        trigger: 'item',
+                        confine: true,
+                    },
+                    series: [
+                        {
+                            type: 'radar',
+                            areaStyle: {},
+                            data: [{
+                                value: [50,27,21,17,12,12],
+                                name: 'Post Tags',
+                            }],
+                        }
+                    ]
+                };
+
+                radarChart.setOption(chartOptions);
+                
+                const handleClick = function (params) {
+                    window.location.href = '/tags/';
+                };
+
+                radarChart.on('click', handleClick);
+
+                window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (event) => {
+                    radarChart.dispose();
+                    radarChart = echarts.init(radarChartDom, event.matches ? 'dark' : 'light');
+                    chartOptions.backgroundColor = event.matches ? '#333' : '#F5F5F5';
+                    radarChart.setOption(chartOptions);
+                    radarChart.on('click', handleClick);
+                });
+            });
+        </script>
+        <div style="width: 100%">
+            <!-- Title -->
+            
+        <div style="text-align: center; font-size: 24px; font-weight: bold; margin-bottom: 10px;">
+            Tags Radar Chart
+        </div>
+    
+            <!-- Radar Chart Container -->
+            <div id="radarChart-0" style="width: 100%; height: 400px; overflow-x: auto; overflow-y: auto;"></div>
+            <!-- Footer -->
+            
+        <div style="text-align: center; font-size: 12px; color: #666; margin-top: 10px; margin-bottom: 20px;">
+            Powered by <a href="https://github.com/erispyu/hexo-stats-echarts" style="color: inherit; text-decoration: none;" target="_blank">hexo-stats-echarts</a>
+        </div>
+    
+        </div>
+    
+
+<ul>
+<li><strong>Stats by Years</strong>:</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% radarchart years %&#125;Years Radar Chart&#123;% endradarchart %&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Output:</strong>  </p>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const radarChartDom = document.getElementById('radarChart-1');
+                const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                let radarChart = echarts.init(radarChartDom, isDarkMode ? 'dark' : 'light');
+
+                const chartOptions = {
+                    backgroundColor: isDarkMode ? '#333' : '#F5F5F5',
+                    radar: {
+                        indicator: [{"max":28,"name":"Jan"},{"max":28,"name":"Feb"},{"max":28,"name":"Mar"},{"max":28,"name":"Apr"},{"max":28,"name":"May"},{"max":28,"name":"Jun"},{"max":28,"name":"Jul"},{"max":28,"name":"Aug"},{"max":28,"name":"Sep"},{"max":28,"name":"Oct"},{"max":28,"name":"Nov"},{"max":28,"name":"Dec"}],
+                    },
+                    legend: {
+                        bottom: '1%',
+                    },
+                    tooltip: {
+                        trigger: 'item',
+                        confine: true,
+                    },
+                    series: [
+                        {
+                            type: 'radar',
+                            data: [{"name":"2017","value":[1,0,0,0,0,0,0,0,0,0,0,0]},{"name":"2022","value":[0,0,0,0,0,0,0,0,1,0,0,0]},{"name":"2023","value":[0,0,0,0,0,0,0,1,0,4,9,18]},{"name":"2024","value":[19,4,8,1,3,1,3,4,3,1,8,28]},{"name":"2025","value":[27,6,15,9,7,4,0,0,0,0,0,0]}],
+                        }
+                    ]
+                };
+
+                radarChart.setOption(chartOptions);
+                
+                const handleClick = function (params) {
+                    window.location.href = '/archives/' + encodeURIComponent(params.name)
+                };
+
+                radarChart.on('click', handleClick);
+
+                window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (event) => {
+                    radarChart.dispose();
+                    radarChart = echarts.init(radarChartDom, event.matches ? 'dark' : 'light');
+                    chartOptions.backgroundColor = event.matches ? '#333' : '#F5F5F5';
+                    radarChart.setOption(chartOptions);
+                    radarChart.on('click', handleClick);
+                });
+            });
+        </script>
+        <div style="width: 100%">
+            <!-- Title -->
+            
+        <div style="text-align: center; font-size: 24px; font-weight: bold; margin-bottom: 10px;">
+            Years Radar Chart
+        </div>
+    
+            <!-- Radar Chart Container -->
+            <div id="radarChart-1" style="width: 100%; height: 425px; overflow-x: auto; overflow-y: auto;"></div>
+            <!-- Footer -->
+            
+        <div style="text-align: center; font-size: 12px; color: #666; margin-top: 10px; margin-bottom: 20px;">
+            Powered by <a href="https://github.com/erispyu/hexo-stats-echarts" style="color: inherit; text-decoration: none;" target="_blank">hexo-stats-echarts</a>
+        </div>
+    
+        </div>
+    
+
+<p>For detailed usage instructions and examples, visit: <a href="https://blog.erispyu.fun/hexo-stats-echarts/radar-chart/">Radar Chart Documentation</a></p>
+<h2 id="Planned-Features-TODO"><a href="#Planned-Features-TODO" class="headerlink" title="Planned Features (TODO)"></a>Planned Features (TODO)</h2><ul>
+<li><input checked="" disabled="" type="checkbox"> <del><strong>Radar Chart</strong>: Display the most frequently used post tags in a radar chart format.</del></li>
+<li><input disabled="" type="checkbox"> <strong>Documentation Updates</strong>: Add detailed guides on color themes, tag arguments, post tag blacklist, and chart background color customization.</li>
+<li><input disabled="" type="checkbox"> <strong>Line Chart</strong>: Visualize monthly posting activity with a line chart.</li>
+<li><input disabled="" type="checkbox"> <strong>Sunburst Chart</strong>: Visualize nested post categories with a sunburst chart.</li>
+</ul>
+<h2 id="Feedback-Support"><a href="#Feedback-Support" class="headerlink" title="Feedback &amp; Support"></a>Feedback &amp; Support</h2><p>If you find this plugin useful, consider giving it a ⭐ on <a target="_blank" rel="noopener" href="https://github.com/erispyu/hexo-stats-echarts">GitHub</a> to show your support and help others discover it!</p>
+<p>We welcome contributions and feature suggestions! Your feedback and support are greatly appreciated. Feel free to open an issue or submit a pull request on GitHub.</p>
+
+      </div>
+      
+      
+      
+    </div>
+
+    
+    
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Erispyu</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="Word count total">524k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">7:57</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div><script color="220，220，220" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/algoliasearch/4.24.0/algoliasearch-lite.umd.js" integrity="sha256-b2n6oSgG4C1stMT/yc/ChGszs9EY/Mhs6oltEjQbFCQ=" crossorigin="anonymous"></script><script src="/js/third-party/search/algolia-search.js"></script>
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"erispyu-blog","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

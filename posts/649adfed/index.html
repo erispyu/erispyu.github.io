@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><!-- hexo injector head_begin start --><script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script><!-- hexo injector head_begin end -->
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.erispyu.fun","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":"default"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"algolia":{"appID":"2BILQUWIOA","apiKey":"f5aabb895c10440c28e6c77090f511eb","indexName":"github_page_erispyu","hits":{"per_page":10}}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="1. 对称加密与非对称加密1.1 对称加密定义：通信双方共享同一把密钥，该密钥用于将明文加密为密文，或将密文解密为明文。   常见算法：AES、DES、RC4，其中AES最为常用。 优点：加密解密速度快。 缺点：安全性相对较低，一旦密钥泄露，数据将面临极大风险。 1.2 非对称加密定义：通信双方持有不同的密钥，分别为公钥（public key）和私钥（private key）。私钥仅在服务端保存，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="对称加密与非对称加密详解">
+<meta property="og:url" content="https://blog.erispyu.fun/posts/649adfed/index.html">
+<meta property="og:site_name" content="Erispyu&#39;s Blog">
+<meta property="og:description" content="1. 对称加密与非对称加密1.1 对称加密定义：通信双方共享同一把密钥，该密钥用于将明文加密为密文，或将密文解密为明文。   常见算法：AES、DES、RC4，其中AES最为常用。 优点：加密解密速度快。 缺点：安全性相对较低，一旦密钥泄露，数据将面临极大风险。 1.2 非对称加密定义：通信双方持有不同的密钥，分别为公钥（public key）和私钥（private key）。私钥仅在服务端保存，">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-01-09T06:27:09.000Z">
+<meta property="article:modified_time" content="2025-01-09T06:27:09.000Z">
+<meta property="article:author" content="Erispyu">
+<meta property="article:tag" content="Encryption">
+<meta property="article:tag" content="Signature">
+<meta property="article:tag" content="RSA">
+<meta property="article:tag" content="Digest">
+<meta property="article:tag" content="Certificate">
+<meta property="article:tag" content="Network">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://blog.erispyu.fun/posts/649adfed/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://blog.erispyu.fun/posts/649adfed/","path":"posts/649adfed/","title":"对称加密与非对称加密详解"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>对称加密与非对称加密详解 | Erispyu's Blog</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QCC01KVZ4X"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-QCC01KVZ4X","only_pageview":false,"measure_protocol_api_secret":null}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Erispyu's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-list fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-plugins"><a href="/hexo-stats-echarts/" rel="section"><i class="fa-solid fa-flask fa-fw"></i>Plugins</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="Searching..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fab fa-algolia fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86%E4%B8%8E%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86"><span class="nav-text">1. 对称加密与非对称加密</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86"><span class="nav-text">1.1 对称加密</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86"><span class="nav-text">1.2 非对称加密</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-%E4%BD%BF%E7%94%A8OpenSSL%E7%94%9F%E6%88%90RSA%E5%AF%86%E9%92%A5%E5%AF%B9"><span class="nav-text">1.3 使用OpenSSL生成RSA密钥对</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D%E4%B8%8E%E6%95%B0%E5%AD%97%E8%AF%81%E4%B9%A6"><span class="nav-text">2. 数字签名与数字证书</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%E6%91%98%E8%A6%81%EF%BC%88Digest%EF%BC%89"><span class="nav-text">2.1 摘要（Digest）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D%EF%BC%88Digital-Signature%EF%BC%89"><span class="nav-text">2.2 数字签名（Digital Signature）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-CA%E6%95%B0%E5%AD%97%E8%AF%81%E4%B9%A6"><span class="nav-text">2.3 CA数字证书</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-1-%E6%95%B0%E5%AD%97%E8%AF%81%E4%B9%A6%E9%A2%81%E5%8F%91%E6%B5%81%E7%A8%8B"><span class="nav-text">2.3.1 数字证书颁发流程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-2-%E8%AF%81%E4%B9%A6%E7%BC%96%E7%A0%81%E6%A0%BC%E5%BC%8F%E4%B8%8E%E6%89%A9%E5%B1%95%E5%90%8D"><span class="nav-text">2.3.2 证书编码格式与扩展名</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Google-HSM-%E7%AE%80%E4%BB%8B"><span class="nav-text">3. Google HSM 简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-%E4%BB%80%E4%B9%88%E6%98%AFHSM"><span class="nav-text">3.1 什么是HSM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-Google-Cloud-KMS"><span class="nav-text">3.2 Google Cloud KMS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-%E4%BD%BF%E7%94%A8Google-HSM"><span class="nav-text">3.3 使用Google HSM</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Erispyu</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">184</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">295</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/erispyu" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;erispyu" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:erispyu@gmail.com" title="E-Mail → mailto:erispyu@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.douban.com/people/erispyu00/" title="Douban → https:&#x2F;&#x2F;www.douban.com&#x2F;people&#x2F;erispyu00&#x2F;" rel="noopener me" target="_blank"><i class="fa fa-film fa-fw"></i>Douban</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.travellings.cn/go.html" title="Travellings → https:&#x2F;&#x2F;www.travellings.cn&#x2F;go.html" rel="noopener me" target="_blank"><i class="fa-solid fa-train fa-fw"></i>Travellings</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    Related Posts
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/posts/e729026e/" rel="bookmark">
+        <time class="popular-posts-time">2017-01-21</time>
+        <br>
+      清粥小菜
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/posts/eaa24d20/" rel="bookmark">
+        <time class="popular-posts-time">2024-03-14</time>
+        <br>
+      Dune (The Dune Sequence)
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://blog.erispyu.fun/posts/649adfed/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Erispyu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Erispyu's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="对称加密与非对称加密详解 | Erispyu's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          对称加密与非对称加密详解
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2025-01-09 14:27:09" itemprop="dateCreated datePublished" datetime="2025-01-09T14:27:09+08:00">2025-01-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Computer-Science/" itemprop="url" rel="index"><span itemprop="name">Computer Science</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Computer-Science/Encryption/" itemprop="url" rel="index"><span itemprop="name">Encryption</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/posts/649adfed/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/649adfed/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>1.4k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>1 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="1-对称加密与非对称加密"><a href="#1-对称加密与非对称加密" class="headerlink" title="1. 对称加密与非对称加密"></a>1. 对称加密与非对称加密</h2><h3 id="1-1-对称加密"><a href="#1-1-对称加密" class="headerlink" title="1.1 对称加密"></a>1.1 对称加密</h3><div class="note info"><p><strong>定义</strong>：<br>通信双方共享同一把密钥，该密钥用于将明文加密为密文，或将密文解密为明文。</p>
+</div>
+
+<p><strong>常见算法</strong>：AES、DES、RC4，其中AES最为常用。</p>
+<p><strong>优点</strong>：加密解密速度快。</p>
+<p><strong>缺点</strong>：安全性相对较低，一旦密钥泄露，数据将面临极大风险。</p>
+<h3 id="1-2-非对称加密"><a href="#1-2-非对称加密" class="headerlink" title="1.2 非对称加密"></a>1.2 非对称加密</h3><div class="note info"><p><strong>定义</strong>：<br>通信双方持有不同的密钥，分别为公钥（public key）和私钥（private key）。私钥仅在服务端保存，公钥可公开分发。</p>
+</div>
+<span id="more"></span>
+
+<p><strong>使用场景</strong>：</p>
+<ol>
+<li><strong>加密场景</strong>：请求方使用公钥加密数据，接收方使用私钥解密。</li>
+<li><strong>签名场景</strong>：请求方使用私钥生成数字签名，接收方使用公钥验证签名。</li>
+</ol>
+<p><strong>常见算法</strong>：RSA。</p>
+<p><strong>优点</strong>：安全性高。</p>
+<p><strong>缺点</strong>：加密解密速度较慢。</p>
+<h3 id="1-3-使用OpenSSL生成RSA密钥对"><a href="#1-3-使用OpenSSL生成RSA密钥对" class="headerlink" title="1.3 使用OpenSSL生成RSA密钥对"></a>1.3 使用OpenSSL生成RSA密钥对</h3><p><strong>生成2048位RSA私钥</strong>：</p>
+  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">openssl genrsa -des3 -out private.pem 2048</span><br></pre></td></tr></table></figure>
+
+<p><strong>导出公钥</strong>：</p>
+  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">openssl rsa -<span class="keyword">in</span> private.pem -outform PEM -pubout -out public.pem</span><br></pre></td></tr></table></figure>
+
+<p><strong>更多信息</strong>：关于PKCS规范的详细内容，可参考<a target="_blank" rel="noopener" href="https://razeen.me/posts/introduce-pkcs/">简单了解 PKCS 规范</a>。</p>
+<h2 id="2-数字签名与数字证书"><a href="#2-数字签名与数字证书" class="headerlink" title="2. 数字签名与数字证书"></a>2. 数字签名与数字证书</h2><h3 id="2-1-摘要（Digest）"><a href="#2-1-摘要（Digest）" class="headerlink" title="2.1 摘要（Digest）"></a>2.1 摘要（Digest）</h3><div class="note info"><p><strong>定义</strong>：<br>通过摘要算法将任意长度的信息映射为固定长度的哈希值。</p>
+</div>
+
+<p><strong>常见算法</strong>：MD5、SHA1、SHA256、SHA512等。</p>
+<p><strong>特点</strong>：</p>
+<ul>
+<li>不可逆，无法从摘要还原原始信息。</li>
+<li>可能存在哈希碰撞（不同信息生成相同摘要）。</li>
+<li>主要用于数据完整性校验，而非数据加密。</li>
+</ul>
+<h3 id="2-2-数字签名（Digital-Signature）"><a href="#2-2-数字签名（Digital-Signature）" class="headerlink" title="2.2 数字签名（Digital Signature）"></a>2.2 数字签名（Digital Signature）</h3><div class="note info"><p><strong>定义</strong>：<br>使用私钥对摘要进行加密，生成数字签名。</p>
+</div>
+
+<p><strong>签名与验签</strong>：<br><strong>签名</strong>：发送方使用私钥加密摘要。<br><strong>验签</strong>：接收方使用公钥解密签名，验证摘要的真实性。</p>
+<p><strong>意义</strong>：</p>
+<ol>
+<li><strong>防止伪造</strong>：数字签名确保摘要的真实性，防止信息被篡改。</li>
+<li><strong>效率优化</strong>：直接加密大量数据效率低下，而对摘要进行签名既能保证完整性，又能提高效率。</li>
+</ol>
+<h3 id="2-3-CA数字证书"><a href="#2-3-CA数字证书" class="headerlink" title="2.3 CA数字证书"></a>2.3 CA数字证书</h3><div class="note warning"><p><strong>问题背景</strong>：<br>若客户端获取的公钥不可信，可能导致信息泄露。</p>
+</div>
+
+<div class="note success"><p><strong>解决方案</strong>：<br>CA中心为每个使用公开密钥的用户发放一个数字证书，数字证书的作用是证明证书中列出的用户合法拥有证书中列出的公开密钥。CA机构的数字签名使得攻击者不能伪造和篡改证书。</p>
+</div>
+
+<h4 id="2-3-1-数字证书颁发流程"><a href="#2-3-1-数字证书颁发流程" class="headerlink" title="2.3.1 数字证书颁发流程"></a>2.3.1 数字证书颁发流程</h4><ol>
+<li>生成公钥和私钥，并创建包含公钥等信息的<code>.csr</code>文件。</li>
+<li>将<code>.csr</code>文件提交给CA机构，CA验证信息后使用私钥对信息摘要进行加密，生成签名。</li>
+<li>CA将签名与明文信息结合，生成数字证书并返回给申请者。</li>
+</ol>
+<h4 id="2-3-2-证书编码格式与扩展名"><a href="#2-3-2-证书编码格式与扩展名" class="headerlink" title="2.3.2 证书编码格式与扩展名"></a>2.3.2 证书编码格式与扩展名</h4><p><strong>编码格式</strong>：</p>
+<ol>
+<li><strong>PEM</strong>：明文格式，以<code>-----BEGIN CERTIFICATE-----</code>开头，以<code>-----END CERTIFICATE-----</code>结尾。</li>
+<li><strong>DER</strong>：二进制格式，PEM是DER的Base64编码。</li>
+</ol>
+<p><strong>常见扩展名</strong>：</p>
+<ul>
+<li><code>.crt</code>：证书文件，常见于类Unix系统。</li>
+<li><code>.cer</code>：证书文件，常见于Windows系统。</li>
+<li><code>.csr</code>：证书签名请求文件。</li>
+<li><code>.key</code>：公钥或私钥文件。</li>
+<li><code>.p12</code>：包含X509证书和密码保护私钥的文件。</li>
+</ul>
+<h2 id="3-Google-HSM-简介"><a href="#3-Google-HSM-简介" class="headerlink" title="3. Google HSM 简介"></a>3. Google HSM 简介</h2><h3 id="3-1-什么是HSM"><a href="#3-1-什么是HSM" class="headerlink" title="3.1 什么是HSM"></a>3.1 什么是HSM</h3><div class="note info"><p><strong>定义</strong>：<br>硬件安全模块（HSM）是一种用于保护和管理数字密钥的硬件设备，提供防篡改功能。</p>
+</div>
+
+<h3 id="3-2-Google-Cloud-KMS"><a href="#3-2-Google-Cloud-KMS" class="headerlink" title="3.2 Google Cloud KMS"></a>3.2 Google Cloud KMS</h3><p>Google Cloud HSM是一种云托管的HSM服务，支持在FIPS 140-2 Level 3认证的HSM集群中管理密钥和执行加密操作。</p>
+<h3 id="3-3-使用Google-HSM"><a href="#3-3-使用Google-HSM" class="headerlink" title="3.3 使用Google HSM"></a>3.3 使用Google HSM</h3><p><strong>官方文档</strong>：<a target="_blank" rel="noopener" href="https://cloud.google.com/kms/docs/hsm?hl=zh-cn#kms-create-key-ring-python">Google Cloud HSM 使用指南</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Written by:  </strong>Erispyu
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://blog.erispyu.fun/posts/649adfed/" title="对称加密与非对称加密详解">https://blog.erispyu.fun/posts/649adfed/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Encryption/" rel="tag"><i class="fa fa-tag"></i> Encryption</a>
+              <a href="/tags/Signature/" rel="tag"><i class="fa fa-tag"></i> Signature</a>
+              <a href="/tags/RSA/" rel="tag"><i class="fa fa-tag"></i> RSA</a>
+              <a href="/tags/Digest/" rel="tag"><i class="fa fa-tag"></i> Digest</a>
+              <a href="/tags/Certificate/" rel="tag"><i class="fa fa-tag"></i> Certificate</a>
+              <a href="/tags/Network/" rel="tag"><i class="fa fa-tag"></i> Network</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/7683439c/" rel="prev" title="汪曾祺全集（全12册）">
+                  <i class="fa fa-angle-left"></i> 汪曾祺全集（全12册）
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/9df8c87f/" rel="next" title="浪潮工作室">
+                  浪潮工作室 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Erispyu</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="Word count total">524k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">7:57</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div><script color="220，220，220" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/algoliasearch/4.24.0/algoliasearch-lite.umd.js" integrity="sha256-b2n6oSgG4C1stMT/yc/ChGszs9EY/Mhs6oltEjQbFCQ=" crossorigin="anonymous"></script><script src="/js/third-party/search/algolia-search.js"></script>
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"erispyu-blog","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

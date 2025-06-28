@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><!-- hexo injector head_begin start --><script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script><!-- hexo injector head_begin end -->
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.erispyu.fun","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":"default"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"algolia":{"appID":"2BILQUWIOA","apiKey":"f5aabb895c10440c28e6c77090f511eb","indexName":"github_page_erispyu","hits":{"per_page":10}}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="元数据   书名: 高性能MySQL（第4版） 作者: Silvia Botros   Jeremy Tinley 简介: 《高性能 MySQL》一直是 MySQL 领域的经典之作，影响了一代又一代的 DBA 和技术人员，从第3 版出版到第 4 版出版过去了近十年，MySQL 也从 5.5 版本更新到了 8.0 版本。第 4 版中增加了大量对 MySQL 5.7 和 8.0 版本新特性的介绍，删除">
+<meta property="og:type" content="article">
+<meta property="og:title" content="高性能MySQL（第4版）">
+<meta property="og:url" content="https://blog.erispyu.fun/posts/62098322/index.html">
+<meta property="og:site_name" content="Erispyu&#39;s Blog">
+<meta property="og:description" content="元数据   书名: 高性能MySQL（第4版） 作者: Silvia Botros   Jeremy Tinley 简介: 《高性能 MySQL》一直是 MySQL 领域的经典之作，影响了一代又一代的 DBA 和技术人员，从第3 版出版到第 4 版出版过去了近十年，MySQL 也从 5.5 版本更新到了 8.0 版本。第 4 版中增加了大量对 MySQL 5.7 和 8.0 版本新特性的介绍，删除">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.weread.qq.com/weread/cover/5/cpPlatform_tpeiJyaZriAkSeauDycVY8/t6_cpPlatform_tpeiJyaZriAkSeauDycVY8.jpg">
+<meta property="article:published_time" content="2025-04-10T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-02-19T16:00:00.000Z">
+<meta property="article:author" content="Erispyu">
+<meta property="article:tag" content="计算机-数据库">
+<meta property="article:tag" content="电子工业出版社">
+<meta property="article:tag" content="Silvia Botros">
+<meta property="article:tag" content="Jeremy Tinley">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.weread.qq.com/weread/cover/5/cpPlatform_tpeiJyaZriAkSeauDycVY8/t6_cpPlatform_tpeiJyaZriAkSeauDycVY8.jpg">
+
+
+<link rel="canonical" href="https://blog.erispyu.fun/posts/62098322/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://blog.erispyu.fun/posts/62098322/","path":"posts/62098322/","title":"高性能MySQL（第4版）"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>高性能MySQL（第4版） | Erispyu's Blog</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QCC01KVZ4X"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-QCC01KVZ4X","only_pageview":false,"measure_protocol_api_secret":null}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Erispyu's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-list fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-plugins"><a href="/hexo-stats-echarts/" rel="section"><i class="fa-solid fa-flask fa-fw"></i>Plugins</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="Searching..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fab fa-algolia fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%83%E6%95%B0%E6%8D%AE"><span class="nav-text">元数据</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%AB%98%E4%BA%AE%E5%88%92%E7%BA%BF"><span class="nav-text">高亮划线</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC1%E7%AB%A0-MySQL%E6%9E%B6%E6%9E%84"><span class="nav-text">第1章 MySQL架构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC7%E7%AB%A0-%E5%88%9B%E5%BB%BA%E9%AB%98%E6%80%A7%E8%83%BD%E7%9A%84%E7%B4%A2%E5%BC%95"><span class="nav-text">第7章 创建高性能的索引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC1%E7%AB%A0-MySQL%E6%9E%B6%E6%9E%84-1"><span class="nav-text">第1章 MySQL架构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%92%E7%BA%BF%E8%AF%84%E8%AE%BA"><span class="nav-text">划线评论</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Erispyu</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">184</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">295</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/erispyu" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;erispyu" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:erispyu@gmail.com" title="E-Mail → mailto:erispyu@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.douban.com/people/erispyu00/" title="Douban → https:&#x2F;&#x2F;www.douban.com&#x2F;people&#x2F;erispyu00&#x2F;" rel="noopener me" target="_blank"><i class="fa fa-film fa-fw"></i>Douban</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.travellings.cn/go.html" title="Travellings → https:&#x2F;&#x2F;www.travellings.cn&#x2F;go.html" rel="noopener me" target="_blank"><i class="fa-solid fa-train fa-fw"></i>Travellings</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    Related Posts
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/posts/53a09fb8/" rel="bookmark">
+        <time class="popular-posts-time">2022-09-09</time>
+        <br>
+      Environment Setup For Django@1.6.11 + Python@2.7 + MySQL@5.x
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/posts/436fa0b7/" rel="bookmark">
+        <time class="popular-posts-time">2024-02-20</time>
+        <br>
+      TheEconomist.2024.02.17 [Fri, 16 Feb 2024]
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/posts/c8d55d15/" rel="bookmark">
+        <time class="popular-posts-time">2024-12-19</time>
+        <br>
+      四旋翼飞行器设计与实现/清华开发者书库
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/posts/f036c43c/" rel="bookmark">
+        <time class="popular-posts-time">2023-11-16</time>
+        <br>
+      深入理解Kafka：核心设计与实践原理
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://blog.erispyu.fun/posts/62098322/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Erispyu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Erispyu's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="高性能MySQL（第4版） | Erispyu's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          高性能MySQL（第4版）
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2025-04-11 00:00:00" itemprop="dateCreated datePublished" datetime="2025-04-11T00:00:00+08:00">2025-04-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-02-20 00:00:00" itemprop="dateModified" datetime="2024-02-20T00:00:00+08:00">2024-02-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/BookNotes/" itemprop="url" rel="index"><span itemprop="name">BookNotes</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/BookNotes/%E8%AE%A1%E7%AE%97%E6%9C%BA/" itemprop="url" rel="index"><span itemprop="name">计算机</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/posts/62098322/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/62098322/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>5.3k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>5 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="元数据"><a href="#元数据" class="headerlink" title="元数据"></a>元数据</h1><blockquote>
+<p><img src="https://cdn.weread.qq.com/weread/cover/5/cpPlatform_tpeiJyaZriAkSeauDycVY8/t6_cpPlatform_tpeiJyaZriAkSeauDycVY8.jpg" alt=" 高性能MySQL（第4版）|200"></p>
+<ul>
+<li><strong>书名</strong>: 高性能MySQL（第4版）</li>
+<li><strong>作者</strong>: Silvia Botros   Jeremy Tinley</li>
+<li><strong>简介</strong>: 《高性能 MySQL》一直是 MySQL 领域的经典之作，影响了一代又一代的 DBA 和技术人员，从第3 版出版到第 4 版出版过去了近十年，MySQL 也从 5.5 版本更新到了 8.0 版本。第 4 版中增加了大量对 MySQL 5.7 和 8.0 版本新特性的介绍，删除了一些在新版本中已经废弃或者不再常用的功能，还增加了对云数据库的介绍，减少了在官方文档中已有的基础使用和配置相关的内容。这些年，MySQL 经过在大量大规模互联网场景中的应用验证，使得本书在继续关注高性能之外，还用了较多的篇幅来介绍如何实现 MySQL 的大规模可扩展应用和合规性问题，这是相比第 3 版最大的不同，也是本书封面上所写的“经过大规模运维验证的策略”的体现。本书适合数据库管理员（DBA）阅读，也适合系统运维和开发人员参考学习。不管你是数据库新手还是专家，相信都能从本书中有所收获。</li>
+<li><strong>出版时间</strong>: 2022-09-01</li>
+<li><strong>ISBN</strong>: 9787121442575</li>
+<li><strong>分类</strong>: 计算机-数据库</li>
+<li><strong>出版社</strong>: 电子工业出版社</li>
+<li><strong>字数</strong>: 245520</li>
+<li><strong>在线阅读</strong>: <a target="_blank" rel="noopener" href="https://weread.qq.com/web/reader/00a32b70813ab746fg018ec7">微信读书</a></li>
+<li><strong>划线数量</strong>: 38</li>
+<li><strong>想法数量</strong>: 1</li>
+</ul>
+</blockquote>
+<span id="more"></span>
+
+<h1 id="高亮划线"><a href="#高亮划线" class="headerlink" title="高亮划线"></a>高亮划线</h1><h2 id="第1章-MySQL架构"><a href="#第1章-MySQL架构" class="headerlink" title="第1章 MySQL架构"></a>第1章 MySQL架构</h2><blockquote>
+<p>📌 从MySQL 5.7.20版本开始，查询缓存已经被官方标注为被弃用的特性，并在8.0版本中被完全移除。<br>⏱ 2025-03-19 09:44:52 ^3300035678-11-2884-2935</p>
+</blockquote>
+<blockquote>
+<p>📌 并发控制这一经典问题的解决方案相当简单。处理并发读&#x2F;写访问的系统通常实现一个由两种锁类型组成的锁系统。这两种锁通常被称为共享锁(shared lock)和排他锁(exclusive lock)，也叫读锁(read lock)和写锁(write lock)。<br>⏱ 2025-03-19 09:46:27 ^3300035678-11-3958-4115</p>
+</blockquote>
+<blockquote>
+<p>📌 锁定策略是锁开销和数据安全性之间的平衡，这种平衡会影响性能。<br>⏱ 2025-03-19 09:47:44 ^3300035678-11-4823-4853</p>
+</blockquote>
+<blockquote>
+<p>📌 表锁(table lock)<br>⏱ 2025-03-19 10:38:59 ^3300035678-11-5242-5256</p>
+</blockquote>
+<blockquote>
+<p>📌 行级锁(row lock)<br>⏱ 2025-03-19 10:39:16 ^3300035678-11-5674-5687</p>
+</blockquote>
+<blockquote>
+<p>📌 行级锁是在存储引擎而不是服务器中实现的。<br>⏱ 2025-03-19 10:39:47 ^3300035678-11-5875-5895</p>
+</blockquote>
+<blockquote>
+<p>📌 事务就是一组SQL语句，作为一个工作单元以原子方式进行处理。如果数据库引擎能够成功地对数据库应用整组语句，那么就执行该组语句。如果其中有任何一条语句因为崩溃或其他原因无法执行，那么整组语句都不执行。也就是说，作为事务的一组语句，要么全部执行成功，要么全部执行失败。<br>⏱ 2025-03-19 10:40:05 ^3300035678-11-6236-6368</p>
+</blockquote>
+<blockquote>
+<p>📌 银行应用是解释事务必要性的经典例子。[插图]假设一个银行的数据库有两张表：支票表(checking)和储蓄表(savings)。现在要从用户Jane的支票账户转移200美元到她的储蓄账户，那么需要至少三个步骤：<br>   1.确保支票账户的余额高于200美元。<br>   2.从支票账户的余额中减去200美元。<br>   3.在储蓄账户的余额中增加200美元。<br>⏱ 2025-03-19 11:42:23 ^3300035678-11-6485</p>
+</blockquote>
+<blockquote>
+<p>📌 可以用START TRANSACTION语句启动事务，然后要么使用COMMIT提交事务将修改的数据持久保留，要么使用ROLLBACK撤销所有的修改。<br>⏱ 2025-03-19 10:46:51 ^3300035678-11-6941-7015</p>
+</blockquote>
+<blockquote>
+<p>📌 两阶段提交系统 ^3300035678-11-7494-7501</p>
+</blockquote>
+<ul>
+<li><p>💭 二阶段提交（英语：Two-phase Commit）是指在计算机网络以及数据库领域内，为了使基于分布式系统架构下的所有节点在进行事务提交时保持一致性而设计的一种算法。通常，二阶段提交也被称为是一种协议（Protocol）。</p>
+<p> 在分布式系统中，每个节点虽然可以知晓自己的操作时成功或者失败，却无法知道其他节点的操作的成功或失败。当一个事务跨越多个节点时，为了保持事务的ACID特性，需要引入一个作为协调者的组件来统一掌控所有节点（称作参与者）的操作结果并最终指示这些节点是否要把操作结果进行真正的提交（比如将更新后的数据写入磁盘等等）。因此，二阶段提交的算法思路可以概括为： 参与者将操作成败通知协调者，再由协调者根据所有参与者的反馈情报决定各参与者是否要提交操作还是中止操作。</p>
+<p> 需要注意的是，二阶段提交（英语：2PC）不应该与并发控制中的二阶段锁（英语：2PL）混淆。 - ⏱ 2025-03-19 11:19:32</p>
+</li>
+</ul>
+<blockquote>
+<p>📌 ACID代表原子性(atomicity)、一致性(consistency)、隔离性(isolation)和持久性(durability)。<br>⏱ 2025-03-19 11:10:15 ^3300035678-11-7577-7646</p>
+</blockquote>
+<blockquote>
+<p>📌 原子性(atomicity)<br>⏱ 2025-03-19 11:10:36 ^3300035678-11-7705-7719</p>
+</blockquote>
+<blockquote>
+<p>📌 一个事务必须被视为一个不可分割的工作单元，整个事务中的所有操作要么全部提交成功，要么全部失败回滚。对于一个事务来说，不可能只执行其中的一部分操作，这就是事务的原子性。<br>⏱ 2025-03-19 17:04:20 ^3300035678-11-7748-7831</p>
+</blockquote>
+<blockquote>
+<p>📌 一致性(consistency)<br>⏱ 2025-03-19 11:10:41 ^3300035678-11-7860-7876</p>
+</blockquote>
+<blockquote>
+<p>📌 数据库总是从一个一致性状态转换到下一个一致性状态。<br>⏱ 2025-03-19 17:04:13 ^3300035678-11-7905-7930</p>
+</blockquote>
+<blockquote>
+<p>📌 隔离性(isolation)<br>⏱ 2025-03-19 11:40:33 ^3300035678-11-8043-8057</p>
+</blockquote>
+<blockquote>
+<p>📌 通常来说，一个事务所做的修改在最终提交以前，对其他事务是不可见的，这就是隔离性带来的结果。<br>⏱ 2025-03-19 17:04:07 ^3300035678-11-8086-8131</p>
+</blockquote>
+<blockquote>
+<p>📌 持久性(durability)<br>⏱ 2025-03-19 11:40:57 ^3300035678-11-8283-8298</p>
+</blockquote>
+<blockquote>
+<p>📌 一旦提交，事务所做的修改就会被永久保存到数据库中。此时即使系统崩溃，数据也不会丢失。<br>⏱ 2025-03-19 17:04:31 ^3300035678-11-8327-8369</p>
+</blockquote>
+<blockquote>
+<p>📌 持久性是一个有点模糊的概念，实际上持久性也分很多不同的级别。有些持久性策略能够提供非常强的安全保障，而有些则未必。而且不可能有100%的持久性保障（如果数据库本身就能做到真正的持久性，那么备份又怎么能增加持久性呢？）。<br>   ACID事务和InnoDB引擎提供的保证是MySQL中最强大、最成熟的特性之一。虽然它们在吞吐量方面做了一定的权衡，但如果应用得当，就可以避免在应用层实现大量复杂逻辑。<br>   隔离级别<br>   隔离性在实际操作中比看起来复杂得多。ANSI SQL标准定义了4种隔离级别。如果你是数据库领域的新手，我们强烈建议你在阅读特定的MySQL实现之前先熟悉ANSI SQL[插图]的通用标准。这个通用标准的目标是定义在事务内外可见和不可见的更改的规则。较低的隔离级别通常允许更高的并发性，并且开销也更低。<br>   [插图]每种存储引擎实现的隔离级别都不尽相同。如果你熟悉其他的数据库产品，可能会发现某些特性和你期望的会有些不一样（因此本节不打算讨论更详细的内容）。读者可以根据所选择的存储引擎，查阅相关的手册。<br>   下面简单地介绍一下这4种隔离级别。<br>   READ UNCOMMITTED（未提交读）<br>⏱ 2025-03-19 11:42:37 ^3300035678-11-8369</p>
+</blockquote>
+<blockquote>
+<p>📌 READ UNCOMMITTED（未提交读）<br>⏱ 2025-03-19 11:42:07 ^3300035678-11-9337-9359</p>
+</blockquote>
+<blockquote>
+<p>📌 READ COMMITTED（提交读）<br>⏱ 2025-03-19 11:42:59 ^3300035678-11-9600-9619</p>
+</blockquote>
+<blockquote>
+<p>📌 READ COMMITTED满足前面提到的隔离性的简单定义：一个事务可以看到其他事务在它开始之后提交的修改，但在该事务提交之前，其所做的任何修改对其他事务都是不可见的。<br>⏱ 2025-03-19 11:43:52 ^3300035678-11-9689-9773</p>
+</blockquote>
+<blockquote>
+<p>📌 REPEATABLE READ（可重复读）<br>⏱ 2025-03-19 11:43:03 ^3300035678-11-9867-9888</p>
+</blockquote>
+<blockquote>
+<p>📌 保证了在同一个事务中多次读取相同行数据的结果是一样的。<br>⏱ 2025-03-19 12:09:54 ^3300035678-11-10080-10107</p>
+</blockquote>
+<blockquote>
+<p>📌 幻读(phantom read)<br>⏱ 2025-03-19 12:10:00 ^3300035678-11-10131-10147</p>
+</blockquote>
+<blockquote>
+<p>📌 所谓幻读，指的是当某个事务在读取某个范围内的记录时，另外一个事务又在该范围内插入了新的记录，当之前的事务再次读取该范围的记录时，会产生幻行(phantom row)。<br>⏱ 2025-03-19 12:10:12 ^3300035678-11-10151-10234</p>
+</blockquote>
+<blockquote>
+<p>📌 多版本并发控制(MVCC，Multiversion Concurrency Control)<br>⏱ 2025-03-19 12:10:22 ^3300035678-11-10253-10299</p>
+</blockquote>
+<blockquote>
+<p>📌 SERIALIZABLE（可串行化）<br>⏱ 2025-03-19 11:43:06 ^3300035678-11-10411-10429</p>
+</blockquote>
+<blockquote>
+<p>📌 简单来说，SERIALIZABLE会在读取的每一行数据上都加锁，所以可能导致大量的超时和锁争用的问题。<br>⏱ 2025-03-19 14:26:33 ^3300035678-11-10522-10573</p>
+</blockquote>
+<blockquote>
+<p>📌 死锁是指两个或多个事务相互持有和请求相同资源上的锁，产生了循环依赖。<br>⏱ 2025-03-19 16:51:54 ^3300035678-11-11024-11058</p>
+</blockquote>
+<blockquote>
+<p>📌 InnoDB目前处理死锁的方式是将持有最少行级排他锁的事务回滚（这是一种最容易回滚的近似算法）。<br>⏱ 2025-03-19 14:30:43 ^3300035678-11-11964-12012</p>
+</blockquote>
+<h2 id="第7章-创建高性能的索引"><a href="#第7章-创建高性能的索引" class="headerlink" title="第7章 创建高性能的索引"></a>第7章 创建高性能的索引</h2><blockquote>
+<p>📌 当表有聚簇索引时，它的数据行实际上存放在索引的叶子页(leaf page)中。<br>⏱ 2024-02-20 19:08:08 ^3300035678-17-18958-18997</p>
+</blockquote>
+<blockquote>
+<p>📌 InnoDB根据主键聚簇数据。<br>⏱ 2024-02-20 19:08:56 ^3300035678-17-19714-19729</p>
+</blockquote>
+<blockquote>
+<p>📌 如果一个索引包含（或者说覆盖）所有需要查询的字段的值，我们就称之为覆盖索引。需要注意的是，只有B-tree索引可以用于覆盖索引。<br>⏱ 2024-02-20 19:07:41 ^3300035678-17-27036-27100</p>
+</blockquote>
+<blockquote>
+<p>📌 B-tree索引可能会产生碎片化，这会降低查询的效率。碎片化的索引可能会以很差或者无序的方式存储在磁盘上。<br>⏱ 2025-04-11 17:54:54 ^3300035678-17-41755-41808</p>
+</blockquote>
+<blockquote>
+<p>📌 行碎片(Row fragmentation)<br>⏱ 2025-04-11 17:55:00 ^3300035678-17-42071-42121</p>
+</blockquote>
+<blockquote>
+<p>📌 行间碎片(Intra-row fragmentation)<br>⏱ 2025-04-11 17:55:05 ^3300035678-17-42232-42318</p>
+</blockquote>
+<blockquote>
+<p>📌 剩余空间碎片(Free space fragmentation)<br>⏱ 2025-04-11 17:55:12 ^3300035678-17-42431-42520</p>
+</blockquote>
+<blockquote>
+<p>📌 可以通过执行OPTIMIZE TABLE或者导出再导入的方式来重新整理数据。<br>⏱ 2025-04-11 17:54:35 ^3300035678-17-42595-42633</p>
+</blockquote>
+<h2 id="第1章-MySQL架构-1"><a href="#第1章-MySQL架构-1" class="headerlink" title="第1章 MySQL架构"></a>第1章 MySQL架构</h2><h3 id="划线评论"><a href="#划线评论" class="headerlink" title="划线评论"></a>划线评论</h3><blockquote>
+<p>📌 两阶段提交系统<br>💭 二阶段提交（英语：Two-phase Commit）是指在计算机网络以及数据库领域内，为了使基于分布式系统架构下的所有节点在进行事务提交时保持一致性而设计的一种算法。通常，二阶段提交也被称为是一种协议（Protocol）。</p>
+<p>在分布式系统中，每个节点虽然可以知晓自己的操作时成功或者失败，却无法知道其他节点的操作的成功或失败。当一个事务跨越多个节点时，为了保持事务的ACID特性，需要引入一个作为协调者的组件来统一掌控所有节点（称作参与者）的操作结果并最终指示这些节点是否要把操作结果进行真正的提交（比如将更新后的数据写入磁盘等等）。因此，二阶段提交的算法思路可以概括为： 参与者将操作成败通知协调者，再由协调者根据所有参与者的反馈情报决定各参与者是否要提交操作还是中止操作。</p>
+<p>需要注意的是，二阶段提交（英语：2PC）不应该与并发控制中的二阶段锁（英语：2PL）混淆。<br>⏱ 2025-03-19 11:03:30 ^19836794-7YL6KuvXF</p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Written by:  </strong>Silvia Botros   Jeremy Tinley
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://blog.erispyu.fun/posts/62098322/" title="高性能MySQL（第4版）">https://blog.erispyu.fun/posts/62098322/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA-%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag"><i class="fa fa-tag"></i> 计算机-数据库</a>
+              <a href="/tags/%E7%94%B5%E5%AD%90%E5%B7%A5%E4%B8%9A%E5%87%BA%E7%89%88%E7%A4%BE/" rel="tag"><i class="fa fa-tag"></i> 电子工业出版社</a>
+              <a href="/tags/Silvia-Botros/" rel="tag"><i class="fa fa-tag"></i> Silvia Botros</a>
+              <a href="/tags/Jeremy-Tinley/" rel="tag"><i class="fa fa-tag"></i> Jeremy Tinley</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/e2615070/" rel="prev" title="Kafka权威指南（第2版）">
+                  <i class="fa fa-angle-left"></i> Kafka权威指南（第2版）
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/2332917f/" rel="next" title="呐喊">
+                  呐喊 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Erispyu</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="Word count total">524k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">7:57</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div><script color="220，220，220" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/algoliasearch/4.24.0/algoliasearch-lite.umd.js" integrity="sha256-b2n6oSgG4C1stMT/yc/ChGszs9EY/Mhs6oltEjQbFCQ=" crossorigin="anonymous"></script><script src="/js/third-party/search/algolia-search.js"></script>
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"erispyu-blog","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

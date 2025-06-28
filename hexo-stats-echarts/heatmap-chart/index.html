@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><!-- hexo injector head_begin start --><script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script><!-- hexo injector head_begin end -->
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.erispyu.fun","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":"default"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"algolia":{"appID":"2BILQUWIOA","apiKey":"f5aabb895c10440c28e6c77090f511eb","indexName":"github_page_erispyu","hits":{"per_page":10}}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Heatmap Chart PluginThe heatmapchart tag plugin allows you to display the number of articles on your site in a visually appealing calendar view. It creates interactive and customizable heatmaps to sho">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Heatmap Chart">
+<meta property="og:url" content="https://blog.erispyu.fun/hexo-stats-echarts/heatmap-chart/index.html">
+<meta property="og:site_name" content="Erispyu&#39;s Blog">
+<meta property="og:description" content="Heatmap Chart PluginThe heatmapchart tag plugin allows you to display the number of articles on your site in a visually appealing calendar view. It creates interactive and customizable heatmaps to sho">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-01-07T16:54:08.000Z">
+<meta property="article:modified_time" content="2025-06-28T09:34:51.908Z">
+<meta property="article:author" content="Erispyu">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://blog.erispyu.fun/hexo-stats-echarts/heatmap-chart/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"en","comments":true,"permalink":"https://blog.erispyu.fun/hexo-stats-echarts/heatmap-chart/index.html","path":"hexo-stats-echarts/heatmap-chart/index.html","title":"Heatmap Chart"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Heatmap Chart | Erispyu's Blog
+</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QCC01KVZ4X"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-QCC01KVZ4X","only_pageview":false,"measure_protocol_api_secret":null}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Erispyu's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-list fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-plugins"><a href="/hexo-stats-echarts/" rel="section"><i class="fa-solid fa-flask fa-fw"></i>Plugins</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="Searching..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fab fa-algolia fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Heatmap-Chart-Plugin"><span class="nav-text">Heatmap Chart Plugin</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-text">Quick Start</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Features"><span class="nav-text">Features</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Navigation-Through-Years"><span class="nav-text">Navigation Through Years</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Jump-to-Archive"><span class="nav-text">Jump to Archive</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Automatic-Dark-Light-Mode-Switching"><span class="nav-text">Automatic Dark&#x2F;Light Mode Switching</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Usage-and-Configuration"><span class="nav-text">Usage and Configuration</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Argument-Rules"><span class="nav-text">Argument Rules</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#args-0-Color-Theme"><span class="nav-text">args[0]: Color Theme</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#args-1-Initial-Year"><span class="nav-text">args[1]: Initial Year</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#args-2-Footer-Visibility"><span class="nav-text">args[2]: Footer Visibility</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Examples"><span class="nav-text">Examples</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Forest-Theme-Specific-Year-Hidden-Footer"><span class="nav-text">Forest Theme, Specific Year, Hidden Footer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sunset-Theme-Latest-Year-Hidden-Footer"><span class="nav-text">Sunset Theme, Latest Year, Hidden Footer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Charcoal-Theme-Invalid-Initial-Year"><span class="nav-text">Charcoal Theme, Invalid Initial Year</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Undefined-Theme-Random-Theme-by-Default"><span class="nav-text">Undefined Theme, Random Theme by Default</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Feedback"><span class="nav-text">Feedback</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Erispyu</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">184</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">295</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/erispyu" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;erispyu" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:erispyu@gmail.com" title="E-Mail → mailto:erispyu@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.douban.com/people/erispyu00/" title="Douban → https:&#x2F;&#x2F;www.douban.com&#x2F;people&#x2F;erispyu00&#x2F;" rel="noopener me" target="_blank"><i class="fa fa-film fa-fw"></i>Douban</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.travellings.cn/go.html" title="Travellings → https:&#x2F;&#x2F;www.travellings.cn&#x2F;go.html" rel="noopener me" target="_blank"><i class="fa-solid fa-train fa-fw"></i>Travellings</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner page posts-expand">
+    <ul class="sub-menu menu">
+      
+  <li class="menu-item menu-item-heatmap-chart"><a href="/hexo-stats-echarts/heatmap-chart/" rel="section"><i class="fa-solid fa-braille fa-fw"></i>Heatmap Chart</a></li>
+
+
+      
+  <li class="menu-item menu-item-pie-chart"><a href="/hexo-stats-echarts/pie-chart/" rel="section"><i class="fa fa-chart-pie fa-fw"></i>Pie Chart</a></li>
+
+
+      
+  <li class="menu-item menu-item-radar-chart"><a href="/hexo-stats-echarts/radar-chart/" rel="section"><i class="fa-solid fa-hexagon-nodes fa-fw"></i>Radar Chart</a></li>
+
+
+    </ul>
+
+
+    
+    
+    
+    <div class="post-block" lang="en"><header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">Heatmap Chart
+</h1>
+
+<div class="post-meta-container">
+  <ul class="breadcrumb">
+            <li><a href="/hexo-stats-echarts/">PLUGINS</a></li>
+          <li>HEATMAP CHART</li>
+  </ul>
+</div>
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+          <h1 id="Heatmap-Chart-Plugin"><a href="#Heatmap-Chart-Plugin" class="headerlink" title="Heatmap Chart Plugin"></a>Heatmap Chart Plugin</h1><p>The <code>heatmapchart</code> tag plugin allows you to display the number of articles on your site in a visually appealing calendar view. It creates interactive and customizable heatmaps to showcase your site’s activity over time.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><p>To quickly get started with the <code>heatmapchart</code> plugin, follow these steps:</p>
+<ol>
+<li><p><strong>Add the Tag to Your Markdown</strong><br>Use the <code>heatmapchart</code> tag in your Markdown file to generate a heatmap. Insert the following code snippet into <strong>any</strong> Hexo post or page:</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% heatmapchart %&#125;&#123;% endheatmapchart %&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>Customize the Heatmap</strong><br>You can customize the heatmap by adding arguments to the tag.</p>
+<p>Argument Format:</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% heatmapchart [color theme] [initial year] [footer display] %&#125;Optional Title&#123;% endheatmapchart %&#125;</span><br></pre></td></tr></table></figure>
+
+<p>For example:</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% heatmapchart forest 2024 no-footer %&#125;Blog Heatmap&#123;% endheatmapchart %&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>View the Heatmap</strong><br>Start your Hexo server and navigate to the page where you added the tag. You should see the heatmap displayed.</p>
+<p>Sample Output:</p>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const heatmapChartDom = document.getElementById('heatmapChart-1');
+                if (heatmapChartDom) {
+                    const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    const backgroundColor = isDarkMode ? '#333' : '#F5F5F5';
+                    let heatmapChart = echarts.init(heatmapChartDom, isDarkMode ? 'dark' : 'light');
+                    const cellSize = [16, 16];
+
+                    const groupedData = {"2017":[["2017-01-21",1]],"2022":[["2022-09-09",1]],"2023":[["2023-12-01",4],["2023-12-10",1],["2023-10-26",2],["2023-12-15",1],["2023-10-27",1],["2023-11-30",1],["2023-11-29",1],["2023-11-13",1],["2023-11-07",1],["2023-12-27",1],["2023-12-03",2],["2023-11-26",1],["2023-12-02",2],["2023-12-19",1],["2023-12-29",1],["2023-12-17",2],["2023-11-06",1],["2023-08-01",1],["2023-12-04",1],["2023-10-28",1],["2023-12-11",1],["2023-12-28",1],["2023-11-23",2],["2023-11-16",1]],"2024":[["2024-11-28",2],["2024-12-27",2],["2024-02-25",1],["2024-03-22",2],["2024-09-06",1],["2024-01-17",3],["2024-01-08",2],["2024-07-31",1],["2024-12-26",6],["2024-07-16",1],["2024-01-25",1],["2024-05-06",1],["2024-01-09",1],["2024-01-03",1],["2024-08-04",1],["2024-12-25",1],["2024-12-20",3],["2024-12-30",4],["2024-06-01",1],["2024-10-07",1],["2024-11-26",1],["2024-01-11",1],["2024-08-06",1],["2024-01-10",4],["2024-11-30",1],["2024-12-17",2],["2024-09-11",1],["2024-03-02",2],["2024-04-11",1],["2024-02-02",2],["2024-01-29",1],["2024-01-28",1],["2024-03-14",2],["2024-01-27",2],["2024-12-16",1],["2024-08-02",1],["2024-12-15",1],["2024-07-29",1],["2024-08-27",1],["2024-05-08",1],["2024-03-12",1],["2024-11-24",1],["2024-12-24",1],["2024-01-04",1],["2024-12-04",1],["2024-11-29",1],["2024-02-20",1],["2024-12-06",1],["2024-12-19",1],["2024-09-10",1],["2024-12-22",1],["2024-11-23",1],["2024-05-05",1],["2024-01-13",1],["2024-12-18",2],["2024-11-21",1],["2024-12-12",1],["2024-03-05",1]],"2025":[["2025-06-19",1],["2025-01-09",2],["2025-05-30",2],["2025-01-08",4],["2025-01-04",1],["2025-01-01",6],["2025-01-03",6],["2025-01-16",1],["2025-05-26",1],["2025-06-27",1],["2025-03-12",4],["2025-03-11",1],["2025-01-06",3],["2025-01-17",1],["2025-04-22",1],["2025-02-12",1],["2025-03-03",1],["2025-04-17",1],["2025-03-25",3],["2025-04-18",2],["2025-04-12",1],["2025-02-17",1],["2025-02-14",1],["2025-01-02",1],["2025-04-14",1],["2025-01-05",1],["2025-02-20",2],["2025-01-21",1],["2025-05-02",1],["2025-03-18",1],["2025-02-01",1],["2025-03-06",2],["2025-03-07",1],["2025-03-10",1],["2025-06-09",1],["2025-05-13",2],["2025-06-20",1],["2025-04-01",1],["2025-04-03",1],["2025-05-11",1],["2025-03-30",1],["2025-04-11",1]]};
+                    const years = Object.keys(groupedData).reverse();
+                    const initYear = '2025' || years[0];
+
+                    // Define color themes
+                    const themes = {
+                        oceanic: ['#A6D8E8', '#6FB3D2', '#4A90BF', '#2E6A8E', '#1A4461'],
+                        forest: ['#ACE7AE', '#8FD694', '#69C16D', '#549F57', '#3A7D3E'],
+                        sunset: ['#FFD1A6', '#FFA07A', '#FF6F52', '#D94A3D', '#A62B2B'],
+                        earthy: ['#E3C8A8', '#C4A076', '#A57C52', '#7A5A3A', '#4E3A28'],
+                        pastel: ['#F5D5E6', '#E8B8D0', '#D18FB8', '#A86A8E', '#7A4A61'],
+                        golden: ['#FFEBB5', '#FFD966', '#FFB74D', '#D18F4A', '#A66B2B'],
+                        berry: ['#F4C2D7', '#E88BB3', '#D94A7A', '#A62B5C', '#7A1F3D'],
+                        charcoal: ['#E0E0E0', '#9E9E9E', '#616161', '#424242', '#212121'],
+                    };
+
+                    // Function to get a random theme
+                    function getRandomTheme() {
+                        const themeKeys = Object.keys(themes);
+                        const randomKey = themeKeys[Math.floor(Math.random() * themeKeys.length)];
+                        return themes[randomKey];
+                    }
+
+                    // Use the specified theme or default to 'random'
+                    const colors = themes['random'.toLowerCase()] || getRandomTheme();
+
+                    const chartOptions = {
+                        backgroundColor: backgroundColor,
+                        tooltip: {
+                            position: 'top',
+                            confine: true,
+                            formatter: params => `${params.value[0]}: ${params.value[1]} Article${params.value[1] !== 1 ? 's' : ''}`,
+                        },
+                        calendar: {
+                            top: '13%',
+                            left: '2%',
+                            right: '8%',
+                            range: initYear,
+                            cellSize: cellSize,
+                            splitLine: { lineStyle: { color: '#E0E0E0', width: 1 } },
+                            itemStyle: { borderWidth: 1, borderColor: '#E0E0E0', color: backgroundColor },
+                            dayLabel: { show: false },
+                            monthLabel: { show: true },
+                            yearLabel: { show: false },
+                        },
+                        visualMap: {
+                            show: true,
+                            right: '8%',
+                            bottom: '5%',
+                            type: 'piecewise',
+                            orient: 'horizontal',
+                            text: ['More', 'Less'],
+                            min: 0,
+                            max: Math.max(...groupedData[initYear].map(item => item[1])),
+                            inRange: { color: colors },
+                        },
+                        legend: {
+                            type: 'scroll',
+                            icon: 'none',
+                            data: years,
+                            orient: 'vertical',
+                            top: '5%',
+                            right: 'right',
+                            itemWidth: 20,
+                            itemHeight: 20,
+                            itemGap: 10,
+                            pageIconSize: 10,
+                            pageTextStyle: { fontSize: 14 },
+                            selectedMode: 'single',
+                        },
+                        series: years.map(year => ({
+                            type: 'heatmap',
+                            coordinateSystem: 'calendar',
+                            data: groupedData[year],
+                            name: year,
+                            emphasis: { disabled: true },
+                            silent: year !== initYear,
+                        })),
+                    };
+
+                    heatmapChart.setOption(chartOptions);
+
+                    heatmapChart.dispatchAction({
+                        type: 'legendSelect',
+                        name: initYear,
+                    });
+
+                    // Function to handle legend selection changes
+                    const handleLegendSelectChanged = function(params) {
+                        const selectedYear = Object.keys(params.selected).find(key => params.selected[key]);
+                        if (selectedYear && groupedData[selectedYear]) {
+                            heatmapChart.setOption({
+                                calendar: { range: selectedYear },
+                                visualMap: {
+                                    max: Math.max(...groupedData[selectedYear].map(item => item[1])),
+                                },
+                                series: years.map(year => ({
+                                    type: 'heatmap',
+                                    coordinateSystem: 'calendar',
+                                    data: groupedData[year],
+                                    name: year,
+                                    emphasis: { disabled: true },
+                                    silent: year !== selectedYear,
+                                })),
+                            });
+                        }
+                    };
+                    
+                    const handleClick = function(params) {
+                        if (params.componentType === 'series') {
+                            const [year, month] = params.value[0].split('-');
+                            window.location.href = '/archives/' + year + '/' + month;
+                        }
+                    };
+
+                    heatmapChart.on('legendselectchanged', handleLegendSelectChanged);
+                    heatmapChart.on('click', handleClick);
+
+                    // Listen for theme changes
+                    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (event) => {
+                        heatmapChart.dispose();
+                        heatmapChart = echarts.init(heatmapChartDom, event.matches ? 'dark' : 'light');
+                        const newBackgroundColor = event.matches ? '#333' : '#F5F5F5';
+                        chartOptions.backgroundColor = newBackgroundColor;
+                        chartOptions.calendar.itemStyle.color = newBackgroundColor;
+                        heatmapChart.setOption(chartOptions);
+                        
+                        // Re-select the initial year
+                        heatmapChart.dispatchAction({
+                            type: 'legendSelect',
+                            name: initYear,
+                        });
+
+                        // Reattach the event listeners
+                        heatmapChart.on('legendselectchanged', handleLegendSelectChanged);
+                        heatmapChart.on('click', handleClick);
+                    });
+                }
+            });
+        </script>
+        <div style="width: 100%">
+            <!-- Title -->
+            
+            <!-- Heatmap Chart -->
+            <div id="heatmapChart-1" style="width: 100%; height: 200px; overflow-x: auto; overflow-y: hidden;"></div>
+            <!-- Footer -->
+            
+        <div style="text-align: center; font-size: 12px; color: #666; margin-top: 10px; margin-bottom: 20px;">
+            Powered by <a href="https://github.com/erispyu/hexo-stats-echarts" style="color: inherit; text-decoration: none;" target="_blank">hexo-stats-echarts</a>
+        </div>
+    
+        </div>
+    </li>
+</ol>
+<p>For more advanced configurations and examples, refer to the sections below.</p>
+<h2 id="Features"><a href="#Features" class="headerlink" title="Features"></a>Features</h2><h3 id="Navigation-Through-Years"><a href="#Navigation-Through-Years" class="headerlink" title="Navigation Through Years"></a><strong>Navigation Through Years</strong></h3><ul>
+<li>Click on the year labels on the right to switch between years and view the heatmap for a specific year.</li>
+</ul>
+<h3 id="Jump-to-Archive"><a href="#Jump-to-Archive" class="headerlink" title="Jump to Archive"></a><strong>Jump to Archive</strong></h3><ul>
+<li>Click on any calendar cell to navigate to Hexo’s archive page for that specific month.</li>
+</ul>
+<h3 id="Automatic-Dark-Light-Mode-Switching"><a href="#Automatic-Dark-Light-Mode-Switching" class="headerlink" title="Automatic Dark&#x2F;Light Mode Switching"></a><strong>Automatic Dark&#x2F;Light Mode Switching</strong></h3><ul>
+<li>The heatmap automatically adapts to the user’s system or browser preference for dark or light mode.</li>
+<li>The background color will adjust dynamically based on the user’s preference.</li>
+</ul>
+<h2 id="Usage-and-Configuration"><a href="#Usage-and-Configuration" class="headerlink" title="Usage and Configuration"></a>Usage and Configuration</h2><h3 id="Argument-Rules"><a href="#Argument-Rules" class="headerlink" title="Argument Rules"></a>Argument Rules</h3><ol>
+<li><p>Order Matters: Arguments must be passed in the following order: <code>[color theme]</code>, <code>[initial year]</code>, <code>[footer display]</code>.</p>
+</li>
+<li><p>Required Precedence: If you want to use a later argument, all preceding arguments must be provided. For example:</p>
+<ul>
+<li>To use <code>[initial year]</code>, you must provide <code>[color theme]</code>.</li>
+<li>To use <code>[footer display]</code>, you must provide <code>[color theme]</code> and <code>[initial year]</code>.</li>
+</ul>
+</li>
+</ol>
+<h3 id="args-0-Color-Theme"><a href="#args-0-Color-Theme" class="headerlink" title="args[0]: Color Theme"></a><code>args[0]</code>: Color Theme</h3><p>Specifies the color theme for the heatmap. Below is a list of available themes along with their corresponding hex color codes:</p>
+<table>
+<thead>
+<tr>
+<th>Theme</th>
+<th>Color Palette</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>oceanic</code></td>
+<td><code>[&quot;#A6D8E8&quot;, &quot;#6FB3D2&quot;, &quot;#4A90BF&quot;, &quot;#2E6A8E&quot;, &quot;#1A4461&quot;]</code></td>
+<td><span style="display: inline-block; width: 20px; height: 20px; background: #A6D8E8;"></span> <span style="display: inline-block; width: 20px; height: 20px; background: #6FB3D2;"></span> <span style="display: inline-block; width: 20px; height: 20px; background: #4A90BF;"></span> <span style="display: inline-block; width: 20px; height: 20px; background: #2E6A8E;"></span> <span style="display: inline-block; width: 20px; height: 20px; background: #1A4461;"></span></td>
+</tr>
+<tr>
+<td><code>forest</code></td>
+<td><code>[&quot;#ACE7AE&quot;, &quot;#8FD694&quot;, &quot;#69C16D&quot;, &quot;#549F57&quot;, &quot;#3A7D3E&quot;]</code></td>
+<td><span style="display: inline-block; width: 20px; height: 20px; background: #ACE7AE;"></span> <span style="display: inline-block; width: 20px; height: 20px; background: #8FD694;"></span> <span style="display: inline-block; width: 20px; height: 20px; background: #69C16D;"></span> <span style="display: inline-block; width: 20px; height: 20px; background: #549F57;"></span> <span style="display: inline-block; width: 20px; height: 20px; background: #3A7D3E;"></span></td>
+</tr>
+<tr>
+<td><code>sunset</code></td>
+<td><code>[&quot;#FFD1A6&quot;, &quot;#FFA07A&quot;, &quot;#FF6F52&quot;, &quot;#D94A3D&quot;, &quot;#A62B2B&quot;]</code></td>
+<td><span style="display: inline-block; width: 20px; height: 20px; background: #FFD1A6;"></span> <span style="display: inline-block; width: 20px; height: 20px; background: #FFA07A;"></span> <span style="display: inline-block; width: 20px; height: 20px; background: #FF6F52;"></span> <span style="display: inline-block; width: 20px; height: 20px; background: #D94A3D;"></span> <span style="display: inline-block; width: 20px; height: 20px; background: #A62B2B;"></span></td>
+</tr>
+<tr>
+<td><code>earthy</code></td>
+<td><code>[&quot;#E3C8A8&quot;, &quot;#C4A076&quot;, &quot;#A57C52&quot;, &quot;#7A5A3A&quot;, &quot;#4E3A28&quot;]</code></td>
+<td><span style="display: inline-block; width: 20px; height: 20px; background: #E3C8A8;"></span> <span style="display: inline-block; width: 20px; height: 20px; background: #C4A076;"></span> <span style="display: inline-block; width: 20px; height: 20px; background: #A57C52;"></span> <span style="display: inline-block; width: 20px; height: 20px; background: #7A5A3A;"></span> <span style="display: inline-block; width: 20px; height: 20px; background: #4E3A28;"></span></td>
+</tr>
+<tr>
+<td><code>pastel</code></td>
+<td><code>[&quot;#F5D5E6&quot;, &quot;#E8B8D0&quot;, &quot;#D18FB8&quot;, &quot;#A86A8E&quot;, &quot;#7A4A61&quot;]</code></td>
+<td><span style="display: inline-block; width: 20px; height: 20px; background: #F5D5E6;"></span> <span style="display: inline-block; width: 20px; height: 20px; background: #E8B8D0;"></span> <span style="display: inline-block; width: 20px; height: 20px; background: #D18FB8;"></span> <span style="display: inline-block; width: 20px; height: 20px; background: #A86A8E;"></span> <span style="display: inline-block; width: 20px; height: 20px; background: #7A4A61;"></span></td>
+</tr>
+<tr>
+<td><code>golden</code></td>
+<td><code>[&quot;#FFEBB5&quot;, &quot;#FFD966&quot;, &quot;#FFB74D&quot;, &quot;#D18F4A&quot;, &quot;#A66B2B&quot;]</code></td>
+<td><span style="display: inline-block; width: 20px; height: 20px; background: #FFEBB5;"></span> <span style="display: inline-block; width: 20px; height: 20px; background: #FFD966;"></span> <span style="display: inline-block; width: 20px; height: 20px; background: #FFB74D;"></span> <span style="display: inline-block; width: 20px; height: 20px; background: #D18F4A;"></span> <span style="display: inline-block; width: 20px; height: 20px; background: #A66B2B;"></span></td>
+</tr>
+<tr>
+<td><code>berry</code></td>
+<td><code>[&quot;#F4C2D7&quot;, &quot;#E88BB3&quot;, &quot;#D94A7A&quot;, &quot;#A62B5C&quot;, &quot;#7A1F3D&quot;]</code></td>
+<td><span style="display: inline-block; width: 20px; height: 20px; background: #F4C2D7;"></span> <span style="display: inline-block; width: 20px; height: 20px; background: #E88BB3;"></span> <span style="display: inline-block; width: 20px; height: 20px; background: #D94A7A;"></span> <span style="display: inline-block; width: 20px; height: 20px; background: #A62B5C;"></span> <span style="display: inline-block; width: 20px; height: 20px; background: #7A1F3D;"></span></td>
+</tr>
+<tr>
+<td><code>charcoal</code></td>
+<td><code>[&quot;#E0E0E0&quot;, &quot;#9E9E9E&quot;, &quot;#616161&quot;, &quot;#424242&quot;, &quot;#212121&quot;]</code></td>
+<td><span style="display: inline-block; width: 20px; height: 20px; background: #E0E0E0;"></span> <span style="display: inline-block; width: 20px; height: 20px; background: #9E9E9E;"></span> <span style="display: inline-block; width: 20px; height: 20px; background: #616161;"></span> <span style="display: inline-block; width: 20px; height: 20px; background: #424242;"></span> <span style="display: inline-block; width: 20px; height: 20px; background: #212121;"></span></td>
+</tr>
+</tbody></table>
+<ul>
+<li><strong>Default</strong>: If no theme or undefined theme is specified, a <strong>random theme</strong> will be applied.</li>
+<li><strong>Custom Theme</strong>: You can specify any of the available themes (e.g., <code>oceanic</code>, <code>forest</code>, <code>sunset</code>, etc.).</li>
+</ul>
+<h3 id="args-1-Initial-Year"><a href="#args-1-Initial-Year" class="headerlink" title="args[1]: Initial Year"></a><code>args[1]</code>: Initial Year</h3><p>Specifies the initial year to display in the heatmap.</p>
+<ul>
+<li>If the provided year is not in the data range or is unspecified, the latest year in the data will be used.</li>
+</ul>
+<h3 id="args-2-Footer-Visibility"><a href="#args-2-Footer-Visibility" class="headerlink" title="args[2]: Footer Visibility"></a><code>args[2]</code>: Footer Visibility</h3><p>Controls the visibility of the footer.</p>
+<ul>
+<li><strong>Default</strong>: Footer is <strong>visible</strong>.</li>
+<li>To hide the footer, set this argument to <code>&#39;no-footer&#39;</code>.</li>
+</ul>
+<h2 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h2><p>Below are examples demonstrating how to use the <code>heatmap</code> tag with different configurations.</p>
+<h3 id="Forest-Theme-Specific-Year-Hidden-Footer"><a href="#Forest-Theme-Specific-Year-Hidden-Footer" class="headerlink" title="Forest Theme, Specific Year, Hidden Footer"></a>Forest Theme, Specific Year, Hidden Footer</h3><p>Uses the <code>forest</code> theme, hides the footer, and sets the initial year to 2024.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% heatmapchart forest 2024 no-footer %&#125;Blog Heatmap&#123;% endheatmapchart %&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Output:</strong>  </p>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const heatmapChartDom = document.getElementById('heatmapChart-2');
+                if (heatmapChartDom) {
+                    const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    const backgroundColor = isDarkMode ? '#333' : '#F5F5F5';
+                    let heatmapChart = echarts.init(heatmapChartDom, isDarkMode ? 'dark' : 'light');
+                    const cellSize = [16, 16];
+
+                    const groupedData = {"2017":[["2017-01-21",1]],"2022":[["2022-09-09",1]],"2023":[["2023-12-01",4],["2023-12-10",1],["2023-10-26",2],["2023-12-15",1],["2023-10-27",1],["2023-11-30",1],["2023-11-29",1],["2023-11-13",1],["2023-11-07",1],["2023-12-27",1],["2023-12-03",2],["2023-11-26",1],["2023-12-02",2],["2023-12-19",1],["2023-12-29",1],["2023-12-17",2],["2023-11-06",1],["2023-08-01",1],["2023-12-04",1],["2023-10-28",1],["2023-12-11",1],["2023-12-28",1],["2023-11-23",2],["2023-11-16",1]],"2024":[["2024-11-28",2],["2024-12-27",2],["2024-02-25",1],["2024-03-22",2],["2024-09-06",1],["2024-01-17",3],["2024-01-08",2],["2024-07-31",1],["2024-12-26",6],["2024-07-16",1],["2024-01-25",1],["2024-05-06",1],["2024-01-09",1],["2024-01-03",1],["2024-08-04",1],["2024-12-25",1],["2024-12-20",3],["2024-12-30",4],["2024-06-01",1],["2024-10-07",1],["2024-11-26",1],["2024-01-11",1],["2024-08-06",1],["2024-01-10",4],["2024-11-30",1],["2024-12-17",2],["2024-09-11",1],["2024-03-02",2],["2024-04-11",1],["2024-02-02",2],["2024-01-29",1],["2024-01-28",1],["2024-03-14",2],["2024-01-27",2],["2024-12-16",1],["2024-08-02",1],["2024-12-15",1],["2024-07-29",1],["2024-08-27",1],["2024-05-08",1],["2024-03-12",1],["2024-11-24",1],["2024-12-24",1],["2024-01-04",1],["2024-12-04",1],["2024-11-29",1],["2024-02-20",1],["2024-12-06",1],["2024-12-19",1],["2024-09-10",1],["2024-12-22",1],["2024-11-23",1],["2024-05-05",1],["2024-01-13",1],["2024-12-18",2],["2024-11-21",1],["2024-12-12",1],["2024-03-05",1]],"2025":[["2025-06-19",1],["2025-01-09",2],["2025-05-30",2],["2025-01-08",4],["2025-01-04",1],["2025-01-01",6],["2025-01-03",6],["2025-01-16",1],["2025-05-26",1],["2025-06-27",1],["2025-03-12",4],["2025-03-11",1],["2025-01-06",3],["2025-01-17",1],["2025-04-22",1],["2025-02-12",1],["2025-03-03",1],["2025-04-17",1],["2025-03-25",3],["2025-04-18",2],["2025-04-12",1],["2025-02-17",1],["2025-02-14",1],["2025-01-02",1],["2025-04-14",1],["2025-01-05",1],["2025-02-20",2],["2025-01-21",1],["2025-05-02",1],["2025-03-18",1],["2025-02-01",1],["2025-03-06",2],["2025-03-07",1],["2025-03-10",1],["2025-06-09",1],["2025-05-13",2],["2025-06-20",1],["2025-04-01",1],["2025-04-03",1],["2025-05-11",1],["2025-03-30",1],["2025-04-11",1]]};
+                    const years = Object.keys(groupedData).reverse();
+                    const initYear = '2024' || years[0];
+
+                    // Define color themes
+                    const themes = {
+                        oceanic: ['#A6D8E8', '#6FB3D2', '#4A90BF', '#2E6A8E', '#1A4461'],
+                        forest: ['#ACE7AE', '#8FD694', '#69C16D', '#549F57', '#3A7D3E'],
+                        sunset: ['#FFD1A6', '#FFA07A', '#FF6F52', '#D94A3D', '#A62B2B'],
+                        earthy: ['#E3C8A8', '#C4A076', '#A57C52', '#7A5A3A', '#4E3A28'],
+                        pastel: ['#F5D5E6', '#E8B8D0', '#D18FB8', '#A86A8E', '#7A4A61'],
+                        golden: ['#FFEBB5', '#FFD966', '#FFB74D', '#D18F4A', '#A66B2B'],
+                        berry: ['#F4C2D7', '#E88BB3', '#D94A7A', '#A62B5C', '#7A1F3D'],
+                        charcoal: ['#E0E0E0', '#9E9E9E', '#616161', '#424242', '#212121'],
+                    };
+
+                    // Function to get a random theme
+                    function getRandomTheme() {
+                        const themeKeys = Object.keys(themes);
+                        const randomKey = themeKeys[Math.floor(Math.random() * themeKeys.length)];
+                        return themes[randomKey];
+                    }
+
+                    // Use the specified theme or default to 'random'
+                    const colors = themes['forest'.toLowerCase()] || getRandomTheme();
+
+                    const chartOptions = {
+                        backgroundColor: backgroundColor,
+                        tooltip: {
+                            position: 'top',
+                            confine: true,
+                            formatter: params => `${params.value[0]}: ${params.value[1]} Article${params.value[1] !== 1 ? 's' : ''}`,
+                        },
+                        calendar: {
+                            top: '13%',
+                            left: '2%',
+                            right: '8%',
+                            range: initYear,
+                            cellSize: cellSize,
+                            splitLine: { lineStyle: { color: '#E0E0E0', width: 1 } },
+                            itemStyle: { borderWidth: 1, borderColor: '#E0E0E0', color: backgroundColor },
+                            dayLabel: { show: false },
+                            monthLabel: { show: true },
+                            yearLabel: { show: false },
+                        },
+                        visualMap: {
+                            show: true,
+                            right: '8%',
+                            bottom: '5%',
+                            type: 'piecewise',
+                            orient: 'horizontal',
+                            text: ['More', 'Less'],
+                            min: 0,
+                            max: Math.max(...groupedData[initYear].map(item => item[1])),
+                            inRange: { color: colors },
+                        },
+                        legend: {
+                            type: 'scroll',
+                            icon: 'none',
+                            data: years,
+                            orient: 'vertical',
+                            top: '5%',
+                            right: 'right',
+                            itemWidth: 20,
+                            itemHeight: 20,
+                            itemGap: 10,
+                            pageIconSize: 10,
+                            pageTextStyle: { fontSize: 14 },
+                            selectedMode: 'single',
+                        },
+                        series: years.map(year => ({
+                            type: 'heatmap',
+                            coordinateSystem: 'calendar',
+                            data: groupedData[year],
+                            name: year,
+                            emphasis: { disabled: true },
+                            silent: year !== initYear,
+                        })),
+                    };
+
+                    heatmapChart.setOption(chartOptions);
+
+                    heatmapChart.dispatchAction({
+                        type: 'legendSelect',
+                        name: initYear,
+                    });
+
+                    // Function to handle legend selection changes
+                    const handleLegendSelectChanged = function(params) {
+                        const selectedYear = Object.keys(params.selected).find(key => params.selected[key]);
+                        if (selectedYear && groupedData[selectedYear]) {
+                            heatmapChart.setOption({
+                                calendar: { range: selectedYear },
+                                visualMap: {
+                                    max: Math.max(...groupedData[selectedYear].map(item => item[1])),
+                                },
+                                series: years.map(year => ({
+                                    type: 'heatmap',
+                                    coordinateSystem: 'calendar',
+                                    data: groupedData[year],
+                                    name: year,
+                                    emphasis: { disabled: true },
+                                    silent: year !== selectedYear,
+                                })),
+                            });
+                        }
+                    };
+                    
+                    const handleClick = function(params) {
+                        if (params.componentType === 'series') {
+                            const [year, month] = params.value[0].split('-');
+                            window.location.href = '/archives/' + year + '/' + month;
+                        }
+                    };
+
+                    heatmapChart.on('legendselectchanged', handleLegendSelectChanged);
+                    heatmapChart.on('click', handleClick);
+
+                    // Listen for theme changes
+                    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (event) => {
+                        heatmapChart.dispose();
+                        heatmapChart = echarts.init(heatmapChartDom, event.matches ? 'dark' : 'light');
+                        const newBackgroundColor = event.matches ? '#333' : '#F5F5F5';
+                        chartOptions.backgroundColor = newBackgroundColor;
+                        chartOptions.calendar.itemStyle.color = newBackgroundColor;
+                        heatmapChart.setOption(chartOptions);
+                        
+                        // Re-select the initial year
+                        heatmapChart.dispatchAction({
+                            type: 'legendSelect',
+                            name: initYear,
+                        });
+
+                        // Reattach the event listeners
+                        heatmapChart.on('legendselectchanged', handleLegendSelectChanged);
+                        heatmapChart.on('click', handleClick);
+                    });
+                }
+            });
+        </script>
+        <div style="width: 100%">
+            <!-- Title -->
+            
+        <div style="text-align: center; font-size: 24px; font-weight: bold; margin-bottom: 10px;">
+            Blog Heatmap
+        </div>
+    
+            <!-- Heatmap Chart -->
+            <div id="heatmapChart-2" style="width: 100%; height: 200px; overflow-x: auto; overflow-y: hidden;"></div>
+            <!-- Footer -->
+            
+        </div>
+    
+
+<h3 id="Sunset-Theme-Latest-Year-Hidden-Footer"><a href="#Sunset-Theme-Latest-Year-Hidden-Footer" class="headerlink" title="Sunset Theme, Latest Year, Hidden Footer"></a>Sunset Theme, Latest Year, Hidden Footer</h3><p>Uses the <code>sunset</code> theme, hides the footer, and shows the latest year.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% heatmapchart sunset latest no-footer %&#125;&#123;% endheatmapchart %&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Output:</strong>  </p>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const heatmapChartDom = document.getElementById('heatmapChart-3');
+                if (heatmapChartDom) {
+                    const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    const backgroundColor = isDarkMode ? '#333' : '#F5F5F5';
+                    let heatmapChart = echarts.init(heatmapChartDom, isDarkMode ? 'dark' : 'light');
+                    const cellSize = [16, 16];
+
+                    const groupedData = {"2017":[["2017-01-21",1]],"2022":[["2022-09-09",1]],"2023":[["2023-12-01",4],["2023-12-10",1],["2023-10-26",2],["2023-12-15",1],["2023-10-27",1],["2023-11-30",1],["2023-11-29",1],["2023-11-13",1],["2023-11-07",1],["2023-12-27",1],["2023-12-03",2],["2023-11-26",1],["2023-12-02",2],["2023-12-19",1],["2023-12-29",1],["2023-12-17",2],["2023-11-06",1],["2023-08-01",1],["2023-12-04",1],["2023-10-28",1],["2023-12-11",1],["2023-12-28",1],["2023-11-23",2],["2023-11-16",1]],"2024":[["2024-11-28",2],["2024-12-27",2],["2024-02-25",1],["2024-03-22",2],["2024-09-06",1],["2024-01-17",3],["2024-01-08",2],["2024-07-31",1],["2024-12-26",6],["2024-07-16",1],["2024-01-25",1],["2024-05-06",1],["2024-01-09",1],["2024-01-03",1],["2024-08-04",1],["2024-12-25",1],["2024-12-20",3],["2024-12-30",4],["2024-06-01",1],["2024-10-07",1],["2024-11-26",1],["2024-01-11",1],["2024-08-06",1],["2024-01-10",4],["2024-11-30",1],["2024-12-17",2],["2024-09-11",1],["2024-03-02",2],["2024-04-11",1],["2024-02-02",2],["2024-01-29",1],["2024-01-28",1],["2024-03-14",2],["2024-01-27",2],["2024-12-16",1],["2024-08-02",1],["2024-12-15",1],["2024-07-29",1],["2024-08-27",1],["2024-05-08",1],["2024-03-12",1],["2024-11-24",1],["2024-12-24",1],["2024-01-04",1],["2024-12-04",1],["2024-11-29",1],["2024-02-20",1],["2024-12-06",1],["2024-12-19",1],["2024-09-10",1],["2024-12-22",1],["2024-11-23",1],["2024-05-05",1],["2024-01-13",1],["2024-12-18",2],["2024-11-21",1],["2024-12-12",1],["2024-03-05",1]],"2025":[["2025-06-19",1],["2025-01-09",2],["2025-05-30",2],["2025-01-08",4],["2025-01-04",1],["2025-01-01",6],["2025-01-03",6],["2025-01-16",1],["2025-05-26",1],["2025-06-27",1],["2025-03-12",4],["2025-03-11",1],["2025-01-06",3],["2025-01-17",1],["2025-04-22",1],["2025-02-12",1],["2025-03-03",1],["2025-04-17",1],["2025-03-25",3],["2025-04-18",2],["2025-04-12",1],["2025-02-17",1],["2025-02-14",1],["2025-01-02",1],["2025-04-14",1],["2025-01-05",1],["2025-02-20",2],["2025-01-21",1],["2025-05-02",1],["2025-03-18",1],["2025-02-01",1],["2025-03-06",2],["2025-03-07",1],["2025-03-10",1],["2025-06-09",1],["2025-05-13",2],["2025-06-20",1],["2025-04-01",1],["2025-04-03",1],["2025-05-11",1],["2025-03-30",1],["2025-04-11",1]]};
+                    const years = Object.keys(groupedData).reverse();
+                    const initYear = '2025' || years[0];
+
+                    // Define color themes
+                    const themes = {
+                        oceanic: ['#A6D8E8', '#6FB3D2', '#4A90BF', '#2E6A8E', '#1A4461'],
+                        forest: ['#ACE7AE', '#8FD694', '#69C16D', '#549F57', '#3A7D3E'],
+                        sunset: ['#FFD1A6', '#FFA07A', '#FF6F52', '#D94A3D', '#A62B2B'],
+                        earthy: ['#E3C8A8', '#C4A076', '#A57C52', '#7A5A3A', '#4E3A28'],
+                        pastel: ['#F5D5E6', '#E8B8D0', '#D18FB8', '#A86A8E', '#7A4A61'],
+                        golden: ['#FFEBB5', '#FFD966', '#FFB74D', '#D18F4A', '#A66B2B'],
+                        berry: ['#F4C2D7', '#E88BB3', '#D94A7A', '#A62B5C', '#7A1F3D'],
+                        charcoal: ['#E0E0E0', '#9E9E9E', '#616161', '#424242', '#212121'],
+                    };
+
+                    // Function to get a random theme
+                    function getRandomTheme() {
+                        const themeKeys = Object.keys(themes);
+                        const randomKey = themeKeys[Math.floor(Math.random() * themeKeys.length)];
+                        return themes[randomKey];
+                    }
+
+                    // Use the specified theme or default to 'random'
+                    const colors = themes['sunset'.toLowerCase()] || getRandomTheme();
+
+                    const chartOptions = {
+                        backgroundColor: backgroundColor,
+                        tooltip: {
+                            position: 'top',
+                            confine: true,
+                            formatter: params => `${params.value[0]}: ${params.value[1]} Article${params.value[1] !== 1 ? 's' : ''}`,
+                        },
+                        calendar: {
+                            top: '13%',
+                            left: '2%',
+                            right: '8%',
+                            range: initYear,
+                            cellSize: cellSize,
+                            splitLine: { lineStyle: { color: '#E0E0E0', width: 1 } },
+                            itemStyle: { borderWidth: 1, borderColor: '#E0E0E0', color: backgroundColor },
+                            dayLabel: { show: false },
+                            monthLabel: { show: true },
+                            yearLabel: { show: false },
+                        },
+                        visualMap: {
+                            show: true,
+                            right: '8%',
+                            bottom: '5%',
+                            type: 'piecewise',
+                            orient: 'horizontal',
+                            text: ['More', 'Less'],
+                            min: 0,
+                            max: Math.max(...groupedData[initYear].map(item => item[1])),
+                            inRange: { color: colors },
+                        },
+                        legend: {
+                            type: 'scroll',
+                            icon: 'none',
+                            data: years,
+                            orient: 'vertical',
+                            top: '5%',
+                            right: 'right',
+                            itemWidth: 20,
+                            itemHeight: 20,
+                            itemGap: 10,
+                            pageIconSize: 10,
+                            pageTextStyle: { fontSize: 14 },
+                            selectedMode: 'single',
+                        },
+                        series: years.map(year => ({
+                            type: 'heatmap',
+                            coordinateSystem: 'calendar',
+                            data: groupedData[year],
+                            name: year,
+                            emphasis: { disabled: true },
+                            silent: year !== initYear,
+                        })),
+                    };
+
+                    heatmapChart.setOption(chartOptions);
+
+                    heatmapChart.dispatchAction({
+                        type: 'legendSelect',
+                        name: initYear,
+                    });
+
+                    // Function to handle legend selection changes
+                    const handleLegendSelectChanged = function(params) {
+                        const selectedYear = Object.keys(params.selected).find(key => params.selected[key]);
+                        if (selectedYear && groupedData[selectedYear]) {
+                            heatmapChart.setOption({
+                                calendar: { range: selectedYear },
+                                visualMap: {
+                                    max: Math.max(...groupedData[selectedYear].map(item => item[1])),
+                                },
+                                series: years.map(year => ({
+                                    type: 'heatmap',
+                                    coordinateSystem: 'calendar',
+                                    data: groupedData[year],
+                                    name: year,
+                                    emphasis: { disabled: true },
+                                    silent: year !== selectedYear,
+                                })),
+                            });
+                        }
+                    };
+                    
+                    const handleClick = function(params) {
+                        if (params.componentType === 'series') {
+                            const [year, month] = params.value[0].split('-');
+                            window.location.href = '/archives/' + year + '/' + month;
+                        }
+                    };
+
+                    heatmapChart.on('legendselectchanged', handleLegendSelectChanged);
+                    heatmapChart.on('click', handleClick);
+
+                    // Listen for theme changes
+                    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (event) => {
+                        heatmapChart.dispose();
+                        heatmapChart = echarts.init(heatmapChartDom, event.matches ? 'dark' : 'light');
+                        const newBackgroundColor = event.matches ? '#333' : '#F5F5F5';
+                        chartOptions.backgroundColor = newBackgroundColor;
+                        chartOptions.calendar.itemStyle.color = newBackgroundColor;
+                        heatmapChart.setOption(chartOptions);
+                        
+                        // Re-select the initial year
+                        heatmapChart.dispatchAction({
+                            type: 'legendSelect',
+                            name: initYear,
+                        });
+
+                        // Reattach the event listeners
+                        heatmapChart.on('legendselectchanged', handleLegendSelectChanged);
+                        heatmapChart.on('click', handleClick);
+                    });
+                }
+            });
+        </script>
+        <div style="width: 100%">
+            <!-- Title -->
+            
+            <!-- Heatmap Chart -->
+            <div id="heatmapChart-3" style="width: 100%; height: 200px; overflow-x: auto; overflow-y: hidden;"></div>
+            <!-- Footer -->
+            
+        </div>
+    
+
+<h3 id="Charcoal-Theme-Invalid-Initial-Year"><a href="#Charcoal-Theme-Invalid-Initial-Year" class="headerlink" title="Charcoal Theme, Invalid Initial Year"></a>Charcoal Theme, Invalid Initial Year</h3><p>If the provided <code>initYear</code> is not in the data range, the latest year in the data will be used.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% heatmapchart charcoal 1628 %&#125;&#123;% endheatmapchart %&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Output:</strong>  </p>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const heatmapChartDom = document.getElementById('heatmapChart-4');
+                if (heatmapChartDom) {
+                    const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    const backgroundColor = isDarkMode ? '#333' : '#F5F5F5';
+                    let heatmapChart = echarts.init(heatmapChartDom, isDarkMode ? 'dark' : 'light');
+                    const cellSize = [16, 16];
+
+                    const groupedData = {"2017":[["2017-01-21",1]],"2022":[["2022-09-09",1]],"2023":[["2023-12-01",4],["2023-12-10",1],["2023-10-26",2],["2023-12-15",1],["2023-10-27",1],["2023-11-30",1],["2023-11-29",1],["2023-11-13",1],["2023-11-07",1],["2023-12-27",1],["2023-12-03",2],["2023-11-26",1],["2023-12-02",2],["2023-12-19",1],["2023-12-29",1],["2023-12-17",2],["2023-11-06",1],["2023-08-01",1],["2023-12-04",1],["2023-10-28",1],["2023-12-11",1],["2023-12-28",1],["2023-11-23",2],["2023-11-16",1]],"2024":[["2024-11-28",2],["2024-12-27",2],["2024-02-25",1],["2024-03-22",2],["2024-09-06",1],["2024-01-17",3],["2024-01-08",2],["2024-07-31",1],["2024-12-26",6],["2024-07-16",1],["2024-01-25",1],["2024-05-06",1],["2024-01-09",1],["2024-01-03",1],["2024-08-04",1],["2024-12-25",1],["2024-12-20",3],["2024-12-30",4],["2024-06-01",1],["2024-10-07",1],["2024-11-26",1],["2024-01-11",1],["2024-08-06",1],["2024-01-10",4],["2024-11-30",1],["2024-12-17",2],["2024-09-11",1],["2024-03-02",2],["2024-04-11",1],["2024-02-02",2],["2024-01-29",1],["2024-01-28",1],["2024-03-14",2],["2024-01-27",2],["2024-12-16",1],["2024-08-02",1],["2024-12-15",1],["2024-07-29",1],["2024-08-27",1],["2024-05-08",1],["2024-03-12",1],["2024-11-24",1],["2024-12-24",1],["2024-01-04",1],["2024-12-04",1],["2024-11-29",1],["2024-02-20",1],["2024-12-06",1],["2024-12-19",1],["2024-09-10",1],["2024-12-22",1],["2024-11-23",1],["2024-05-05",1],["2024-01-13",1],["2024-12-18",2],["2024-11-21",1],["2024-12-12",1],["2024-03-05",1]],"2025":[["2025-06-19",1],["2025-01-09",2],["2025-05-30",2],["2025-01-08",4],["2025-01-04",1],["2025-01-01",6],["2025-01-03",6],["2025-01-16",1],["2025-05-26",1],["2025-06-27",1],["2025-03-12",4],["2025-03-11",1],["2025-01-06",3],["2025-01-17",1],["2025-04-22",1],["2025-02-12",1],["2025-03-03",1],["2025-04-17",1],["2025-03-25",3],["2025-04-18",2],["2025-04-12",1],["2025-02-17",1],["2025-02-14",1],["2025-01-02",1],["2025-04-14",1],["2025-01-05",1],["2025-02-20",2],["2025-01-21",1],["2025-05-02",1],["2025-03-18",1],["2025-02-01",1],["2025-03-06",2],["2025-03-07",1],["2025-03-10",1],["2025-06-09",1],["2025-05-13",2],["2025-06-20",1],["2025-04-01",1],["2025-04-03",1],["2025-05-11",1],["2025-03-30",1],["2025-04-11",1]]};
+                    const years = Object.keys(groupedData).reverse();
+                    const initYear = '2025' || years[0];
+
+                    // Define color themes
+                    const themes = {
+                        oceanic: ['#A6D8E8', '#6FB3D2', '#4A90BF', '#2E6A8E', '#1A4461'],
+                        forest: ['#ACE7AE', '#8FD694', '#69C16D', '#549F57', '#3A7D3E'],
+                        sunset: ['#FFD1A6', '#FFA07A', '#FF6F52', '#D94A3D', '#A62B2B'],
+                        earthy: ['#E3C8A8', '#C4A076', '#A57C52', '#7A5A3A', '#4E3A28'],
+                        pastel: ['#F5D5E6', '#E8B8D0', '#D18FB8', '#A86A8E', '#7A4A61'],
+                        golden: ['#FFEBB5', '#FFD966', '#FFB74D', '#D18F4A', '#A66B2B'],
+                        berry: ['#F4C2D7', '#E88BB3', '#D94A7A', '#A62B5C', '#7A1F3D'],
+                        charcoal: ['#E0E0E0', '#9E9E9E', '#616161', '#424242', '#212121'],
+                    };
+
+                    // Function to get a random theme
+                    function getRandomTheme() {
+                        const themeKeys = Object.keys(themes);
+                        const randomKey = themeKeys[Math.floor(Math.random() * themeKeys.length)];
+                        return themes[randomKey];
+                    }
+
+                    // Use the specified theme or default to 'random'
+                    const colors = themes['charcoal'.toLowerCase()] || getRandomTheme();
+
+                    const chartOptions = {
+                        backgroundColor: backgroundColor,
+                        tooltip: {
+                            position: 'top',
+                            confine: true,
+                            formatter: params => `${params.value[0]}: ${params.value[1]} Article${params.value[1] !== 1 ? 's' : ''}`,
+                        },
+                        calendar: {
+                            top: '13%',
+                            left: '2%',
+                            right: '8%',
+                            range: initYear,
+                            cellSize: cellSize,
+                            splitLine: { lineStyle: { color: '#E0E0E0', width: 1 } },
+                            itemStyle: { borderWidth: 1, borderColor: '#E0E0E0', color: backgroundColor },
+                            dayLabel: { show: false },
+                            monthLabel: { show: true },
+                            yearLabel: { show: false },
+                        },
+                        visualMap: {
+                            show: true,
+                            right: '8%',
+                            bottom: '5%',
+                            type: 'piecewise',
+                            orient: 'horizontal',
+                            text: ['More', 'Less'],
+                            min: 0,
+                            max: Math.max(...groupedData[initYear].map(item => item[1])),
+                            inRange: { color: colors },
+                        },
+                        legend: {
+                            type: 'scroll',
+                            icon: 'none',
+                            data: years,
+                            orient: 'vertical',
+                            top: '5%',
+                            right: 'right',
+                            itemWidth: 20,
+                            itemHeight: 20,
+                            itemGap: 10,
+                            pageIconSize: 10,
+                            pageTextStyle: { fontSize: 14 },
+                            selectedMode: 'single',
+                        },
+                        series: years.map(year => ({
+                            type: 'heatmap',
+                            coordinateSystem: 'calendar',
+                            data: groupedData[year],
+                            name: year,
+                            emphasis: { disabled: true },
+                            silent: year !== initYear,
+                        })),
+                    };
+
+                    heatmapChart.setOption(chartOptions);
+
+                    heatmapChart.dispatchAction({
+                        type: 'legendSelect',
+                        name: initYear,
+                    });
+
+                    // Function to handle legend selection changes
+                    const handleLegendSelectChanged = function(params) {
+                        const selectedYear = Object.keys(params.selected).find(key => params.selected[key]);
+                        if (selectedYear && groupedData[selectedYear]) {
+                            heatmapChart.setOption({
+                                calendar: { range: selectedYear },
+                                visualMap: {
+                                    max: Math.max(...groupedData[selectedYear].map(item => item[1])),
+                                },
+                                series: years.map(year => ({
+                                    type: 'heatmap',
+                                    coordinateSystem: 'calendar',
+                                    data: groupedData[year],
+                                    name: year,
+                                    emphasis: { disabled: true },
+                                    silent: year !== selectedYear,
+                                })),
+                            });
+                        }
+                    };
+                    
+                    const handleClick = function(params) {
+                        if (params.componentType === 'series') {
+                            const [year, month] = params.value[0].split('-');
+                            window.location.href = '/archives/' + year + '/' + month;
+                        }
+                    };
+
+                    heatmapChart.on('legendselectchanged', handleLegendSelectChanged);
+                    heatmapChart.on('click', handleClick);
+
+                    // Listen for theme changes
+                    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (event) => {
+                        heatmapChart.dispose();
+                        heatmapChart = echarts.init(heatmapChartDom, event.matches ? 'dark' : 'light');
+                        const newBackgroundColor = event.matches ? '#333' : '#F5F5F5';
+                        chartOptions.backgroundColor = newBackgroundColor;
+                        chartOptions.calendar.itemStyle.color = newBackgroundColor;
+                        heatmapChart.setOption(chartOptions);
+                        
+                        // Re-select the initial year
+                        heatmapChart.dispatchAction({
+                            type: 'legendSelect',
+                            name: initYear,
+                        });
+
+                        // Reattach the event listeners
+                        heatmapChart.on('legendselectchanged', handleLegendSelectChanged);
+                        heatmapChart.on('click', handleClick);
+                    });
+                }
+            });
+        </script>
+        <div style="width: 100%">
+            <!-- Title -->
+            
+            <!-- Heatmap Chart -->
+            <div id="heatmapChart-4" style="width: 100%; height: 200px; overflow-x: auto; overflow-y: hidden;"></div>
+            <!-- Footer -->
+            
+        <div style="text-align: center; font-size: 12px; color: #666; margin-top: 10px; margin-bottom: 20px;">
+            Powered by <a href="https://github.com/erispyu/hexo-stats-echarts" style="color: inherit; text-decoration: none;" target="_blank">hexo-stats-echarts</a>
+        </div>
+    
+        </div>
+    
+
+<h3 id="Undefined-Theme-Random-Theme-by-Default"><a href="#Undefined-Theme-Random-Theme-by-Default" class="headerlink" title="Undefined Theme, Random Theme by Default"></a>Undefined Theme, Random Theme by Default</h3><p>If an undefined theme is specified, a <strong>random theme</strong> will be applied.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% heatmapchart unknown %&#125;&#123;% endheatmapchart %&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Output:</strong>  </p>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const heatmapChartDom = document.getElementById('heatmapChart-5');
+                if (heatmapChartDom) {
+                    const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    const backgroundColor = isDarkMode ? '#333' : '#F5F5F5';
+                    let heatmapChart = echarts.init(heatmapChartDom, isDarkMode ? 'dark' : 'light');
+                    const cellSize = [16, 16];
+
+                    const groupedData = {"2017":[["2017-01-21",1]],"2022":[["2022-09-09",1]],"2023":[["2023-12-01",4],["2023-12-10",1],["2023-10-26",2],["2023-12-15",1],["2023-10-27",1],["2023-11-30",1],["2023-11-29",1],["2023-11-13",1],["2023-11-07",1],["2023-12-27",1],["2023-12-03",2],["2023-11-26",1],["2023-12-02",2],["2023-12-19",1],["2023-12-29",1],["2023-12-17",2],["2023-11-06",1],["2023-08-01",1],["2023-12-04",1],["2023-10-28",1],["2023-12-11",1],["2023-12-28",1],["2023-11-23",2],["2023-11-16",1]],"2024":[["2024-11-28",2],["2024-12-27",2],["2024-02-25",1],["2024-03-22",2],["2024-09-06",1],["2024-01-17",3],["2024-01-08",2],["2024-07-31",1],["2024-12-26",6],["2024-07-16",1],["2024-01-25",1],["2024-05-06",1],["2024-01-09",1],["2024-01-03",1],["2024-08-04",1],["2024-12-25",1],["2024-12-20",3],["2024-12-30",4],["2024-06-01",1],["2024-10-07",1],["2024-11-26",1],["2024-01-11",1],["2024-08-06",1],["2024-01-10",4],["2024-11-30",1],["2024-12-17",2],["2024-09-11",1],["2024-03-02",2],["2024-04-11",1],["2024-02-02",2],["2024-01-29",1],["2024-01-28",1],["2024-03-14",2],["2024-01-27",2],["2024-12-16",1],["2024-08-02",1],["2024-12-15",1],["2024-07-29",1],["2024-08-27",1],["2024-05-08",1],["2024-03-12",1],["2024-11-24",1],["2024-12-24",1],["2024-01-04",1],["2024-12-04",1],["2024-11-29",1],["2024-02-20",1],["2024-12-06",1],["2024-12-19",1],["2024-09-10",1],["2024-12-22",1],["2024-11-23",1],["2024-05-05",1],["2024-01-13",1],["2024-12-18",2],["2024-11-21",1],["2024-12-12",1],["2024-03-05",1]],"2025":[["2025-06-19",1],["2025-01-09",2],["2025-05-30",2],["2025-01-08",4],["2025-01-04",1],["2025-01-01",6],["2025-01-03",6],["2025-01-16",1],["2025-05-26",1],["2025-06-27",1],["2025-03-12",4],["2025-03-11",1],["2025-01-06",3],["2025-01-17",1],["2025-04-22",1],["2025-02-12",1],["2025-03-03",1],["2025-04-17",1],["2025-03-25",3],["2025-04-18",2],["2025-04-12",1],["2025-02-17",1],["2025-02-14",1],["2025-01-02",1],["2025-04-14",1],["2025-01-05",1],["2025-02-20",2],["2025-01-21",1],["2025-05-02",1],["2025-03-18",1],["2025-02-01",1],["2025-03-06",2],["2025-03-07",1],["2025-03-10",1],["2025-06-09",1],["2025-05-13",2],["2025-06-20",1],["2025-04-01",1],["2025-04-03",1],["2025-05-11",1],["2025-03-30",1],["2025-04-11",1]]};
+                    const years = Object.keys(groupedData).reverse();
+                    const initYear = '2025' || years[0];
+
+                    // Define color themes
+                    const themes = {
+                        oceanic: ['#A6D8E8', '#6FB3D2', '#4A90BF', '#2E6A8E', '#1A4461'],
+                        forest: ['#ACE7AE', '#8FD694', '#69C16D', '#549F57', '#3A7D3E'],
+                        sunset: ['#FFD1A6', '#FFA07A', '#FF6F52', '#D94A3D', '#A62B2B'],
+                        earthy: ['#E3C8A8', '#C4A076', '#A57C52', '#7A5A3A', '#4E3A28'],
+                        pastel: ['#F5D5E6', '#E8B8D0', '#D18FB8', '#A86A8E', '#7A4A61'],
+                        golden: ['#FFEBB5', '#FFD966', '#FFB74D', '#D18F4A', '#A66B2B'],
+                        berry: ['#F4C2D7', '#E88BB3', '#D94A7A', '#A62B5C', '#7A1F3D'],
+                        charcoal: ['#E0E0E0', '#9E9E9E', '#616161', '#424242', '#212121'],
+                    };
+
+                    // Function to get a random theme
+                    function getRandomTheme() {
+                        const themeKeys = Object.keys(themes);
+                        const randomKey = themeKeys[Math.floor(Math.random() * themeKeys.length)];
+                        return themes[randomKey];
+                    }
+
+                    // Use the specified theme or default to 'random'
+                    const colors = themes['unknown'.toLowerCase()] || getRandomTheme();
+
+                    const chartOptions = {
+                        backgroundColor: backgroundColor,
+                        tooltip: {
+                            position: 'top',
+                            confine: true,
+                            formatter: params => `${params.value[0]}: ${params.value[1]} Article${params.value[1] !== 1 ? 's' : ''}`,
+                        },
+                        calendar: {
+                            top: '13%',
+                            left: '2%',
+                            right: '8%',
+                            range: initYear,
+                            cellSize: cellSize,
+                            splitLine: { lineStyle: { color: '#E0E0E0', width: 1 } },
+                            itemStyle: { borderWidth: 1, borderColor: '#E0E0E0', color: backgroundColor },
+                            dayLabel: { show: false },
+                            monthLabel: { show: true },
+                            yearLabel: { show: false },
+                        },
+                        visualMap: {
+                            show: true,
+                            right: '8%',
+                            bottom: '5%',
+                            type: 'piecewise',
+                            orient: 'horizontal',
+                            text: ['More', 'Less'],
+                            min: 0,
+                            max: Math.max(...groupedData[initYear].map(item => item[1])),
+                            inRange: { color: colors },
+                        },
+                        legend: {
+                            type: 'scroll',
+                            icon: 'none',
+                            data: years,
+                            orient: 'vertical',
+                            top: '5%',
+                            right: 'right',
+                            itemWidth: 20,
+                            itemHeight: 20,
+                            itemGap: 10,
+                            pageIconSize: 10,
+                            pageTextStyle: { fontSize: 14 },
+                            selectedMode: 'single',
+                        },
+                        series: years.map(year => ({
+                            type: 'heatmap',
+                            coordinateSystem: 'calendar',
+                            data: groupedData[year],
+                            name: year,
+                            emphasis: { disabled: true },
+                            silent: year !== initYear,
+                        })),
+                    };
+
+                    heatmapChart.setOption(chartOptions);
+
+                    heatmapChart.dispatchAction({
+                        type: 'legendSelect',
+                        name: initYear,
+                    });
+
+                    // Function to handle legend selection changes
+                    const handleLegendSelectChanged = function(params) {
+                        const selectedYear = Object.keys(params.selected).find(key => params.selected[key]);
+                        if (selectedYear && groupedData[selectedYear]) {
+                            heatmapChart.setOption({
+                                calendar: { range: selectedYear },
+                                visualMap: {
+                                    max: Math.max(...groupedData[selectedYear].map(item => item[1])),
+                                },
+                                series: years.map(year => ({
+                                    type: 'heatmap',
+                                    coordinateSystem: 'calendar',
+                                    data: groupedData[year],
+                                    name: year,
+                                    emphasis: { disabled: true },
+                                    silent: year !== selectedYear,
+                                })),
+                            });
+                        }
+                    };
+                    
+                    const handleClick = function(params) {
+                        if (params.componentType === 'series') {
+                            const [year, month] = params.value[0].split('-');
+                            window.location.href = '/archives/' + year + '/' + month;
+                        }
+                    };
+
+                    heatmapChart.on('legendselectchanged', handleLegendSelectChanged);
+                    heatmapChart.on('click', handleClick);
+
+                    // Listen for theme changes
+                    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (event) => {
+                        heatmapChart.dispose();
+                        heatmapChart = echarts.init(heatmapChartDom, event.matches ? 'dark' : 'light');
+                        const newBackgroundColor = event.matches ? '#333' : '#F5F5F5';
+                        chartOptions.backgroundColor = newBackgroundColor;
+                        chartOptions.calendar.itemStyle.color = newBackgroundColor;
+                        heatmapChart.setOption(chartOptions);
+                        
+                        // Re-select the initial year
+                        heatmapChart.dispatchAction({
+                            type: 'legendSelect',
+                            name: initYear,
+                        });
+
+                        // Reattach the event listeners
+                        heatmapChart.on('legendselectchanged', handleLegendSelectChanged);
+                        heatmapChart.on('click', handleClick);
+                    });
+                }
+            });
+        </script>
+        <div style="width: 100%">
+            <!-- Title -->
+            
+            <!-- Heatmap Chart -->
+            <div id="heatmapChart-5" style="width: 100%; height: 200px; overflow-x: auto; overflow-y: hidden;"></div>
+            <!-- Footer -->
+            
+        <div style="text-align: center; font-size: 12px; color: #666; margin-top: 10px; margin-bottom: 20px;">
+            Powered by <a href="https://github.com/erispyu/hexo-stats-echarts" style="color: inherit; text-decoration: none;" target="_blank">hexo-stats-echarts</a>
+        </div>
+    
+        </div>
+    
+
+<h2 id="Feedback"><a href="#Feedback" class="headerlink" title="Feedback"></a>Feedback</h2><p>Feel free to experiment with different configurations and themes to create the perfect heatmap for your site!</p>
+<p>If you have any questions or suggestions, please open an issue on <a target="_blank" rel="noopener" href="https://github.com/erispyu/hexo-stats-echarts">GitHub</a>.</p>
+
+      </div>
+      
+      
+      
+    </div>
+  <ul class="breadcrumb">
+            <li><a href="/hexo-stats-echarts/">PLUGINS</a></li>
+          <li>HEATMAP CHART</li>
+  </ul>
+
+    
+    
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Erispyu</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="Word count total">524k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">7:57</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div><script color="220，220，220" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/algoliasearch/4.24.0/algoliasearch-lite.umd.js" integrity="sha256-b2n6oSgG4C1stMT/yc/ChGszs9EY/Mhs6oltEjQbFCQ=" crossorigin="anonymous"></script><script src="/js/third-party/search/algolia-search.js"></script>
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"erispyu-blog","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

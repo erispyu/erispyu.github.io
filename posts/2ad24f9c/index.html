@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><!-- hexo injector head_begin start --><script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script><!-- hexo injector head_begin end -->
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.erispyu.fun","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":"default"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"algolia":{"appID":"2BILQUWIOA","apiKey":"f5aabb895c10440c28e6c77090f511eb","indexName":"github_page_erispyu","hits":{"per_page":10}}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="元数据   书名: 源代码 作者: 【美】比尔·盖茨 简介: 比尔·盖茨是当代富有影响力、引领变革的商业领 袖和慈善家。这本书讲述的便是他的成长故事。 比尔·盖茨在商业领域创造的辉煌早已广为人知。20 岁的他离开哈佛大学，创办了一家日后成为行业巨头的软件公司，改变了整个世界的工作与生活方式。这位亿万富翁随即将注意力转向慈善事业，致力于应对气候变化、全球健康和美国教育领域的重重挑战。 这本书并不是比">
+<meta property="og:type" content="article">
+<meta property="og:title" content="源代码">
+<meta property="og:url" content="https://blog.erispyu.fun/posts/2ad24f9c/index.html">
+<meta property="og:site_name" content="Erispyu&#39;s Blog">
+<meta property="og:description" content="元数据   书名: 源代码 作者: 【美】比尔·盖茨 简介: 比尔·盖茨是当代富有影响力、引领变革的商业领 袖和慈善家。这本书讲述的便是他的成长故事。 比尔·盖茨在商业领域创造的辉煌早已广为人知。20 岁的他离开哈佛大学，创办了一家日后成为行业巨头的软件公司，改变了整个世界的工作与生活方式。这位亿万富翁随即将注意力转向慈善事业，致力于应对气候变化、全球健康和美国教育领域的重重挑战。 这本书并不是比">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.weread.qq.com/weread/cover/23/cpplatform_mgqenwnngw4eqnb1bmexyg/t6_cpplatform_mgqenwnngw4eqnb1bmexyg1747102455.jpg">
+<meta property="article:published_time" content="2025-06-08T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-06-28T09:37:12.550Z">
+<meta property="article:author" content="Erispyu">
+<meta property="article:tag" content="中信出版集团">
+<meta property="article:tag" content="比尔·盖茨">
+<meta property="article:tag" content="经济理财-商业">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.weread.qq.com/weread/cover/23/cpplatform_mgqenwnngw4eqnb1bmexyg/t6_cpplatform_mgqenwnngw4eqnb1bmexyg1747102455.jpg">
+
+
+<link rel="canonical" href="https://blog.erispyu.fun/posts/2ad24f9c/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://blog.erispyu.fun/posts/2ad24f9c/","path":"posts/2ad24f9c/","title":"源代码"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>源代码 | Erispyu's Blog</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QCC01KVZ4X"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-QCC01KVZ4X","only_pageview":false,"measure_protocol_api_secret":null}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Erispyu's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-list fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-plugins"><a href="/hexo-stats-echarts/" rel="section"><i class="fa-solid fa-flask fa-fw"></i>Plugins</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="Searching..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fab fa-algolia fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%83%E6%95%B0%E6%8D%AE"><span class="nav-text">元数据</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%AB%98%E4%BA%AE%E5%88%92%E7%BA%BF"><span class="nav-text">高亮划线</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BA%8F%E7%AB%A0"><span class="nav-text">序章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E8%80%81%E4%B8%89"><span class="nav-text">第一章 老三</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E8%A7%82%E6%99%AF%E5%B2%AD"><span class="nav-text">第二章 观景岭</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E7%90%86%E6%80%A7%E7%9A%84"><span class="nav-text">第三章 理性的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E5%B9%B8%E8%BF%90%E5%84%BF"><span class="nav-text">第四章 幸运儿</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0-%E6%B9%96%E6%BB%A8%E4%B8%AD%E5%AD%A6"><span class="nav-text">第五章 湖滨中学</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%85%AD%E7%AB%A0-%E8%87%AA%E7%94%B1%E6%97%B6%E9%97%B4"><span class="nav-text">第六章 自由时间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%8F%AA%E6%98%AF%E4%B8%80%E5%B8%AE%E5%B0%8F%E5%B1%81%E5%AD%A9"><span class="nav-text">第七章 只是一帮小屁孩</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E8%A8%80"><span class="nav-text">引言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%92%E7%BA%BF%E8%AF%84%E8%AE%BA"><span class="nav-text">划线评论</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BA%8F%E7%AB%A0-1"><span class="nav-text">序章</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%92%E7%BA%BF%E8%AF%84%E8%AE%BA-1"><span class="nav-text">划线评论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%92%E7%BA%BF%E8%AF%84%E8%AE%BA-2"><span class="nav-text">划线评论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%92%E7%BA%BF%E8%AF%84%E8%AE%BA-3"><span class="nav-text">划线评论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%92%E7%BA%BF%E8%AF%84%E8%AE%BA-4"><span class="nav-text">划线评论</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E8%80%81%E4%B8%89-1"><span class="nav-text">第一章 老三</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%92%E7%BA%BF%E8%AF%84%E8%AE%BA-5"><span class="nav-text">划线评论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%92%E7%BA%BF%E8%AF%84%E8%AE%BA-6"><span class="nav-text">划线评论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%92%E7%BA%BF%E8%AF%84%E8%AE%BA-7"><span class="nav-text">划线评论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%92%E7%BA%BF%E8%AF%84%E8%AE%BA-8"><span class="nav-text">划线评论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%92%E7%BA%BF%E8%AF%84%E8%AE%BA-9"><span class="nav-text">划线评论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%92%E7%BA%BF%E8%AF%84%E8%AE%BA-10"><span class="nav-text">划线评论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%92%E7%BA%BF%E8%AF%84%E8%AE%BA-11"><span class="nav-text">划线评论</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E8%A7%82%E6%99%AF%E5%B2%AD-1"><span class="nav-text">第二章 观景岭</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%92%E7%BA%BF%E8%AF%84%E8%AE%BA-12"><span class="nav-text">划线评论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%92%E7%BA%BF%E8%AF%84%E8%AE%BA-13"><span class="nav-text">划线评论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%92%E7%BA%BF%E8%AF%84%E8%AE%BA-14"><span class="nav-text">划线评论</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E7%90%86%E6%80%A7%E7%9A%84-1"><span class="nav-text">第三章 理性的</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%92%E7%BA%BF%E8%AF%84%E8%AE%BA-15"><span class="nav-text">划线评论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%92%E7%BA%BF%E8%AF%84%E8%AE%BA-16"><span class="nav-text">划线评论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%92%E7%BA%BF%E8%AF%84%E8%AE%BA-17"><span class="nav-text">划线评论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%92%E7%BA%BF%E8%AF%84%E8%AE%BA-18"><span class="nav-text">划线评论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%92%E7%BA%BF%E8%AF%84%E8%AE%BA-19"><span class="nav-text">划线评论</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E5%B9%B8%E8%BF%90%E5%84%BF-1"><span class="nav-text">第四章 幸运儿</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%92%E7%BA%BF%E8%AF%84%E8%AE%BA-20"><span class="nav-text">划线评论</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0-%E6%B9%96%E6%BB%A8%E4%B8%AD%E5%AD%A6-1"><span class="nav-text">第五章 湖滨中学</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%92%E7%BA%BF%E8%AF%84%E8%AE%BA-21"><span class="nav-text">划线评论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%92%E7%BA%BF%E8%AF%84%E8%AE%BA-22"><span class="nav-text">划线评论</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%8F%AA%E6%98%AF%E4%B8%80%E5%B8%AE%E5%B0%8F%E5%B1%81%E5%AD%A9-1"><span class="nav-text">第七章 只是一帮小屁孩</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%92%E7%BA%BF%E8%AF%84%E8%AE%BA-23"><span class="nav-text">划线评论</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Erispyu</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">184</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">295</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/erispyu" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;erispyu" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:erispyu@gmail.com" title="E-Mail → mailto:erispyu@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.douban.com/people/erispyu00/" title="Douban → https:&#x2F;&#x2F;www.douban.com&#x2F;people&#x2F;erispyu00&#x2F;" rel="noopener me" target="_blank"><i class="fa fa-film fa-fw"></i>Douban</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.travellings.cn/go.html" title="Travellings → https:&#x2F;&#x2F;www.travellings.cn&#x2F;go.html" rel="noopener me" target="_blank"><i class="fa-solid fa-train fa-fw"></i>Travellings</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    Related Posts
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/posts/51c28d1e/" rel="bookmark">
+        <time class="popular-posts-time">2024-11-21</time>
+        <br>
+      史蒂夫·乔布斯传（典藏版）
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://blog.erispyu.fun/posts/2ad24f9c/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Erispyu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Erispyu's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="源代码 | Erispyu's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          源代码
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2025-06-09 00:00:00" itemprop="dateCreated datePublished" datetime="2025-06-09T00:00:00+08:00">2025-06-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2025-06-28 17:37:12" itemprop="dateModified" datetime="2025-06-28T17:37:12+08:00">2025-06-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/BookNotes/" itemprop="url" rel="index"><span itemprop="name">BookNotes</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/BookNotes/%E7%BB%8F%E6%B5%8E%E7%90%86%E8%B4%A2/" itemprop="url" rel="index"><span itemprop="name">经济理财</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/posts/2ad24f9c/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/2ad24f9c/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>10k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>9 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="元数据"><a href="#元数据" class="headerlink" title="元数据"></a>元数据</h1><blockquote>
+<p><img src="https://cdn.weread.qq.com/weread/cover/23/cpplatform_mgqenwnngw4eqnb1bmexyg/t6_cpplatform_mgqenwnngw4eqnb1bmexyg1747102455.jpg" alt=" 源代码|200"></p>
+<ul>
+<li><strong>书名</strong>: 源代码</li>
+<li><strong>作者</strong>: 【美】比尔·盖茨</li>
+<li><strong>简介</strong>: 比尔·盖茨是当代富有影响力、引领变革的商业领 袖和慈善家。这本书讲述的便是他的成长故事。 比尔·盖茨在商业领域创造的辉煌早已广为人知。20 岁的他离开哈佛大学，创办了一家日后成为行业巨头的软件公司，改变了整个世界的工作与生活方式。这位亿万富翁随即将注意力转向慈善事业，致力于应对气候变化、全球健康和美国教育领域的重重挑战。 这本书并不是比尔·盖茨对微软公司光辉岁月的追忆，也无关盖茨基金会的诞生或技术的未来。这是一个传递着人性温度的个人故事，你将从中看到比尔·盖茨如何成长为今天的他，了解他在童年及青少年时期的激情与志向。 出现在这个故事中的，有他严于律己的外祖母和胸怀大志的父母，有他最初的深厚友情和挚友的遽然离世，有他试图融入周遭社会的苦苦挣扎，有他在一个新时代即将到来时对代码和计算机世界的奇妙发现，也有他从少年时便开始的对人生之路的探索与追寻。走在这条路上的他，曾经半夜三更溜出家门，跑到附近的计算机中心，后来，在大学宿舍里，他引燃了即将改变世界的科技革命的导火线。 在这本书中，比尔·盖茨第 一次以充满智慧和温情的笔触，坦率地将自己的故事和盘托出，将其精彩绝 伦的生活淋漓尽致地展现在了读者眼前。</li>
+<li><strong>出版时间</strong>: 2025-02-01</li>
+<li><strong>ISBN</strong>: 9787521768770</li>
+<li><strong>分类</strong>: 经济理财-商业</li>
+<li><strong>出版社</strong>: 中信出版集团</li>
+<li><strong>字数</strong>: 214984</li>
+<li><strong>在线阅读</strong>: <a target="_blank" rel="noopener" href="https://weread.qq.com/web/reader/b7932540813ab9ecdg014812">微信读书</a></li>
+<li><strong>划线数量</strong>: 49</li>
+<li><strong>想法数量</strong>: 24</li>
+</ul>
+</blockquote>
+<span id="more"></span>
+
+<h1 id="高亮划线"><a href="#高亮划线" class="headerlink" title="高亮划线"></a>高亮划线</h1><h2 id="序章"><a href="#序章" class="headerlink" title="序章"></a>序章</h2><blockquote>
+<p>📌 如今回头看去，我能肯定，我们在这些旅行中寻求的不只是志同道合的友情及某种成就感。我们当时正处于青少年挑战自身极限、探索不同身份定位的年龄段，有时候，我们向往那些更大的、超凡的体验。<br>⏱ 2025-05-14 09:53:31 ^3300144134-5-2055-2145</p>
+</blockquote>
+<blockquote>
+<p>📌 表面看来，徒步旅行和编程之间差了十万八千里，但从感受上说，它们都是探险活动。<br>⏱ 2025-05-14 09:55:19 ^3300144134-5-2425-2463</p>
+</blockquote>
+<blockquote>
+<p>📌 编写长而复杂的程序所需的逻辑思维、专注力和耐力，仿佛是我与生俱来的本能。<br>⏱ 2025-05-14 09:55:24 ^3300144134-5-2557-2593</p>
+</blockquote>
+<blockquote>
+<p>📌 行走的节奏有助于我思考，就像我曾习惯于思考时原地晃动身体。<br>⏱ 2025-05-14 10:04:09 ^3300144134-5-4585-4614</p>
+</blockquote>
+<blockquote>
+<p>📌 有句名言说得好：“我本来可以写封短信，但我没时间。”同样，用繁复的代码写一个长达数页的程序，要比仅用一页篇幅编写同一程序容易得多。啰唆冗长的程序运行起来更慢，占用更多内存。<br>⏱ 2025-05-14 10:03:36 ^3300144134-5-5026-5112</p>
+</blockquote>
+<h2 id="第一章-老三"><a href="#第一章-老三" class="headerlink" title="第一章 老三"></a>第一章 老三</h2><blockquote>
+<p>📌 在我还穿着纸尿裤的时候，拉拉就开始叫我“老三”(Trey)。Trey在纸牌玩家的口中是“三点牌”的意思，它也是一个文字游戏，因为我是家族里依然在世的第三个比尔·盖茨，另外两个是我祖父和父亲。（我其实是第四个比尔·盖茨，但我父亲选择自称为“小比尔·盖茨”，于是我便成了比尔·盖茨三世。）<br>⏱ 2025-05-14 10:09:57 ^3300144134-6-1998-2140</p>
+</blockquote>
+<blockquote>
+<p>📌 因为基督教科学派的信徒不以人的生理年龄为念，所以外祖母从不庆祝生日，也从不透露年龄，甚至不告诉别人她是哪一年出生的。<br>⏱ 2025-05-14 10:10:42 ^3300144134-6-2518-2576</p>
+</blockquote>
+<blockquote>
+<p>📌 早在我能捧起书本之前，外祖母就读书给我听，那几年，她为我读了一系列经典作品，比如《柳林风声》《汤姆·索亚历险记》和《夏洛的网》。<br>⏱ 2025-05-14 18:45:42 ^3300144134-6-3336-3400</p>
+</blockquote>
+<blockquote>
+<p>📌 玩纸牌教会我：无论某些事情看起来多复杂、多神秘，我们通常都能最终琢磨出个究竟。这个世界是可以被理解的。<br>⏱ 2025-05-14 18:50:03 ^3300144134-6-5915-5966</p>
+</blockquote>
+<blockquote>
+<p>📌 我在破解外祖母牌技谜题时的高度专注，被我投入了一切让我感兴趣的事上，但对不感兴趣的事，我则一点儿也不放在心上。<br>⏱ 2025-05-15 23:16:44 ^3300144134-6-6927-6982</p>
+</blockquote>
+<blockquote>
+<p>📌 1951年，当J.W.以86岁的高龄去世时，他已经是西雅图一家大银行的董事长、活跃的民间领袖。他还担任过市长、州议员、学校董事会成员及西雅图联邦储备银行董事会成员。<br>⏱ 2025-05-15 23:33:03 ^3300144134-6-9585-9667</p>
+</blockquote>
+<blockquote>
+<p>📌 在马克斯韦尔家族，游戏具有更深刻的教育意义。比如说打高尔夫球就相当于开展银行业务，J.W.曾写道，这两者都需要“高超的技巧，不断的练习，保持清醒和耐心，百折不挠并防患于未然”。<br>⏱ 2025-05-15 23:35:42 ^3300144134-6-9910-9998</p>
+</blockquote>
+<blockquote>
+<p>📌 “你知道得越多，你不知道的也就越多。”<br>⏱ 2025-05-15 23:40:29 ^3300144134-6-11644-11663</p>
+</blockquote>
+<blockquote>
+<p>📌 连高中都没上完的多尔姆·布拉曼创办了布雷默顿最大的木材加工厂，他后来当上了海军军官，又当选为西雅图市长，最终在尼克松执政期间任运输部副部长。<br>⏱ 2025-05-15 23:41:59 ^3300144134-6-12412-12482</p>
+</blockquote>
+<h2 id="第二章-观景岭"><a href="#第二章-观景岭" class="headerlink" title="第二章 观景岭"></a>第二章 观景岭</h2><blockquote>
+<p>📌 在像我们这样的人家，自信压倒一切。我父母和我们周围的父母全都经历过大萧条和第二次世界大战，每个人都能看出美国正在蓬勃发展。<br>⏱ 2025-05-19 09:57:37 ^3300144134-7-2506-2567</p>
+</blockquote>
+<blockquote>
+<p>📌 不过，这次世博会的技术乐观主义梦想必定影响了我。在那个可塑性极强的年纪，1962年，我接收到的信息十分明确：我们要探索太空、终结疾病，要让旅行变得更便捷。技术意味着进步，运用得当将为人类带来和平。<br>⏱ 2025-05-19 10:02:51 ^3300144134-7-4682-4780</p>
+</blockquote>
+<blockquote>
+<p>📌 这种潜能无限的氛围是我早年生活的背景，也是我母亲为我们设定的抱负。我父母在养育我这件事上付出了同等的心力，但行动则以我母亲为主导：她甚至把我家的钟表拨快了8分钟，我们都得按她的时间来安排日程。<br>⏱ 2025-05-19 10:03:37 ^3300144134-7-5047-5143</p>
+</blockquote>
+<blockquote>
+<p>📌 我能感觉到，与其他家长相比，我父母与老师之间的联系更紧密。其他家长也会在学年开始时邀请老师来家里共进晚餐吗？我认为不会。对我父母来说，这是理所当然的，表明他们对子女的教育很上心。<br>⏱ 2025-05-19 10:19:43 ^3300144134-7-6447-6536</p>
+</blockquote>
+<blockquote>
+<p>📌 他们还实行了一种奖励机制：拿到一个A，便可兑换25美分；所有科目全都得A，就可以任选一家餐厅享用晚餐。<br>⏱ 2025-05-19 10:19:22 ^3300144134-7-6825-6876</p>
+</blockquote>
+<blockquote>
+<p>📌 在餐桌上是不允许看书的，和家人共进晚餐是分享和交流的时光。<br>⏱ 2025-05-19 10:21:19 ^3300144134-7-7488-7517</p>
+</blockquote>
+<blockquote>
+<p>📌 我父母并不期待我们就任何问题发表长篇大论，但我们会聊起当天的见闻，他们也会跟我们说说自己的经历。通过这些交谈，我逐渐在脑海中勾勒出关于成年人的日常生活及他们所处的那个广阔世界的图景。<br>⏱ 2025-05-19 10:21:58 ^3300144134-7-7652-7743</p>
+</blockquote>
+<blockquote>
+<p>📌 如果你觉得我父母在我的描述中有些过于品行高洁、过于热心公益和回馈社会的话，我也没有办法，因为他们的确就是这种人。<br>⏱ 2025-05-19 10:27:06 ^3300144134-7-8772-8828</p>
+</blockquote>
+<blockquote>
+<p>📌 同行的通常是固定的10家人，大人和小孩加在一起有50多人。他们是我父母最好的朋友，其中许多人是他们大学时的好友。<br>⏱ 2025-05-19 10:33:07 ^3300144134-7-10382-10438</p>
+</blockquote>
+<blockquote>
+<p>📌 这个安排是我母亲想出来的。当我回望童年时，我能看出来这符合她一贯的行事作风，那就是非要制造出一些情境，逼得我和我的姐妹不得不跟人社交，尤其是跟大人打交道。<br>⏱ 2025-05-19 10:33:52 ^3300144134-7-11116-11193</p>
+</blockquote>
+<h2 id="第三章-理性的"><a href="#第三章-理性的" class="headerlink" title="第三章 理性的"></a>第三章 理性的</h2><blockquote>
+<p>📌 起程前，我母亲为我们姐弟俩准备了一份旅行日志，每天两页，供我们记录所见所闻。她用打字机敲出了草体字的标题，列出途经的城市和每天大概的行驶里程，还列出了需要填写的类目。日志差不多是这样的：<br>   1.地形<br>   2.天气<br>   3.人口分布<br>   4.土地利用情况<br>   5.产品<br>   6.历史古迹或风景名胜<br>   7.其他<br>   在页面下方，她为当天的旅行留出了一个文字描述栏。<br>⏱ 2025-05-19 10:49:43 ^3300144134-8-1801-2205</p>
+</blockquote>
+<blockquote>
+<p>📌 在任何地方，我都能偷得片刻闲暇，遁入书中天地，独自探索、吸纳新的知识点，无须借助他人。<br>⏱ 2025-05-22 19:12:57 ^3300144134-8-5087-5130</p>
+</blockquote>
+<blockquote>
+<p>📌 通过阅读，我能找到针对各种问题的答案。当然，一个答案往往又会引发更多的问题；越是深入挖掘，想要知道的东西就越多。<br>⏱ 2025-05-22 19:27:01 ^3300144134-8-5802-5858</p>
+</blockquote>
+<h2 id="第四章-幸运儿"><a href="#第四章-幸运儿" class="headerlink" title="第四章 幸运儿"></a>第四章 幸运儿</h2><blockquote>
+<p>📌 我的房间里有一张床和一个书桌，在堆成一片汪洋的书本和衣物中，也就这两样能看得清方位。房间里乱得一塌糊涂，我母亲对此深恶痛绝，她一度对我扔在地上的衣物一律予以没收，我需要以每件25美分的价格把它们买回来，于是我开始少穿衣服。<br>⏱ 2025-05-25 13:56:57 ^3300144134-9-5906-6017</p>
+</blockquote>
+<blockquote>
+<p>📌 从各个方面来看，这都是一个梦幻般的任务。在我自己的小天地里，远离其他孩子的评头品足，我可以做自己最喜欢做的事情：阅读，收集知识点，对信息进行整合。<br>⏱ 2025-05-25 18:51:44 ^3300144134-9-7593-7666</p>
+</blockquote>
+<blockquote>
+<p>📌 创建于20世纪60年代初的父母效能训练主张父母应聆听子女的需求，永远不要使用惩罚性管教手段。这是现代育儿法的前身，它更强调父母与子女之间的合作，甚至是平等的关系。<br>⏱ 2025-05-26 19:18:09 ^3300144134-9-9794-9875</p>
+</blockquote>
+<blockquote>
+<p>📌 我会偷看律师们办公桌上的纸质工作时间记录，我父亲跟我说过，要想赚取律师费，每个人都必须精确记录自己工作的每一分钟、每一小时。<br>⏱ 2025-05-26 19:21:54 ^3300144134-9-13328-13390</p>
+</blockquote>
+<blockquote>
+<p>📌 这个故事让我着迷，它让我了解到一个身兼医生和发明家双重身份的人如何通过制造仪器来挽救生命。我这个六年级学生的小脑袋瓜也借此汲取了关于融资、专利、利润和研发的相关信息。<br>⏱ 2025-05-26 19:24:20 ^3300144134-9-15291-15374</p>
+</blockquote>
+<blockquote>
+<p>📌 那一年，我创办了一个俱乐部，它基本上是我父母举办的那些社交聚会的少年版。<br>⏱ 2025-05-26 19:29:12 ^3300144134-9-15736-15772</p>
+</blockquote>
+<h2 id="第五章-湖滨中学"><a href="#第五章-湖滨中学" class="headerlink" title="第五章 湖滨中学"></a>第五章 湖滨中学</h2><blockquote>
+<p>📌 我所在的班上有大约50个男生，几乎都是白人。他们的父亲所从事的工作是当时太平洋西北地区私立中学家长的典型职业，比如律师、医生、银行家、林产品企业的高管和波音公司的工程师，换言之，这是一群西雅图的精英人士。<br>⏱ 2025-05-26 19:33:57 ^3300144134-10-2189-2291</p>
+</blockquote>
+<blockquote>
+<p>📌 和我一样，肯特很难融入湖滨中学已有的派系小圈子。他跟运动健将不沾边儿，也不是那种人心所向的酷同学。和我不一样的是，他根本不在乎，肯特对社会地位及别人对他的看法毫不介怀。他只为自己和自己感兴趣的事物而活，兴之所至，辄全力以赴，远远超出人们对一个12岁男孩的想象。<br>⏱ 2025-05-27 23:33:42 ^3300144134-10-4676-4806</p>
+</blockquote>
+<blockquote>
+<p>📌 这是1968年的秋天，即将作为美国历史上最动荡不安的一段时期而被人们铭记的这一年，马上就要走到尽头。不过几个月的工夫，小马丁·路德·金和罗伯特·F.肯尼迪便接连遇刺，人们从电视报道中目睹了在芝加哥举办的民主党全国代表大会上抗议者被殴打的场面，以及从巴尔的摩蔓延至波士顿的暴乱。反越战运动愈演愈烈，走向全面爆发。约翰逊总统放弃了寻求连任，为一大批力争将共和党人理查德·尼克松挡在白宫大门外的民主党人创造了参与竞选的机会。<br>⏱ 2025-05-28 19:01:17 ^3300144134-10-4851-5060</p>
+</blockquote>
+<blockquote>
+<p>📌 他说，这台计算机主机并不在湖滨中学，而是在加利福尼亚州的某处，我们需要通过一根电话线登录进入。<br>⏱ 2025-05-28 19:08:08 ^3300144134-10-7704-7751</p>
+</blockquote>
+<blockquote>
+<p>📌 招聘教师时，湖滨中学特别看重那些对自身领域兴趣浓厚且有真才实学的人。有些教师拥有任职于波音公司等大企业的工作经验，有一位教师曾经是天体物理学家，教职工中还有几位曾是律师。我高中最后一年的化学老师拥有一项分离色氨酸的改进方法专利。<br>⏱ 2025-05-31 09:47:57 ^3300144134-10-8171-8285</p>
+</blockquote>
+<blockquote>
+<p>📌 校方的教学理念是，高水平的教师有足够的自信，可以给学生留出探索的空间，即便这意味着打破常规边界。<br>⏱ 2025-05-31 09:47:48 ^3300144134-10-8314-8362</p>
+</blockquote>
+<blockquote>
+<p>📌 1968年，这意味着每个月付费租用电传打字机，然后按小时支付那台分时系统计算机的接入费。为了这台终端机，学校每年要花1000多美元，加上每小时8美元的机时费，累计起来还要再花上几千美元。<br>⏱ 2025-05-31 09:50:02 ^3300144134-10-8906-8999</p>
+</blockquote>
+<blockquote>
+<p>📌 计算机强迫我去思考，我喜欢这一点。它对思维上的疏忽懈怠不留半点儿情面，它迫使我保持逻辑自洽，重视每一个细节。一个逗号或一个分号放错了地方，就无法使其正确运行。<br>⏱ 2025-05-31 09:51:22 ^3300144134-10-10364-10443</p>
+</blockquote>
+<blockquote>
+<p>📌 赖特老师管理计算机房时，也遵循了同样的哲学：不用登记，不会锁门，没有正式的指导。因为湖滨中学此时尚未开设计算机课。他敞开计算机房的大门，让我们来去自如，他相信在不设限的情况下，我们必然能发挥创意，找出自学之道。<br>⏱ 2025-05-31 15:17:07 ^3300144134-10-13432-13537</p>
+</blockquote>
+<h2 id="第六章-自由时间"><a href="#第六章-自由时间" class="headerlink" title="第六章 自由时间"></a>第六章 自由时间</h2><blockquote>
+<p>📌 我见过的许多成功人士都曾对我描述说，爱上各自选定的领域后，他们必然要在一段时间内艰苦而专注地工作。正是在这段时间，最初的兴趣逐渐转变成实实在在的技能。<br>⏱ 2025-05-31 15:17:08 ^3300144134-11-2912-2987</p>
+</blockquote>
+<blockquote>
+<p>📌 在《异类：不一样的成功启示录》￼一书中，马尔科姆·格拉德威尔指出，无论是作曲还是打网球，都需要经历10000个小时的刻苦练习，才能达到高超的技术水平。<br>⏱ 2025-05-31 15:17:08 ^3300144134-11-2987-3157</p>
+</blockquote>
+<blockquote>
+<p>📌 这次不同了，使用手边的这台计算机，我感觉我能创造出自己想象出来的任何东西。<br>⏱ 2025-06-01 21:16:13 ^3300144134-11-5844-5881</p>
+</blockquote>
+<h2 id="第七章-只是一帮小屁孩"><a href="#第七章-只是一帮小屁孩" class="headerlink" title="第七章 只是一帮小屁孩"></a>第七章 只是一帮小屁孩</h2><blockquote>
+<p>📌 我的计划是把一本书放在家里，另一本放在学校。这倒不是因为把书带来带去不方便，而是想摆出一副我根本不需要在家学习的样子。<br>⏱ 2025-06-09 15:06:03 ^3300144134-12-1883-1942</p>
+</blockquote>
+<blockquote>
+<p>📌 英语单词“education”（教育）的拉丁语词根为“educere”，意思是“带领或引导”。<br>⏱ 2025-06-09 15:08:32 ^3300144134-12-3250-3297</p>
+</blockquote>
+<blockquote>
+<p>📌 梅斯特里蒂老师抨击了那种将科学视为一堆已经验证的事实、只需死记硬背即可的观点，他认为科学是一种审视世界的方式，它是一个永不间断的故事，一直在挑战那些积年累月、深植人心的事实与理论。纵观历史，许多研究者之所以闻名于世，正是因为他们发现那些被几代人在几百年中普遍接受的“事实”是错误的，并提出了更好的观点。<br>⏱ 2025-06-09 15:09:26 ^3300144134-12-3502-3653</p>
+</blockquote>
+<blockquote>
+<p>📌 科学对我的吸引源于它满足了我对秩序和条理的需求，并且提供了那种我在数学世界里已经发现的让人心满意足的结构框架，它也迎合了我超级理性的世界观。本质上，科学需要一个狂放不羁、充满好奇的心灵，并且可以用纪律和怀疑主义加以自我约束。<br>⏱ 2025-06-09 15:13:32 ^3300144134-12-5191-5303</p>
+</blockquote>
+<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><h3 id="划线评论"><a href="#划线评论" class="headerlink" title="划线评论"></a>划线评论</h3><blockquote>
+<p>📌 奖赏就是发现的乐趣。<br>💭 The prize is the pleasure of finding the thing out.<br>⏱ 2025-05-13 23:52:53 ^19836794-807A9SpZ2</p>
+</blockquote>
+<h2 id="序章-1"><a href="#序章-1" class="headerlink" title="序章"></a>序章</h2><h3 id="划线评论-1"><a href="#划线评论-1" class="headerlink" title="划线评论"></a>划线评论</h3><blockquote>
+<p>📌 肯特、保罗、里克和我上的是同一所学校——湖滨中学。在校方的安排下，学生们可以通过电话线连接到一台计算机主机。<br>💭 传说开始的地方<br>⏱ 2025-05-14 09:54:19 ^19836794-808dy1cBV</p>
+</blockquote>
+<h3 id="划线评论-2"><a href="#划线评论-2" class="headerlink" title="划线评论"></a>划线评论</h3><blockquote>
+<p>📌 尽管一台PDP–8就重达80磅，价值8500美元，但它可能是那时最接近10年后才会出现的个人计算机的设备了。<br>💭 1971年的8500美元……那时候我爷爷的工资好像才每月7块钱。<br>⏱ 2025-05-14 10:00:00 ^19836794-808dV7wsy</p>
+</blockquote>
+<h3 id="划线评论-3"><a href="#划线评论-3" class="headerlink" title="划线评论"></a>划线评论</h3><blockquote>
+<p>📌 关键是要小，那会儿的计算机内存极其有限，这台PDP–8用来存储工作数据的内存只有6K（千字节），这意味着程序必须精简，使用尽可能少的代码才不会占用过多的内存。<br>💭 现在回头看，真的佩服早期程序员的开发能力，简直是螺蛳壳里做道场。<br>⏱ 2025-05-14 10:02:12 ^19836794-808e3ZTfs</p>
+</blockquote>
+<h3 id="划线评论-4"><a href="#划线评论-4" class="headerlink" title="划线评论"></a>划线评论</h3><blockquote>
+<p>📌 三年半之后，正当我这个大二学生困惑于不知如何选择人生之路时，湖滨中学的校友保罗冲进了我的宿舍，他带来了关于一台具有突破性的计算机的消息。我当即知道保罗和我可以为这台计算机编写一版BASIC语言，因为我们已经拥有某种先发优势。<br>💭 Altair 8800<br>⏱ 2025-05-14 10:06:55 ^19836794-808eneL6K</p>
+</blockquote>
+<h2 id="第一章-老三-1"><a href="#第一章-老三-1" class="headerlink" title="第一章 老三"></a>第一章 老三</h2><h3 id="划线评论-5"><a href="#划线评论-5" class="headerlink" title="划线评论"></a>划线评论</h3><blockquote>
+<p>📌 我觉得，我的外祖父母从基督教科学派中汲取了力量，他们欣然接受了其教义，即一个人应当从精神世界而非物质世界中寻求真正的自我。<br>💭 基督教科学派（Christian Science） 是一个由 玛丽·贝克·艾迪（Mary Baker Eddy） 于 19 世纪末在美国创立的宗教团体，其核心思想强调精神的力量可以治愈疾病。<br>⏱ 2025-05-14 10:14:11 ^19836794-808eQIpCL</p>
+</blockquote>
+<h3 id="划线评论-6"><a href="#划线评论-6" class="headerlink" title="划线评论"></a>划线评论</h3><blockquote>
+<p>📌 6英尺7英寸<br>💭 翻译和注释太偷懒了，这里直接在正文或者注释里写上换算后的公制单位不行吗？中文读者是有多少对英制单位有概念的？<br>⏱ 2025-05-15 23:21:16 ^19836794-80aAHPIeE</p>
+</blockquote>
+<h3 id="划线评论-7"><a href="#划线评论-7" class="headerlink" title="划线评论"></a>划线评论</h3><blockquote>
+<p>📌 我母亲身高5英尺7英寸，我父亲直截了当地说她不符合标准。“玛丽，”他说，“你太矮了。”<br>💭 1米7<br>⏱ 2025-05-15 23:22:35 ^19836794-80aANeTbW</p>
+</blockquote>
+<h3 id="划线评论-8"><a href="#划线评论-8" class="headerlink" title="划线评论"></a>划线评论</h3><blockquote>
+<p>📌 或许我们的“方式”有所不同，但我倾向于认为我们可以兼顾双方的观点，展示出一个坚定的对外立场……<br>💭 求同存异<br>⏱ 2025-05-15 23:25:05 ^19836794-80aAXntm3</p>
+</blockquote>
+<h3 id="划线评论-9"><a href="#划线评论-9" class="headerlink" title="划线评论"></a>划线评论</h3><blockquote>
+<p>📌 内布拉斯加州<br>💭 内布拉斯加州（Nebraska）是美国中西部大平原区的一州，它的名称来自美国原住民中的吉韦雷语，意为平顺之水。该州有普拉特河贯穿整州。<br>州府是林肯市（Lincoln），州内最大的城市是奥马哈（Omaha）。<br>⏱ 2025-05-15 23:26:06 ^19836794-80aB1vwe7</p>
+</blockquote>
+<h3 id="划线评论-10"><a href="#划线评论-10" class="headerlink" title="划线评论"></a>划线评论</h3><blockquote>
+<p>📌 我父亲说，祖父从来不去电影院，也不带儿子看篮球比赛，因为在祖父眼中，这种事纯属耽误工夫，是在跟他店里的生意抢时间。我父亲说，祖父似乎总是处于慌慌张张、提心吊胆的状态。<br>💭 一边是银行家，一边是小经营者。<br>⏱ 2025-05-15 23:37:41 ^19836794-80aBMuQ8l</p>
+</blockquote>
+<h3 id="划线评论-11"><a href="#划线评论-11" class="headerlink" title="划线评论"></a>划线评论</h3><blockquote>
+<p>📌 我祖父的世界观在我父亲看来也非常狭隘，他将这部分归因于缺乏安全感。没有接受过完整教育的祖父恪守着关于外部世界和自身生活的僵化教条。“学点儿赚钱的招儿，儿子，学点儿赚钱的招儿。”他总是这么跟我父亲说。在祖父看来，接受教育只是为了获得找工作所需要的技能。<br>💭 首先得生存，然后才是更高层次的精神追求。<br>⏱ 2025-05-15 23:39:52 ^19836794-80aBVo9sg</p>
+</blockquote>
+<h2 id="第二章-观景岭-1"><a href="#第二章-观景岭-1" class="headerlink" title="第二章 观景岭"></a>第二章 观景岭</h2><h3 id="划线评论-12"><a href="#划线评论-12" class="headerlink" title="划线评论"></a>划线评论</h3><blockquote>
+<p>📌 住在观景岭社区里的家庭，男主人一般都是商人、医生、工程师，以及像我父亲这样的律师。<br>💭 精英社区<br>⏱ 2025-05-19 10:00:07 ^19836794-80fPtv3ec</p>
+</blockquote>
+<h3 id="划线评论-13"><a href="#划线评论-13" class="headerlink" title="划线评论"></a>划线评论</h3><blockquote>
+<p>📌 但外祖母并不认为自己是我父母的替身，相反，她是我们的良师益友。她想多给我父母一点儿空间，让他们以自己的方式养育我们。外祖母极其尊重不同的角色身份之间清晰的边界，因此，每当我父亲快要下班回家时，她都会跟我们道晚安后离开。<br>💭 优雅睿智的长辈。<br>⏱ 2025-05-19 10:20:56 ^19836794-80fQQ0NGY</p>
+</blockquote>
+<h3 id="划线评论-14"><a href="#划线评论-14" class="headerlink" title="划线评论"></a>划线评论</h3><blockquote>
+<p>📌 通常，这意味着我母亲会交给我们一项任务。我的任务是在他们玩桥牌时倒咖啡，我按照我母亲教我的那样，绕着桌子，小心翼翼地端着咖啡壶，将咖啡倒入瓷杯。在她的注视下，我自豪极了。即便是现在，当我想要感受母亲近在身边的感觉时，我便会回想起这一段。我觉得自己很重要，是这个成人仪式的一部分，在他们的娱乐中至关重要。<br>💭 江苏的小孩肯定有类似的经历，饭局开始前，给正在掼蛋的长辈们倒茶。<br>⏱ 2025-05-19 10:30:42 ^19836794-80fRtHTSI</p>
+</blockquote>
+<h2 id="第三章-理性的-1"><a href="#第三章-理性的-1" class="headerlink" title="第三章 理性的"></a>第三章 理性的</h2><h3 id="划线评论-15"><a href="#划线评论-15" class="headerlink" title="划线评论"></a>划线评论</h3><blockquote>
+<p>📌 我家的传家宝之一是一套1962年版的《世界百科全书》，那是20卷红蓝相间的大部头，书页光滑平整，配有色彩绚丽的插图。<br>💭 90后小时候，是不是都有一套四卷本的《中国少年儿童百科全书》，小时候特别喜欢翻这套书，尤其是科技卷。<br>⏱ 2025-05-22 19:15:15 ^19836794-80kYLeJSI</p>
+</blockquote>
+<h3 id="划线评论-16"><a href="#划线评论-16" class="headerlink" title="划线评论"></a>划线评论</h3><blockquote>
+<p>📌 每年1月，这套百科全书都会发行一本简要介绍前一年的历史性时刻的年鉴。当它寄到时，感觉就像一份迟来的圣诞节礼物。我也会一字不落地把它们读完。<br>💭 完美的售后服务！<br>⏱ 2025-05-22 19:15:40 ^19836794-80kYMVMT9</p>
+</blockquote>
+<h3 id="划线评论-17"><a href="#划线评论-17" class="headerlink" title="划线评论"></a>划线评论</h3><blockquote>
+<p>📌 可是这在我看来是不对的，如果你真的很聪明，那你就能在几乎不努力的情况下拿到A，因此A3才应该是最高分。<br>💭 结果导向，效率更优。<br>⏱ 2025-05-22 19:32:52 ^19836794-80kZULlM0</p>
+</blockquote>
+<h3 id="划线评论-18"><a href="#划线评论-18" class="headerlink" title="划线评论"></a>划线评论</h3><blockquote>
+<p>📌 对我来说，数学很简单，甚至很有趣。我喜欢它那种铁打的确定性。数学遵循基本的运算法则，你需要做的就是记住它们。为什么其他学生似乎就想不到这一点呢？我百思不得其解。4乘4永远都等于16啊。<br>💭 就我的观察而言，数学好的人更容易接受并运用一套客观的规则，而不是把自己的主观判断加诸其上。<br>⏱ 2025-05-22 19:35:12 ^19836794-80l04dOQV</p>
+</blockquote>
+<h3 id="划线评论-19"><a href="#划线评论-19" class="headerlink" title="划线评论"></a>划线评论</h3><blockquote>
+<p>📌 她对我说，非虚构类的图书是按照从000到900的数字顺序摆放在书架上的。她告诉我，要想记住这个杜威十进分类法，不妨先记住一个简单的故事：一个穴居人会提出越来越深刻的问题，最开始的问题是“我是谁”（这对应着100：哲学与心理学类图书），逐渐上升到“我如何能为其他人留下点儿记录”的高度（这对应着900：历史、地理和传记类图书）。<br>💭 杜威十进分类法（Dewey Decimal Classification，简称DDC）是一种广泛应用于全球图书馆的图书分类法，由美国人麦尔威·杜威（Melvil Dewey）于1876年发明。其特点是将知识按照主题分为十个主要类别，使用阿拉伯数字进行标识，并辅以小数点细分。<br>十个主要类别依次为：000 总论，100 哲学与心理学，200 宗教，300 语言，400 社会科学，500 自然科学，600 应用科学，700 艺术与休闲，800 文学，900 历史、地理与传记。<br>⏱ 2025-05-22 19:47:49 ^19836794-80l0Tseq0</p>
+</blockquote>
+<h2 id="第四章-幸运儿-1"><a href="#第四章-幸运儿-1" class="headerlink" title="第四章 幸运儿"></a>第四章 幸运儿</h2><h3 id="划线评论-20"><a href="#划线评论-20" class="headerlink" title="划线评论"></a>划线评论</h3><blockquote>
+<p>📌 还有几本关于特拉华州在地下铁路中所发挥的历史作用的书<br>💭 地下铁路(Underground Railroad)是美国废奴主义者帮助奴隶逃往美国北部或加拿大的秘密网络。<br>⏱ 2025-05-25 14:00:25 ^19836794-80pd4n0ZV</p>
+</blockquote>
+<h2 id="第五章-湖滨中学-1"><a href="#第五章-湖滨中学-1" class="headerlink" title="第五章 湖滨中学"></a>第五章 湖滨中学</h2><h3 id="划线评论-21"><a href="#划线评论-21" class="headerlink" title="划线评论"></a>划线评论</h3><blockquote>
+<p>📌 但是，如果我曾留心那年春天的最后一期湖滨中学校报的话，我或许会注意到第2版底部一则仅有两段文字的报道：从秋季学期起，数学部将接入一台计算机，“希望学生们能用它来开展大型项目”。<br>💭 命运的齿轮开始转动。<br>⏱ 2025-05-27 23:30:03 ^19836794-80sQZK23p</p>
+</blockquote>
+<h3 id="划线评论-22"><a href="#划线评论-22" class="headerlink" title="划线评论"></a>划线评论</h3><blockquote>
+<p>📌 15岁的保罗大我们两岁，自以为比旁人酷得多。他为自己精心打造的社会定位是多才多艺的文艺复兴人，既能随口说出洲际弹道导弹的有效负荷，也能分辨出吉米·亨德里克斯歌曲中的和弦变化。<br>💭 Cool<br>⏱ 2025-05-31 09:54:28 ^19836794-80y4OS9A4</p>
+</blockquote>
+<h2 id="第七章-只是一帮小屁孩-1"><a href="#第七章-只是一帮小屁孩-1" class="headerlink" title="第七章 只是一帮小屁孩"></a>第七章 只是一帮小屁孩</h2><h3 id="划线评论-23"><a href="#划线评论-23" class="headerlink" title="划线评论"></a>划线评论</h3><blockquote>
+<p>📌 快到月底时，我把所有人召集到一起，告诉他们，如果保罗真的想留我参与这个项目的话，我得掌控全局。而如果由我来掌控全局的话，我将决定谁能得到多大比例的免费上机时间。<br>💭 项目经理，进度管理。<br>⏱ 2025-06-09 15:26:11 ^19836794-80M7kqPnW</p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Written by:  </strong>【美】比尔·盖茨
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://blog.erispyu.fun/posts/2ad24f9c/" title="源代码">https://blog.erispyu.fun/posts/2ad24f9c/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E4%B8%AD%E4%BF%A1%E5%87%BA%E7%89%88%E9%9B%86%E5%9B%A2/" rel="tag"><i class="fa fa-tag"></i> 中信出版集团</a>
+              <a href="/tags/%E6%AF%94%E5%B0%94%C2%B7%E7%9B%96%E8%8C%A8/" rel="tag"><i class="fa fa-tag"></i> 比尔·盖茨</a>
+              <a href="/tags/%E7%BB%8F%E6%B5%8E%E7%90%86%E8%B4%A2-%E5%95%86%E4%B8%9A/" rel="tag"><i class="fa fa-tag"></i> 经济理财-商业</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/f7f20395/" rel="prev" title="第一财经（2025年第5期）">
+                  <i class="fa fa-angle-left"></i> 第一财经（2025年第5期）
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/b9a3c965/" rel="next" title="ĐApp: What Web 3.0 Looks Like">
+                  ĐApp: What Web 3.0 Looks Like <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Erispyu</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="Word count total">524k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">7:57</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div><script color="220，220，220" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/algoliasearch/4.24.0/algoliasearch-lite.umd.js" integrity="sha256-b2n6oSgG4C1stMT/yc/ChGszs9EY/Mhs6oltEjQbFCQ=" crossorigin="anonymous"></script><script src="/js/third-party/search/algolia-search.js"></script>
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"erispyu-blog","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

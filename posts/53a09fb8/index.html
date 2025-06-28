@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><!-- hexo injector head_begin start --><script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script><!-- hexo injector head_begin end -->
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.erispyu.fun","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":"default"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"algolia":{"appID":"2BILQUWIOA","apiKey":"f5aabb895c10440c28e6c77090f511eb","indexName":"github_page_erispyu","hits":{"per_page":10}}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="1. Prerequisite install Python 2.7 install MySQL 5.x  2. Install Django 1.6.11 Official website: https:&#x2F;&#x2F;www.djangoproject.com&#x2F;download&#x2F; Use command line:  pip install Django&#x3D;&#x3D;1.6.11">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Environment Setup For Django@1.6.11 + Python@2.7 + MySQL@5.x">
+<meta property="og:url" content="https://blog.erispyu.fun/posts/53a09fb8/index.html">
+<meta property="og:site_name" content="Erispyu&#39;s Blog">
+<meta property="og:description" content="1. Prerequisite install Python 2.7 install MySQL 5.x  2. Install Django 1.6.11 Official website: https:&#x2F;&#x2F;www.djangoproject.com&#x2F;download&#x2F; Use command line:  pip install Django&#x3D;&#x3D;1.6.11">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-09-09T09:51:40.000Z">
+<meta property="article:modified_time" content="2022-09-09T09:51:40.000Z">
+<meta property="article:author" content="Erispyu">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="Django">
+<meta property="article:tag" content="MySQL">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://blog.erispyu.fun/posts/53a09fb8/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://blog.erispyu.fun/posts/53a09fb8/","path":"posts/53a09fb8/","title":"Environment Setup For Django@1.6.11 + Python@2.7 + MySQL@5.x"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Environment Setup For Django@1.6.11 + Python@2.7 + MySQL@5.x | Erispyu's Blog</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QCC01KVZ4X"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-QCC01KVZ4X","only_pageview":false,"measure_protocol_api_secret":null}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Erispyu's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-list fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-plugins"><a href="/hexo-stats-echarts/" rel="section"><i class="fa-solid fa-flask fa-fw"></i>Plugins</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="Searching..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fab fa-algolia fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Prerequisite"><span class="nav-text">1. Prerequisite</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Install-Django-1-6-11"><span class="nav-text">2. Install Django 1.6.11</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Create-a-Django-project"><span class="nav-text">3. Create a Django project</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Install-the-PyMySQL-package"><span class="nav-text">4. Install the PyMySQL package</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-Set-up-the-setting-py-file"><span class="nav-text">5. Set up the setting.py file</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-Use-your-own-models-to-create-MySQL-tables"><span class="nav-text">6. Use your own models to create MySQL tables</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-Generate-models-from-existing-tables"><span class="nav-text">7. Generate models from existing tables</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-Bind-to-gunicorn"><span class="nav-text">8. Bind to gunicorn</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Erispyu</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">184</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">295</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/erispyu" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;erispyu" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:erispyu@gmail.com" title="E-Mail → mailto:erispyu@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.douban.com/people/erispyu00/" title="Douban → https:&#x2F;&#x2F;www.douban.com&#x2F;people&#x2F;erispyu00&#x2F;" rel="noopener me" target="_blank"><i class="fa fa-film fa-fw"></i>Douban</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.travellings.cn/go.html" title="Travellings → https:&#x2F;&#x2F;www.travellings.cn&#x2F;go.html" rel="noopener me" target="_blank"><i class="fa-solid fa-train fa-fw"></i>Travellings</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    Related Posts
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/posts/84218943/" rel="bookmark">
+        <time class="popular-posts-time">2024-01-04</time>
+        <br>
+      Building a Second Brain
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/posts/8d834c9e/" rel="bookmark">
+        <time class="popular-posts-time">2025-03-07</time>
+        <br>
+      TheEconomist.2025.03.08
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/posts/e7dca067/" rel="bookmark">
+        <time class="popular-posts-time">2025-03-06</time>
+        <br>
+      TheEconomist.2025.02.22
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/" rel="bookmark">
+      
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/posts/b9a3c965/" rel="bookmark">
+        <time class="popular-posts-time">2025-06-19</time>
+        <br>
+      ĐApp: What Web 3.0 Looks Like
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://blog.erispyu.fun/posts/53a09fb8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Erispyu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Erispyu's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Environment Setup For Django@1.6.11 + Python@2.7 + MySQL@5.x | Erispyu's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Environment Setup For Django@1.6.11 + Python@2.7 + MySQL@5.x
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-09-09 17:51:40" itemprop="dateCreated datePublished" datetime="2022-09-09T17:51:40+08:00">2022-09-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Computer-Science/" itemprop="url" rel="index"><span itemprop="name">Computer Science</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Computer-Science/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/posts/53a09fb8/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/53a09fb8/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>3.1k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>3 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="1-Prerequisite"><a href="#1-Prerequisite" class="headerlink" title="1. Prerequisite"></a>1. Prerequisite</h2><ol>
+<li>install Python 2.7</li>
+<li>install MySQL 5.x</li>
+</ol>
+<h2 id="2-Install-Django-1-6-11"><a href="#2-Install-Django-1-6-11" class="headerlink" title="2. Install Django 1.6.11"></a>2. Install Django 1.6.11</h2><ol>
+<li>Official website: <a target="_blank" rel="noopener" href="https://www.djangoproject.com/download/">https://www.djangoproject.com/download/</a></li>
+<li>Use command line:</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install Django==1.6.11</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<ol start="3">
+<li>Verify what you have installed:</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python -c <span class="string">&quot;import django; print(django.get_version())&quot;</span></span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>To see where Django was installed:</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python -c <span class="string">&quot;import sys; sys.path = sys.path[1:]; import django; print(django.__path__)&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="3-Create-a-Django-project"><a href="#3-Create-a-Django-project" class="headerlink" title="3. Create a Django project"></a>3. Create a Django project</h2><ol>
+<li>Create with command line:</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">django-admin.py startproject mysite</span><br></pre></td></tr></table></figure>
+
+<p>Here <code>mysite</code> is an example of the project’s name.</p>
+<ol start="2">
+<li>Directory tree:</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mysite/</span><br><span class="line">manage.py</span><br><span class="line">mysite/</span><br><span class="line">    __init__.py</span><br><span class="line">    settings.py</span><br><span class="line">    urls.py</span><br><span class="line">    wsgi.py</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-Install-the-PyMySQL-package"><a href="#4-Install-the-PyMySQL-package" class="headerlink" title="4. Install the PyMySQL package"></a>4. Install the PyMySQL package</h2><ol>
+<li>Use command line:</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip install PyMySQL</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>Paste the following code to the <code>__init__.py</code> file, which was left empty after project creation, just to let Python know that this is a Python package:</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pymysql</span><br><span class="line"></span><br><span class="line">pymysql.install_as_MySQLdb()</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-Set-up-the-setting-py-file"><a href="#5-Set-up-the-setting-py-file" class="headerlink" title="5. Set up the setting.py file"></a>5. Set up the <code>setting.py</code> file</h2><ol>
+<li>Change the <code>DATABASES</code> part into the following:</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">DATABASES = &#123;</span><br><span class="line">    <span class="string">&#x27;default&#x27;</span>: &#123;</span><br><span class="line">        <span class="string">&#x27;ENGINE&#x27;</span>: <span class="string">&#x27;django.db.backends.mysql&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;NAME&#x27;</span>: <span class="string">&#x27;mysite_db&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;HOST&#x27;</span>: <span class="string">&#x27;127.0.0.1&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;PORT&#x27;</span>: <span class="string">&#x27;3306&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;USER&#x27;</span>: <span class="string">&#x27;root&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;PASSWORD&#x27;</span>: <span class="string">&#x27;yourpassword&#x27;</span>,</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>Verify with:</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">python manage.py syncdb</span><br></pre></td></tr></table></figure>
+
+<p>The output should be something like:</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Creating tables ...</span><br><span class="line">Creating table django_admin_log</span><br><span class="line">Creating table auth_permission</span><br><span class="line">Creating table auth_group_permissions</span><br><span class="line">Creating table auth_group</span><br><span class="line">Creating table auth_user_groups</span><br><span class="line">Creating table auth_user_user_permissions</span><br><span class="line">Creating table auth_user</span><br><span class="line">Creating table django_content_type</span><br><span class="line">Creating table django_session</span><br><span class="line"></span><br><span class="line">You just installed Django&#x27;s auth system, which means you don&#x27;t have any superusers defined.</span><br><span class="line">Would you like to create one now? (yes/no): yes</span><br><span class="line">Username (leave blank to use &#x27;XXX&#x27;): admin</span><br><span class="line">Email address: admin</span><br><span class="line">Error: Enter a valid email address.</span><br><span class="line">Email address: XXX@company.com</span><br><span class="line">Password: </span><br><span class="line">Password (again): </span><br><span class="line">Superuser created successfully.</span><br><span class="line">Installing custom SQL ...</span><br><span class="line">Installing indexes ...</span><br><span class="line">Installed 0 object(s) from 0 fixture(s)</span><br></pre></td></tr></table></figure>
+
+<p>The <code>syncdb</code> command looks at the INSTALLED_APPS setting and creates any necessary database tables according to the database settings in your <code>mysite/settings.py</code> file.<br>You’ll see a message for each database table it creates, and you’ll get a prompt asking you if you’d like to create a superuser account for the authentication system. Go ahead and do that.</p>
+<h2 id="6-Use-your-own-models-to-create-MySQL-tables"><a href="#6-Use-your-own-models-to-create-MySQL-tables" class="headerlink" title="6. Use your own models to create MySQL tables"></a>6. Use your own models to create MySQL tables</h2><ol>
+<li>Notice that Django cannot create a database for you, but tables only, so we need to create a DB directly in MySQL first.</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mysql -u root -p</span><br><span class="line">password:</span><br><span class="line">CREATE DATABASE mysite_db;</span><br><span class="line">USE mysite_db;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>Create an app with Django:</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">python manage.py startapp myapp</span><br></pre></td></tr></table></figure>
+
+<p>This command would create a directory <code>myapp</code> under the root container, at the same level with <code>manage.py</code>:</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">myapp/</span><br><span class="line">    __init__.py</span><br><span class="line">    admin.py</span><br><span class="line">    models.py</span><br><span class="line">    tests.py</span><br><span class="line">    views.py</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>Django would create a MySQL table for each designed model&#x2F;object. Following is the Sample model code can be pasted into the <code>models.py</code> file:</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Poll</span>(models.Model):</span><br><span class="line">    question = models.CharField(max_length=<span class="number">200</span>)</span><br><span class="line">    pub_date = models.DateTimeField(<span class="string">&#x27;date published&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__unicode__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">self</span>.question</span><br></pre></td></tr></table></figure>
+
+<h2 id="7-Generate-models-from-existing-tables"><a href="#7-Generate-models-from-existing-tables" class="headerlink" title="7. Generate models from existing tables"></a>7. Generate models from existing tables</h2><p>With command <code>inspectdb</code> to see how Django parse the MySQL tables:</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">python manage.py inspectdb</span><br></pre></td></tr></table></figure>
+
+<p>If pending with <code>&gt; models.py</code>, we can get some auto-generated models in the <code>models.py</code> file.</p>
+<h2 id="8-Bind-to-gunicorn"><a href="#8-Bind-to-gunicorn" class="headerlink" title="8. Bind to gunicorn"></a>8. Bind to gunicorn</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip install gunicorn</span><br><span class="line">gunicorn --bind 0.0.0.0:8000 mysite.wsgi</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>Erispyu
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://blog.erispyu.fun/posts/53a09fb8/" title="Environment Setup For Django@1.6.11 + Python@2.7 + MySQL@5.x">https://blog.erispyu.fun/posts/53a09fb8/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
+              <a href="/tags/Django/" rel="tag"><i class="fa fa-tag"></i> Django</a>
+              <a href="/tags/MySQL/" rel="tag"><i class="fa fa-tag"></i> MySQL</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/e729026e/" rel="prev" title="清粥小菜">
+                  <i class="fa fa-angle-left"></i> 清粥小菜
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/6eaa422d/" rel="next" title="黑客与画家（10万册纪念版）">
+                  黑客与画家（10万册纪念版） <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Erispyu</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="Word count total">524k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">7:57</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div><script color="220，220，220" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/algoliasearch/4.24.0/algoliasearch-lite.umd.js" integrity="sha256-b2n6oSgG4C1stMT/yc/ChGszs9EY/Mhs6oltEjQbFCQ=" crossorigin="anonymous"></script><script src="/js/third-party/search/algolia-search.js"></script>
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"erispyu-blog","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

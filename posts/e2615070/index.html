@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><!-- hexo injector head_begin start --><script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script><!-- hexo injector head_begin end -->
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.erispyu.fun","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":"default"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"algolia":{"appID":"2BILQUWIOA","apiKey":"f5aabb895c10440c28e6c77090f511eb","indexName":"github_page_erispyu","hits":{"per_page":10}}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Kafka权威指南（第2版）  作者: 格温·沙皮拉 托德·帕利诺 拉吉尼·西瓦拉姆 克里特·佩蒂 简介: 本书介绍Kafka的技术原理和应用技巧。内容包括如何安装和配置Kafka、如何使用Kafka API、Kafka的设计原则和可靠性保证，以及Kafka的一些架构细节，如复制协议、控制器和存储层。本书列举了一些非常流行的Kafka应用场景，比如基于事件驱动的微服务系统的消息总线、流式处理应用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kafka权威指南（第2版）">
+<meta property="og:url" content="https://blog.erispyu.fun/posts/e2615070/index.html">
+<meta property="og:site_name" content="Erispyu&#39;s Blog">
+<meta property="og:description" content="Kafka权威指南（第2版）  作者: 格温·沙皮拉 托德·帕利诺 拉吉尼·西瓦拉姆 克里特·佩蒂 简介: 本书介绍Kafka的技术原理和应用技巧。内容包括如何安装和配置Kafka、如何使用Kafka API、Kafka的设计原则和可靠性保证，以及Kafka的一些架构细节，如复制协议、控制器和存储层。本书列举了一些非常流行的Kafka应用场景，比如基于事件驱动的微服务系统的消息总线、流式处理应用">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.weread.qq.com/weread/cover/67/cpPlatform_cwu15DVxapa4MNDc5T5T1h/t6_cpPlatform_cwu15DVxapa4MNDc5T5T1h.jpg">
+<meta property="article:published_time" content="2025-04-02T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-06-28T09:35:19.505Z">
+<meta property="article:author" content="Erispyu">
+<meta property="article:tag" content="人民邮电出版社">
+<meta property="article:tag" content="计算机-编程设计">
+<meta property="article:tag" content="计算机">
+<meta property="article:tag" content="格温·沙皮拉 托德·帕利诺 拉吉尼·西瓦拉姆 克里特·佩蒂">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.weread.qq.com/weread/cover/67/cpPlatform_cwu15DVxapa4MNDc5T5T1h/t6_cpPlatform_cwu15DVxapa4MNDc5T5T1h.jpg">
+
+
+<link rel="canonical" href="https://blog.erispyu.fun/posts/e2615070/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://blog.erispyu.fun/posts/e2615070/","path":"posts/e2615070/","title":"Kafka权威指南（第2版）"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Kafka权威指南（第2版） | Erispyu's Blog</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QCC01KVZ4X"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-QCC01KVZ4X","only_pageview":false,"measure_protocol_api_secret":null}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Erispyu's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-list fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-plugins"><a href="/hexo-stats-echarts/" rel="section"><i class="fa-solid fa-flask fa-fw"></i>Plugins</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="Searching..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fab fa-algolia fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Kafka%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%EF%BC%88%E7%AC%AC2%E7%89%88%EF%BC%89"><span class="nav-text">Kafka权威指南（第2版）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%94%E8%AE%B0"><span class="nav-text">笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC2%E7%89%88%E5%BA%8F"><span class="nav-text">第2版序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC1%E7%89%88%E5%BA%8F"><span class="nav-text">第1版序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC1%E7%AB%A0-%E5%88%9D%E8%AF%86Kafka"><span class="nav-text">第1章 初识Kafka</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC2%E7%AB%A0-%E5%AE%89%E8%A3%85Kafka"><span class="nav-text">第2章 安装Kafka</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC4%E7%AB%A0-Kafka%E6%B6%88%E8%B4%B9%E8%80%85%E2%80%94%E2%80%94%E4%BB%8EKafka%E8%AF%BB%E5%8F%96%E6%95%B0%E6%8D%AE"><span class="nav-text">第4章 Kafka消费者——从Kafka读取数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC7%E7%AB%A0-%E5%8F%AF%E9%9D%A0%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92"><span class="nav-text">第7章 可靠的数据传递</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Erispyu</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">184</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">295</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/erispyu" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;erispyu" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:erispyu@gmail.com" title="E-Mail → mailto:erispyu@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.douban.com/people/erispyu00/" title="Douban → https:&#x2F;&#x2F;www.douban.com&#x2F;people&#x2F;erispyu00&#x2F;" rel="noopener me" target="_blank"><i class="fa fa-film fa-fw"></i>Douban</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.travellings.cn/go.html" title="Travellings → https:&#x2F;&#x2F;www.travellings.cn&#x2F;go.html" rel="noopener me" target="_blank"><i class="fa-solid fa-train fa-fw"></i>Travellings</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    Related Posts
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/posts/78c67860/" rel="bookmark">
+        <time class="popular-posts-time">2024-11-23</time>
+        <br>
+      贝叶斯的博弈：数学、思维与人工智能
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/posts/54f57a5a/" rel="bookmark">
+        <time class="popular-posts-time">2025-04-01</time>
+        <br>
+      Go程序设计语言
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/posts/99d74a2a/" rel="bookmark">
+        <time class="popular-posts-time">2023-11-23</time>
+        <br>
+      设计模式的艺术
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/posts/f036c43c/" rel="bookmark">
+        <time class="popular-posts-time">2023-11-16</time>
+        <br>
+      深入理解Kafka：核心设计与实践原理
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/posts/6e6096cb/" rel="bookmark">
+        <time class="popular-posts-time">2024-01-17</time>
+        <br>
+      TheEconomist.2024.01.13 [Fri, 12 Jan 2024]
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://blog.erispyu.fun/posts/e2615070/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Erispyu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Erispyu's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Kafka权威指南（第2版） | Erispyu's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Kafka权威指南（第2版）
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2025-04-03 00:00:00" itemprop="dateCreated datePublished" datetime="2025-04-03T00:00:00+08:00">2025-04-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2025-06-28 17:35:19" itemprop="dateModified" datetime="2025-06-28T17:35:19+08:00">2025-06-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/BookNotes/" itemprop="url" rel="index"><span itemprop="name">BookNotes</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/posts/e2615070/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/e2615070/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>3.6k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>3 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><div class="note info"></p>
+<h2 id="Kafka权威指南（第2版）"><a href="#Kafka权威指南（第2版）" class="headerlink" title="Kafka权威指南（第2版）"></a>Kafka权威指南（第2版）</h2><p><img src="https://cdn.weread.qq.com/weread/cover/67/cpPlatform_cwu15DVxapa4MNDc5T5T1h/t6_cpPlatform_cwu15DVxapa4MNDc5T5T1h.jpg" alt=" Kafka权威指南（第2版）|200"></p>
+<ul>
+<li><strong>作者</strong>: 格温·沙皮拉 托德·帕利诺 拉吉尼·西瓦拉姆 克里特·佩蒂</li>
+<li><strong>简介</strong>: 本书介绍Kafka的技术原理和应用技巧。内容包括如何安装和配置Kafka、如何使用Kafka API、Kafka的设计原则和可靠性保证，以及Kafka的一些架构细节，如复制协议、控制器和存储层。本书列举了一些非常流行的Kafka应用场景，比如基于事件驱动的微服务系统的消息总线、流式处理应用程序和大规模数据管道。通过学习本书，你不仅能够深入理解这项大数据核心技术，还能够将所学知识付诸实践，在生产环境中更好地运行Kafka，并基于它构建稳健的高性能应用程序。</li>
+<li><strong>出版时间</strong>: 2022-11-01</li>
+<li><strong>ISBN</strong>: 9787115601421</li>
+<li><strong>分类</strong>: 计算机-编程设计</li>
+<li><strong>出版社</strong>: 人民邮电出版社</li>
+<li><strong>字数</strong>: 367217</li>
+<li><strong>在线阅读</strong>: <a target="_blank" rel="noopener" href="https://weread.qq.com/web/reader/106329e0813ab77cfg010f2e">微信读书</a></li>
+<li><strong>划线数量</strong>: 27</li>
+<li><strong>想法数量</strong>: 5<br></div></li>
+</ul>
+<span id="more"></span>
+
+<h2 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h2><h3 id="第2版序"><a href="#第2版序" class="headerlink" title="第2版序"></a>第2版序</h3><blockquote>
+<p>📌 一个新的基于Raft的共识协议（通过单个可执行文件就可以运行Kafka）</p>
+<ul>
+<li>⏱ 2025-03-31 11:00:26 ^6-1077-1113</li>
+</ul>
+</blockquote>
+<h3 id="第1版序"><a href="#第1版序" class="headerlink" title="第1版序"></a>第1版序</h3><blockquote>
+<p>📌 我们不想只是开发能够存储数据的系统（比如传统的关系数据库、键–值存储引擎、搜索引擎或缓存系统），而是希望能够把数据看成持续变化和增长的流，并基于这样的想法构建出一个数据系统，或是一种数据架构。</p>
+<ul>
+<li>⏱ 2025-03-31 11:53:04 ^7-798-894</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>📌 我们认为Kafka是一个流式平台：你可以在这个平台上发布和订阅数据流，并保存和处理它们，这就是构建Kafka的初衷。</p>
+<ul>
+<li>⏱ 2025-03-31 11:53:32 ^7-1163-1228</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>📌 。第一，作为现代分布式系统，Kafka以集群的方式运行，可以自由伸缩，为公司所有的应用程序提供支撑。</p>
+<ul>
+<li>⏱ 2025-03-31 12:00:15 ^7-1499-1549</li>
+</ul>
+</blockquote>
+<p><div class="note success"><p><br>📌 <strong>第二，Kafka可以按照要求存储数据，保存多久都可以。</strong><br>💭 持久化</p></p>
+<ul>
+<li>⏱ 2025-03-31 12:00:42 ^19836794-7Z3qcWdI6<br></div></li>
+</ul>
+<blockquote>
+<p>📌 第三，流式处理将数据处理的层次提升到了新的高度。一般的消息系统只传递消息，而Kafka的流式处理能力让你只用很少的代码就可以动态地处理派生数据流和数据集。</p>
+<ul>
+<li>⏱ 2025-03-31 11:54:32 ^7-1676-1753</li>
+</ul>
+</blockquote>
+<p><div class="note success"><p><br>📌 <strong>从另一个角度来看，可以把Kafka看成实时版的Hadoop</strong><br>💭 Apache Hadoop是一款支持数据密集型分布式应用程式并以Apache 2.0许可协议发布的开源软件框架，有助于使用许多电脑组成的网络来解决数据、计算密集型的问题。基于MapReduce计算模型，它为大数据的分布式存储与处理提供了一个软件框架。所有的Hadoop模块都有一个基本假设，即硬件故障是常见情况，应该由框架自动处理。<br>Apache Hadoop的核心模块分为存储和计算模块，前者被称为Hadoop分布式文件系统（HDFS），后者即MapReduce计算模型。Hadoop框架先将文件分成数据块并分布式地存储在集群的计算节点中，接着将负责计算任务的代码传送给各节点，让其能够并行地处理数据。这种方法有效利用了数据局部性，令各节点分别处理其能够访问的数据。与传统的超级计算机架构相比，这使得数据集的处理速度更快、效率更高。</p></p>
+<ul>
+<li>⏱ 2025-03-31 11:59:26 ^19836794-7Z3q7QpAq<br></div></li>
+</ul>
+<blockquote>
+<p>📌 Hadoop和大数据主要应用在数据分析上，而Kafka因其低延迟的特点更适合用在核心的业务应用上。</p>
+<ul>
+<li>⏱ 2025-03-31 11:59:40 ^7-2009-2058</li>
+</ul>
+</blockquote>
+<h3 id="第1章-初识Kafka"><a href="#第1章-初识Kafka" class="headerlink" title="第1章 初识Kafka"></a>第1章 初识Kafka</h3><blockquote>
+<p>📌 数据（消息）的发送者（发布者）不会直接把消息发送给接收者，这是发布与订阅消息系统的一个特点。</p>
+<ul>
+<li>⏱ 2025-03-31 12:03:11 ^9-1126-1179</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>📌 发布与订阅系统一般会有一个broker，也就是发布消息的地方。</p>
+<ul>
+<li>⏱ 2025-03-31 12:03:00 ^9-1220-1251</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>📌 Kafka就是为了解决上述问题而设计的一款基于发布与订阅模式的消息系统。它一般被称为“分布式提交日志”或“分布式流式平台”。</p>
+<ul>
+<li>⏱ 2025-03-31 12:04:33 ^9-3462-3524</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>📌 Kafka的数据单元被称为消息。</p>
+<ul>
+<li>⏱ 2025-03-31 12:05:04 ^9-3731-3754</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>📌 Kafka的消息通过主题进行分类。</p>
+<ul>
+<li>⏱ 2025-03-31 12:05:24 ^9-4980-5004</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>📌 主题可以被分为若干个分区，一个分区就是一个提交日志。消息会以追加的方式被写入分区，然后按照先入先出的顺序读取。</p>
+<ul>
+<li>⏱ 2025-03-31 12:05:55 ^9-5024-5086</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>📌 需要注意的是，由于一个主题一般包含几个分区，因此无法在整个主题范围内保证消息的顺序，但可以保证消息在单个分区内是有序的。</p>
+<ul>
+<li>⏱ 2025-03-31 12:06:10 ^9-5086-5146</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>📌 Kafka通过分区来实现数据的冗余和伸缩。分区可以分布在不同的服务器上，也就是说，一个主题可以横跨多台服务器，以此来提供比单台服务器更强大的性能。此外，分区可以被复制，相同分区的多个副本可以保存在多台服务器上，以防其中一台服务器发生故障。</p>
+<ul>
+<li>⏱ 2025-03-31 12:07:00 ^9-5176-5295</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>📌 生产者创建消息。</p>
+<ul>
+<li>⏱ 2025-03-31 12:05:40 ^9-6073-6085</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>📌 消费者读取消息。</p>
+<ul>
+<li>⏱ 2025-03-31 12:07:24 ^9-6350-6362</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>📌 一台单独的Kafka服务器被称为broker。</p>
+<ul>
+<li>⏱ 2025-03-31 12:07:42 ^9-7281-7304</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>📌 broker组成了集群。</p>
+<ul>
+<li>⏱ 2025-03-31 12:08:06 ^9-7454-7473</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>📌 在集群中，一个分区从属于一个broker，这个broker被称为分区的首领。一个被分配给其他broker的分区副本（参见图1-7）叫作这个分区的“跟随者”。</p>
+<ul>
+<li>⏱ 2025-03-31 12:08:48 ^9-7558-7643</li>
+</ul>
+</blockquote>
+<p><div class="note success"><p><br>📌 <strong>保留消息（在一定期限内）是Kafka的一个重要特性。broker默认的消息保留策略是这样的：要么保留一段时间（如7天），要么保留消息总量达到一定的字节数（如1 GB）。</strong><br>💭 过期时间 or 超限容量</p></p>
+<ul>
+<li>⏱ 2025-03-31 12:10:39 ^19836794-7Z3qRlFDM<br></div></li>
+</ul>
+<h3 id="第2章-安装Kafka"><a href="#第2章-安装Kafka" class="headerlink" title="第2章 安装Kafka"></a>第2章 安装Kafka</h3><blockquote>
+<p>📌 Kafka用ZooKeeper来保存集群元数据和消费者信息，如图2-1所示。ZooKeeper是一种集中式服务，用于维护配置信息、命名、提供分布式同步和组服务。</p>
+<ul>
+<li>⏱ 2025-03-31 10:58:04 ^10-1449-1529</li>
+</ul>
+</blockquote>
+<h3 id="第4章-Kafka消费者——从Kafka读取数据"><a href="#第4章-Kafka消费者——从Kafka读取数据" class="headerlink" title="第4章 Kafka消费者——从Kafka读取数据"></a>第4章 Kafka消费者——从Kafka读取数据</h3><blockquote>
+<p>📌 session.timeout.ms指定了消费者可以在多长时间内不与服务器发生交互而仍然被认为还“活着”，默认是10秒。</p>
+<ul>
+<li>⏱ 2025-04-03 12:07:08 ^12-14779-14839</li>
+</ul>
+</blockquote>
+<p><div class="note success"><p><br>📌 <strong>把session.timeout.ms设置得比默认值小，可以更快地检测到崩溃，并从崩溃中恢复，但也会导致不必要的再均衡。把session.timeout.ms设置得比默认值大，可以减少意外的再均衡，但需要更长的时间才能检测到崩溃。</strong><br>💭 延长消费者心跳超时时间，可以防止因短暂网络抖动导致误判消费者失联，从而避免不必要的rebalance。</p></p>
+<ul>
+<li>⏱ 2025-04-03 12:03:20 ^19836794-7Z7Zjikki<br></div></li>
+</ul>
+<blockquote>
+<p>📌 这个属性指定了消费者在被认为已经“死亡”之前可以在多长时间内不发起轮询。</p>
+<ul>
+<li>⏱ 2025-04-03 12:06:55 ^12-15389-15425</li>
+</ul>
+</blockquote>
+<p><div class="note success"><p><br>📌 <strong>于是，设置max.poll.interval.ms就成了一种保险措施。它必须被设置得足够大，让正常的消费者尽量不触及这个阈值，但又要足够小，避免有问题的消费者给应用程序造成严重影响。这个属性的默认值为5分钟。当这个阈值被触及时，后台线程将向broker发送一个“离开群组”的请求，让broker知道这个消费者已经“死亡”，必须进行群组再均衡，然后停止发送心跳。</strong><br>💭 max.poll.interval.ms设置过小会触发频繁的rebalance，最好是分钟级。</p></p>
+<ul>
+<li>⏱ 2025-04-03 12:05:06 ^19836794-7Z7Zqp7VP<br></div></li>
+</ul>
+<h3 id="第7章-可靠的数据传递"><a href="#第7章-可靠的数据传递" class="headerlink" title="第7章 可靠的数据传递"></a>第7章 可靠的数据传递</h3><blockquote>
+<p>📌 Kafka可以保证分区中的消息是有序的。</p>
+<ul>
+<li>⏱ 2025-03-28 16:36:05 ^15-1561-1581</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>📌 一条消息只有在被写入分区所有的同步副本时才被认为是“已提交”的（但不一定要冲刷到磁盘上）。</p>
+<ul>
+<li>⏱ 2025-03-28 16:35:53 ^15-1695-1740</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>📌 Kafka的复制机制和分区多副本架构是Kafka可靠性保证的核心。把消息写入多个副本可以保证Kafka在发生崩溃时仍然能够提供消息的持久性。</p>
+<ul>
+<li>⏱ 2025-03-28 16:35:22 ^15-2248-2318</li>
+</ul>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Written by:  </strong>格温·沙皮拉 托德·帕利诺 拉吉尼·西瓦拉姆 克里特·佩蒂
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://blog.erispyu.fun/posts/e2615070/" title="Kafka权威指南（第2版）">https://blog.erispyu.fun/posts/e2615070/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E4%BA%BA%E6%B0%91%E9%82%AE%E7%94%B5%E5%87%BA%E7%89%88%E7%A4%BE/" rel="tag"><i class="fa fa-tag"></i> 人民邮电出版社</a>
+              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA-%E7%BC%96%E7%A8%8B%E8%AE%BE%E8%AE%A1/" rel="tag"><i class="fa fa-tag"></i> 计算机-编程设计</a>
+              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/" rel="tag"><i class="fa fa-tag"></i> 计算机</a>
+              <a href="/tags/%E6%A0%BC%E6%B8%A9%C2%B7%E6%B2%99%E7%9A%AE%E6%8B%89-%E6%89%98%E5%BE%B7%C2%B7%E5%B8%95%E5%88%A9%E8%AF%BA-%E6%8B%89%E5%90%89%E5%B0%BC%C2%B7%E8%A5%BF%E7%93%A6%E6%8B%89%E5%A7%86-%E5%85%8B%E9%87%8C%E7%89%B9%C2%B7%E4%BD%A9%E8%92%82/" rel="tag"><i class="fa fa-tag"></i> 格温·沙皮拉 托德·帕利诺 拉吉尼·西瓦拉姆 克里特·佩蒂</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/54f57a5a/" rel="prev" title="Go程序设计语言">
+                  <i class="fa fa-angle-left"></i> Go程序设计语言
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/62098322/" rel="next" title="高性能MySQL（第4版）">
+                  高性能MySQL（第4版） <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Erispyu</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="Word count total">524k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">7:57</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div><script color="220，220，220" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/algoliasearch/4.24.0/algoliasearch-lite.umd.js" integrity="sha256-b2n6oSgG4C1stMT/yc/ChGszs9EY/Mhs6oltEjQbFCQ=" crossorigin="anonymous"></script><script src="/js/third-party/search/algolia-search.js"></script>
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"erispyu-blog","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

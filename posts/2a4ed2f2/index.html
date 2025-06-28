@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><!-- hexo injector head_begin start --><script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script><!-- hexo injector head_begin end -->
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.erispyu.fun","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":"default"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"algolia":{"appID":"2BILQUWIOA","apiKey":"f5aabb895c10440c28e6c77090f511eb","indexName":"github_page_erispyu","hits":{"per_page":10}}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="普林斯顿计算机公开课（原书第2版）  作者: 布莱恩·W. 柯尼汉 简介: 从1999年开始，作者在普林斯顿大学开设了一门名为“我们世界中的计算机”的课程（COS 109：Computers in Our World），这门课向非计算机专业的学生介绍计算机的基本常识，多年来大受学生追捧。本书就是基于这门课程的讲义编写而成的，书中不仅解释了计算机和通信系统的工作原理，还分析了新技术带来的隐私和安全">
+<meta property="og:type" content="article">
+<meta property="og:title" content="普林斯顿计算机公开课（原书第2版）">
+<meta property="og:url" content="https://blog.erispyu.fun/posts/2a4ed2f2/index.html">
+<meta property="og:site_name" content="Erispyu&#39;s Blog">
+<meta property="og:description" content="普林斯顿计算机公开课（原书第2版）  作者: 布莱恩·W. 柯尼汉 简介: 从1999年开始，作者在普林斯顿大学开设了一门名为“我们世界中的计算机”的课程（COS 109：Computers in Our World），这门课向非计算机专业的学生介绍计算机的基本常识，多年来大受学生追捧。本书就是基于这门课程的讲义编写而成的，书中不仅解释了计算机和通信系统的工作原理，还分析了新技术带来的隐私和安全">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.weread.qq.com/weread/cover/23/cpplatform_hvupu9bwjq9xnl9svb7dpk/t6_cpplatform_hvupu9bwjq9xnl9svb7dpk1684830848.jpg">
+<meta property="article:published_time" content="2024-12-17T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-06-28T09:35:19.510Z">
+<meta property="article:author" content="Erispyu">
+<meta property="article:tag" content="机械工业出版社">
+<meta property="article:tag" content="计算机">
+<meta property="article:tag" content="布莱恩·W. 柯尼汉">
+<meta property="article:tag" content="计算机-理论知识">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.weread.qq.com/weread/cover/23/cpplatform_hvupu9bwjq9xnl9svb7dpk/t6_cpplatform_hvupu9bwjq9xnl9svb7dpk1684830848.jpg">
+
+
+<link rel="canonical" href="https://blog.erispyu.fun/posts/2a4ed2f2/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://blog.erispyu.fun/posts/2a4ed2f2/","path":"posts/2a4ed2f2/","title":"普林斯顿计算机公开课（原书第2版）"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>普林斯顿计算机公开课（原书第2版） | Erispyu's Blog</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QCC01KVZ4X"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-QCC01KVZ4X","only_pageview":false,"measure_protocol_api_secret":null}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Erispyu's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-list fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-plugins"><a href="/hexo-stats-echarts/" rel="section"><i class="fa-solid fa-flask fa-fw"></i>Plugins</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="Searching..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fab fa-algolia fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%99%AE%E6%9E%97%E6%96%AF%E9%A1%BF%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%85%AC%E5%BC%80%E8%AF%BE%EF%BC%88%E5%8E%9F%E4%B9%A6%E7%AC%AC2%E7%89%88%EF%BC%89"><span class="nav-text">普林斯顿计算机公开课（原书第2版）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%94%E8%AE%B0"><span class="nav-text">笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC6%E7%AB%A0-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="nav-text">第6章 软件系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC9%E7%AB%A0-%E4%BA%92%E8%81%94%E7%BD%91"><span class="nav-text">第9章 互联网</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC12%E7%AB%A0-%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%92%8C%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0"><span class="nav-text">第12章 人工智能和机器学习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC13%E7%AB%A0-%E9%9A%90%E7%A7%81%E5%92%8C%E5%AE%89%E5%85%A8"><span class="nav-text">第13章 隐私和安全</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Erispyu</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">184</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">295</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/erispyu" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;erispyu" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:erispyu@gmail.com" title="E-Mail → mailto:erispyu@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.douban.com/people/erispyu00/" title="Douban → https:&#x2F;&#x2F;www.douban.com&#x2F;people&#x2F;erispyu00&#x2F;" rel="noopener me" target="_blank"><i class="fa fa-film fa-fw"></i>Douban</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.travellings.cn/go.html" title="Travellings → https:&#x2F;&#x2F;www.travellings.cn&#x2F;go.html" rel="noopener me" target="_blank"><i class="fa-solid fa-train fa-fw"></i>Travellings</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    Related Posts
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/posts/f4865e6/" rel="bookmark">
+        <time class="popular-posts-time">2024-03-05</time>
+        <br>
+      计算机组成与设计：硬件/软件接口 RISC-V版（原书第2版）
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/posts/15c3a572/" rel="bookmark">
+        <time class="popular-posts-time">2025-03-25</time>
+        <br>
+      分布式系统架构：架构策略与难题求解
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/posts/c8d55d15/" rel="bookmark">
+        <time class="popular-posts-time">2024-12-19</time>
+        <br>
+      四旋翼飞行器设计与实现/清华开发者书库
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/posts/54f57a5a/" rel="bookmark">
+        <time class="popular-posts-time">2025-04-01</time>
+        <br>
+      Go程序设计语言
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/posts/e5c2d3d9/" rel="bookmark">
+        <time class="popular-posts-time">2024-12-26</time>
+        <br>
+      TheEconomist.2024.12.21
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://blog.erispyu.fun/posts/2a4ed2f2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Erispyu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Erispyu's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="普林斯顿计算机公开课（原书第2版） | Erispyu's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          普林斯顿计算机公开课（原书第2版）
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-12-18 00:00:00" itemprop="dateCreated datePublished" datetime="2024-12-18T00:00:00+08:00">2024-12-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2025-06-28 17:35:19" itemprop="dateModified" datetime="2025-06-28T17:35:19+08:00">2025-06-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/BookNotes/" itemprop="url" rel="index"><span itemprop="name">BookNotes</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/posts/2a4ed2f2/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/2a4ed2f2/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>1.4k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>1 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><div class="note info"></p>
+<h2 id="普林斯顿计算机公开课（原书第2版）"><a href="#普林斯顿计算机公开课（原书第2版）" class="headerlink" title="普林斯顿计算机公开课（原书第2版）"></a>普林斯顿计算机公开课（原书第2版）</h2><p><img src="https://cdn.weread.qq.com/weread/cover/23/cpplatform_hvupu9bwjq9xnl9svb7dpk/t6_cpplatform_hvupu9bwjq9xnl9svb7dpk1684830848.jpg" alt=" 普林斯顿计算机公开课（原书第2版）|200"></p>
+<ul>
+<li><strong>作者</strong>: 布莱恩·W. 柯尼汉</li>
+<li><strong>简介</strong>: 从1999年开始，作者在普林斯顿大学开设了一门名为“我们世界中的计算机”的课程（COS 109：Computers in Our World），这门课向非计算机专业的学生介绍计算机的基本常识，多年来大受学生追捧。本书就是基于这门课程的讲义编写而成的，书中不仅解释了计算机和通信系统的工作原理，还分析了新技术带来的隐私和安全问题。第2版的新增章节讨论了Python编程、人工智能、机器学习以及大数据等内容。本书适合所有希望了解数字世界的读者阅读，通过了解技术的工作原理、起源和未来发展趋势，更好地理解并改变我们身处的世界。</li>
+<li><strong>出版时间</strong>: 2023-03-31</li>
+<li><strong>ISBN</strong>: 9787111725121</li>
+<li><strong>分类</strong>: 计算机-理论知识</li>
+<li><strong>出版社</strong>: 机械工业出版社</li>
+<li><strong>字数</strong>: 259161</li>
+<li><strong>在线阅读</strong>: <a target="_blank" rel="noopener" href="https://weread.qq.com/web/reader/3e532ff0813ab7dc1g01620c">微信读书</a></li>
+<li><strong>划线数量</strong>: 7</li>
+<li><strong>想法数量</strong>: 0<br></div></li>
+</ul>
+<span id="more"></span>
+
+<h2 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h2><h3 id="第6章-软件系统"><a href="#第6章-软件系统" class="headerlink" title="第6章 软件系统"></a>第6章 软件系统</h3><blockquote>
+<p>📌 “程序员，就像诗人一样，几乎仅仅工作在单纯的思考中。他通过发挥想象力在空中建造他的城堡。很少有创作媒体如此灵活，如此容易精炼和重建，如此容易实现宏大的概念设想。”<br>   ——弗雷德里克·P.布鲁克斯，《人月神话》，1975年</p>
+<ul>
+<li>⏱ 2024-01-10 13:00:35 ^16-439-580</li>
+</ul>
+</blockquote>
+<h3 id="第9章-互联网"><a href="#第9章-互联网" class="headerlink" title="第9章 互联网"></a>第9章 互联网</h3><blockquote>
+<p>📌 LO<br>   ——第一条阿帕网信息，1969年10月29日从加州大学洛杉矶分校发送到斯坦福大学。<br>   本应该发送LOGIN（登录），但系统崩溃了</p>
+<ul>
+<li>⏱ 2024-01-10 13:02:58 ^21-438-568</li>
+</ul>
+</blockquote>
+<h3 id="第12章-人工智能和机器学习"><a href="#第12章-人工智能和机器学习" class="headerlink" title="第12章 人工智能和机器学习"></a>第12章 人工智能和机器学习</h3><blockquote>
+<p>📌 人工准备的训练数据很有可能把算法引入歧途。例如，有一个陈旧的故事，一项研究在训练图片中很好地检测了坦克，但在实践中却严重失败。原因是：大多数训练照片都是在晴天拍摄的，所以算法已经学会了识别好天气，而不是坦克。</p>
+<ul>
+<li>⏱ 2024-12-18 13:14:39 ^25-12794-12898</li>
+</ul>
+</blockquote>
+<h3 id="第13章-隐私和安全"><a href="#第13章-隐私和安全" class="headerlink" title="第13章 隐私和安全"></a>第13章 隐私和安全</h3><blockquote>
+<p>📌 13.2.2 比特币<br>   发送和接收资金是另一个高度重视匿名性的领域。现金是匿名的，如果你使用现金支付，那么既没有记录，也没有办法识别当事人。如今，除了在当地购买汽油和杂货等小件商品外，用现金支付越来越困难。租车、飞机票、酒店，当然还有网上购物，都需要使用信用卡或借记卡来识别购买者。数字支付很方便，但当你使用信用卡或网上购物时，你就会留下痕迹。<br>   事实证明，巧妙的密码学可以用来创造匿名货币。最成功的例子是比特币，一个由中本聪(Satoshi Nakamoto)发明的方案，于2009年作为开源软件发布。（</p>
+<ul>
+<li>⏱ 2024-12-18 13:16:25 ^26-15155</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>📌 比特币使用点对点协议，让双方在不使用中介或可信的第三方的情况下交换比特币，这是一种模拟现金的方式。</p>
+<ul>
+<li>⏱ 2024-12-18 13:16:07 ^26-15678-15727</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>📌 比特币的创建（“挖矿”）是通过进行一定数量具有计算难度的工作，从而在公共账本中验证和存储支付信息。</p>
+<ul>
+<li>⏱ 2024-12-18 13:16:44 ^26-15879-15928</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>📌 需要注意的是，区块链是完全公开的。因此比特币的匿名性更像是“冒名”的，因为每个人都知道与特定地址相关的所有交易，但他们不知道这个地址是你的。</p>
+<ul>
+<li>⏱ 2024-12-18 13:17:13 ^26-16075-16145</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>📌 尝试比特币技术其实很容易，Bitcoin.org网站是一个很好的起点，另外，coindesk.com有优秀的教程信息。</p>
+<ul>
+<li>⏱ 2024-12-18 17:30:55 ^26-17015-17074</li>
+</ul>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Written by:  </strong>布莱恩·W. 柯尼汉
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://blog.erispyu.fun/posts/2a4ed2f2/" title="普林斯顿计算机公开课（原书第2版）">https://blog.erispyu.fun/posts/2a4ed2f2/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E6%9C%BA%E6%A2%B0%E5%B7%A5%E4%B8%9A%E5%87%BA%E7%89%88%E7%A4%BE/" rel="tag"><i class="fa fa-tag"></i> 机械工业出版社</a>
+              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/" rel="tag"><i class="fa fa-tag"></i> 计算机</a>
+              <a href="/tags/%E5%B8%83%E8%8E%B1%E6%81%A9%C2%B7W-%E6%9F%AF%E5%B0%BC%E6%B1%89/" rel="tag"><i class="fa fa-tag"></i> 布莱恩·W. 柯尼汉</a>
+              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA-%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/" rel="tag"><i class="fa fa-tag"></i> 计算机-理论知识</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/7ce7e5aa/" rel="prev" title="三言二拍：二刻拍案惊奇">
+                  <i class="fa fa-angle-left"></i> 三言二拍：二刻拍案惊奇
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/2f9dfc52/" rel="next" title="纳瓦尔宝典">
+                  纳瓦尔宝典 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Erispyu</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="Word count total">524k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">7:57</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div><script color="220，220，220" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/algoliasearch/4.24.0/algoliasearch-lite.umd.js" integrity="sha256-b2n6oSgG4C1stMT/yc/ChGszs9EY/Mhs6oltEjQbFCQ=" crossorigin="anonymous"></script><script src="/js/third-party/search/algolia-search.js"></script>
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"erispyu-blog","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

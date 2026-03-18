@@ -168,7 +168,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">260</span>
+          <span class="site-state-item-count">262</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -213,6 +213,278 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://blog.erispyu.fun/posts/f036c43c/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Erispyu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Erispyu's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Erispyu's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/posts/f036c43c/" class="post-title-link" itemprop="url">深入理解Kafka：核心设计与实践原理</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-11-16 00:00:00" itemprop="dateCreated datePublished" datetime="2023-11-16T00:00:00+08:00">2023-11-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2026-02-27 00:07:50" itemprop="dateModified" datetime="2026-02-27T00:07:50+08:00">2026-02-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/BookNotes/" itemprop="url" rel="index"><span itemprop="name">BookNotes</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/posts/f036c43c/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/f036c43c/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>813</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>1 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><div class="note info"></p>
+<h2 id="深入理解Kafka：核心设计与实践原理"><a href="#深入理解Kafka：核心设计与实践原理" class="headerlink" title="深入理解Kafka：核心设计与实践原理"></a>深入理解Kafka：核心设计与实践原理</h2><p><img src="https://cdn.weread.qq.com/weread/cover/5/YueWen_25462424/t6_YueWen_25462424.jpg" alt=" 深入理解Kafka：核心设计与实践原理|200"></p>
+<ul>
+<li><strong>作者</strong>: 朱忠华</li>
+<li><strong>简介</strong>: 本书从Kafka的基础概念切入，循序渐进地转入对其内部原理的剖析。本书主要阐述了Kafka中生产者客户端、消费者客户端、主题与分区、日志存储、原理解析、监控管理、应用扩展及流式计算等内容。虽然Kafka的内核使用Scala语言编写，但本书基本以Java语言作为主要的示例语言，方便大多数读者的理解。虽然本书没有明确的界定，但总体上可以划分为三个部分：基础篇、原理篇和扩展篇，前4章为基础篇，包括基础概念、生产者、消费者，以及主题与分区，学习完这4章的内容完全可以应对绝大多数的开发场景。第5章至第8章为原理篇，包括对日志存储、协议设计、控制器、组协调器、事务、一致性、可靠性等内容的探究，学习完这4章的内容可以让读者对Kafka有一个深刻的认知。最后4章从应用扩展层面来做讲解，可以归类为扩展篇，主要内容包括监控、应用工具、应用扩展（延时队列、重试队列、死信队列、消息轨迹等）、与Spark的集成等，让读者可以对Kafka的生态有一个更加全面的认知。本</li>
+<li><strong>出版时间</strong>: 2019-01-01</li>
+<li><strong>ISBN</strong>: 9787121359026</li>
+<li><strong>分类</strong>: 计算机-编程设计</li>
+<li><strong>出版社</strong>: 电子工业出版社</li>
+<li><strong>字数</strong>: 288487</li>
+<li><strong>在线阅读</strong>: <a target="_blank" rel="noopener" href="https://weread.qq.com/web/reader/e9a32a0071848698e9a39b8">微信读书</a></li>
+<li><strong>划线数量</strong>: 2</li>
+<li><strong>想法数量</strong>: 0<br></div></li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/f036c43c/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://blog.erispyu.fun/posts/568c0dc3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Erispyu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Erispyu's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Erispyu's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/posts/568c0dc3/" class="post-title-link" itemprop="url">黑毡上的北魏皇帝（修订本）</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-11-13 00:00:00" itemprop="dateCreated datePublished" datetime="2023-11-13T00:00:00+08:00">2023-11-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2026-02-27 00:07:49" itemprop="dateModified" datetime="2026-02-27T00:07:49+08:00">2026-02-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/BookNotes/" itemprop="url" rel="index"><span itemprop="name">BookNotes</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/posts/568c0dc3/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/568c0dc3/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>744</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>1 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><div class="note info"></p>
+<h2 id="黑毡上的北魏皇帝（修订本）"><a href="#黑毡上的北魏皇帝（修订本）" class="headerlink" title="黑毡上的北魏皇帝（修订本）"></a>黑毡上的北魏皇帝（修订本）</h2><p><img src="https://cdn.weread.qq.com/weread/cover/14/3300013214/t6_3300013214.jpg" alt=" 黑毡上的北魏皇帝（修订本）|200"></p>
+<ul>
+<li><strong>作者</strong>: 罗新</li>
+<li><strong>简介</strong>: 北魏皇帝，不仅是华夏帝制国家的皇帝，也是内亚游牧征服集团的可汗，他们的历史活动，是多种文化传统的碰撞、融合与新生。北魏的所谓“代都旧制”，分明就是内亚传统的一部分。</li>
+</ul>
+<p>本书从北魏皇帝即位仪式的代北因素入手，推及北魏的祭天仪式、辽初的权力传承危机、清代的堂子祭天等，一方面观察拓跋鲜卑政治传统与华夏传统的遭遇、碰撞及变异，另一方面考察鲜卑旧俗（代都旧制）与内亚政治传统间的联系。</p>
+<p>中国历史上发挥了重要作用的那些内徙内亚人群，一方面固然深受华夏文化的影响，另一方面又多多少少继承和坚持某些内亚的文化传统。这些内亚传统中的相当一部分在史书记录中或遗忘或变形，依稀仿佛，难以辨认，所以清理这些残存的线索就成为一个足以显示历史多样性和丰富性的工作。以内亚视角重读历史，无疑具有巨大的空间。</p>
+<ul>
+<li><strong>出版时间</strong>: 2022-02-01</li>
+<li><strong>ISBN</strong>: 9787542676511</li>
+<li><strong>分类</strong>: 历史-历史读物</li>
+<li><strong>出版社</strong>: 上海三联书店</li>
+<li><strong>字数</strong>: 62124</li>
+<li><strong>在线阅读</strong>: <a target="_blank" rel="noopener" href="https://weread.qq.com/web/reader/12f32940813ab6ba9g01479c">微信读书</a></li>
+<li><strong>划线数量</strong>: 2</li>
+<li><strong>想法数量</strong>: 0<br></div></li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/568c0dc3/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1296,259 +1568,8 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://blog.erispyu.fun/posts/b4c1fda3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Erispyu">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Erispyu's Blog">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Erispyu's Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/posts/b4c1fda3/" class="post-title-link" itemprop="url">美国反对美国</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2022-06-07 00:00:00" itemprop="dateCreated datePublished" datetime="2022-06-07T00:00:00+08:00">2022-06-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2026-02-27 00:07:49" itemprop="dateModified" datetime="2026-02-27T00:07:49+08:00">2026-02-27</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/BookNotes/" itemprop="url" rel="index"><span itemprop="name">BookNotes</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/posts/b4c1fda3/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/b4c1fda3/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="Word count in article">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">Word count in article: </span>
-      <span>151</span>
-    </span>
-    <span class="post-meta-item" title="Reading time">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>1 mins.</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><div class="note info"></p>
-<h2 id="美国反对美国"><a href="#美国反对美国" class="headerlink" title="美国反对美国"></a>美国反对美国</h2><p><img src="https://res.weread.qq.com/wrepub/CB_F6TDu9Dsn5HN6PZ6Px_parsecover" alt=" 美国反对美国|200"></p>
-<ul>
-<li><strong>作者</strong>: 王沪宁</li>
-<li><strong>简介</strong>: </li>
-<li><strong>出版时间</strong>: </li>
-<li><strong>ISBN</strong>: </li>
-<li><strong>分类</strong>: </li>
-<li><strong>出版社</strong>: 上海文艺出版社</li>
-<li><strong>字数</strong>: 231285</li>
-<li><strong>在线阅读</strong>: <a target="_blank" rel="noopener" href="https://weread.qq.com/web/reader/814425c2a43425f323155304938304a48427050365a44365946638">微信读书</a></li>
-<li><strong>划线数量</strong>: 1</li>
-<li><strong>想法数量</strong>: 0<br></div></li>
-</ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/posts/b4c1fda3/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://blog.erispyu.fun/posts/e729026e/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Erispyu">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Erispyu's Blog">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Erispyu's Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/posts/e729026e/" class="post-title-link" itemprop="url">清粥小菜</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2017-01-21 00:00:00" itemprop="dateCreated datePublished" datetime="2017-01-21T00:00:00+08:00">2017-01-21</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E9%9A%8F%E7%AC%94/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/posts/e729026e/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/e729026e/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="Word count in article">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">Word count in article: </span>
-      <span>1.4k</span>
-    </span>
-    <span class="post-meta-item" title="Reading time">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>1 mins.</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <div class="note info"><p>几年前写在QQ空间的旧文</p>
-</div>
-
-<p>这几年寒假回家，发现自己在鸡鸭鱼肉之余，似乎愈发喜欢起了奶奶腌制的各味咸菜、酱菜。尤其是喝粥时候，端着一碗清香稠滑的米粥，筷子总是忍不住往桌角的瓶瓶罐罐里伸——萝卜干、生姜玉、糖蒜、莴苣苔、雪里蕻……这时老妈的筷子总要来截个胡，“啪”得一声敲走我的筷子：“不要老吃这些，齁人啊，又没得营养！”可桌上怎么又摆着呢？诶。
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/posts/e729026e/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="Previous page" aria-label="Previous page" href="/page/25/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/25/">25</a><span class="page-number current">26</span>
+    <a class="extend prev" rel="prev" title="Previous page" aria-label="Previous page" href="/page/25/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/25/">25</a><span class="page-number current">26</span><a class="page-number" href="/page/27/">27</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/page/27/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>
@@ -1570,13 +1591,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Word count total">593k</span>
+    <span title="Word count total">595k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">8:59</span>
+    <span title="Reading time total">9:01</span>
   </span>
 </div>
 <div class="busuanzi-count">
